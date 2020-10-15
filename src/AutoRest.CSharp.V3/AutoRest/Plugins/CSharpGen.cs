@@ -122,13 +122,18 @@ namespace AutoRest.CSharp.V3.AutoRest.Plugins
 
             Task<CodeModel> codeModelTask = Task.Run(async () =>
             {
+                Console.Error.WriteLine("Name is " + codeModelFileName);
                 codeModelYaml = await autoRest.ReadFile(codeModelFileName);
+                Console.Error.WriteLine("Size here is : " + codeModelYaml.Length);
+                //await autoRest.WriteFile("6CodeModel6.yaml", codeModelYaml, "source-file-csharp");
                 return CodeModelSerialization.DeserializeCodeModel(codeModelYaml);
             });
 
             if (configuration.SaveInputs)
             {
+                Console.Error.WriteLine("Writing file");
                 await autoRest.WriteFile("Configuration.json", StandaloneGeneratorRunner.SaveConfiguration(configuration), "source-file-csharp");
+                Console.Error.WriteLine(codeModelYaml.Length);
                 await autoRest.WriteFile("CodeModel.yaml", codeModelYaml, "source-file-csharp");
             }
 

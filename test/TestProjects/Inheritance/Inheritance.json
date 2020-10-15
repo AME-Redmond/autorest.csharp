@@ -70,6 +70,7 @@
     },
     "ClassThatInheritsFromBaseClassAndSomeProperties": {
       "type": "object",
+      "x-ms-azure-resource": true,
       "allOf": [
         {
           "$ref": "#/definitions/BaseClass"
@@ -81,6 +82,14 @@
     },
     "ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride": {
       "type": "object",
+      "x-ms-azure-resource": true,
+      "properties": {
+        "account_name": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Account name"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/BaseClass"

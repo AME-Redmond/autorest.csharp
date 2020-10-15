@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Collections;
 using AutoRest.CSharp.V3.Generation.Types;
 using AutoRest.CSharp.V3.Input;
 using AutoRest.CSharp.V3.Input.Source;
@@ -15,6 +16,11 @@ using AutoRest.CSharp.V3.Output.Models.Serialization;
 using AutoRest.CSharp.V3.Output.Models.Shared;
 using AutoRest.CSharp.V3.Utilities;
 using Microsoft.CodeAnalysis;
+using System.Runtime;
+using AutoRest.CSharp.V3.AutoRest.Communication;
+using AutoRest.CSharp.V3.AutoRest.Communication.MessageHandling;
+using AutoRest.CSharp.V3.AutoRest.Communication.Serialization;
+using AutoRest.CSharp.V3.AutoRest.Plugins;
 
 namespace AutoRest.CSharp.V3.Output.Models.Types
 {
@@ -35,8 +41,9 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
         private ObjectTypeProperty? _additionalPropertiesProperty;
         private ObjectTypeConstructor? _serializationConstructor;
         private ObjectTypeConstructor? _initializationConstructor;
+        private HashSet<string> IgnoreList = new HashSet<string>();
 
-        public ObjectType(ObjectSchema objectSchema, BuildContext context): base(context)
+        public ObjectType(ObjectSchema objectSchema, BuildContext context) : base(context)
         {
             _objectSchema = objectSchema;
             _typeFactory = context.TypeFactory;
@@ -86,7 +93,8 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
 
         public ObjectTypeProperty[] Properties => _properties ??= BuildProperties().ToArray();
 
-        public ObjectTypeProperty? AdditionalPropertiesProperty {
+        public ObjectTypeProperty? AdditionalPropertiesProperty
+        {
             get
             {
                 if (_additionalPropertiesProperty != null || ImplementsDictionaryType == null)
@@ -280,7 +288,7 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
             }
 
             if (AdditionalPropertiesProperty != null &&
-                !defaultCtorInitializers.Any(i=> i.Property == AdditionalPropertiesProperty))
+                !defaultCtorInitializers.Any(i => i.Property == AdditionalPropertiesProperty))
             {
                 defaultCtorInitializers.Add(new ObjectPropertyInitializer(AdditionalPropertiesProperty, Constant.NewInstanceOf(TypeFactory.GetImplementationType(AdditionalPropertiesProperty.Declaration.Type))));
             }
@@ -306,6 +314,39 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
         public bool IncludeSerializer => _usage.HasFlag(SchemaTypeUsage.Input);
         public bool IncludeDeserializer => _usage.HasFlag(SchemaTypeUsage.Output);
 
+        //public bool IsArmType()
+        //{
+        //    return _objectSchema.Extensions != null && _objectSchema.Extensions.ContainsKey("x-ms-azure-resource") && ((string)_objectSchema.Extensions["x-ms-azure-resource"]).Equals("true");
+        //}
+        private bool IsArmType()
+        {
+            Dictionary<string, AllSchemaTypes> requiredFields = new Dictionary<string, AllSchemaTypes>(){
+            {"id", AllSchemaTypes.String},
+            {"tags", AllSchemaTypes.Dictionary},
+            {"location", AllSchemaTypes.String},
+            {"name", AllSchemaTypes.String},
+            {"type", AllSchemaTypes.String}};
+            var objectSchemas = _objectSchema.Parents!.All.OfType<ObjectSchema>().ToArray();
+            HashSet<string> localIgnoreList = new HashSet<string>();
+            foreach (var objectSchema in objectSchemas)
+            {
+                foreach (var prop in objectSchema.Properties)
+                {
+                    if (requiredFields.ContainsKey(prop.SerializedName) && requiredFields[prop.SerializedName] == prop.Schema.Type)
+                    {
+                        requiredFields.Remove(prop.SerializedName);
+                        localIgnoreList.Add(objectSchema.Name);
+                    }
+                    if (requiredFields.Count == 0)
+                    {
+                        IgnoreList.UnionWith(localIgnoreList);
+                        Console.Error.WriteLine("\nFOUND TRACKED RESOURCE\n");
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         public ObjectTypeProperty GetPropertyForSchemaProperty(Property property, bool includeParents = false)
         {
             if (!TryGetPropertyForSchemaProperty(p => p.SchemaProperty == property, out ObjectTypeProperty? objectProperty, includeParents))
@@ -371,6 +412,42 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                 }
             }
         }
+#pragma warning disable CS8604, CS8600
+        public HashSet<String> CollectAllPropsForFrameWork()
+        {
+            var fieldSet = new HashSet<String>();
+            if (this.Inherits != null && this.Inherits.IsFrameworkType)
+            {
+                var currentBaseProperties = ((System.Reflection.TypeInfo)this.Inherits.FrameworkType)?.DeclaredProperties;
+                if (currentBaseProperties != null)
+                {
+                    foreach (var prop in currentBaseProperties)
+                    {
+                        fieldSet.Add(prop.Name);
+                    };
+                    this.CollectAllPropsForFrameWork(fieldSet, ((System.Reflection.TypeInfo)this.Inherits.FrameworkType));
+                }
+            }
+            return fieldSet;
+        }
+
+        private void CollectAllPropsForFrameWork(HashSet<String> fieldSet, System.Type currentType)
+        {
+            var baseType = currentType?.BaseType;
+            if (baseType != null)
+            {
+                var currentBaseProperties = ((System.Reflection.TypeInfo)baseType)?.DeclaredProperties;
+                if (currentBaseProperties != null)
+                {
+                    foreach (var prop in currentBaseProperties)
+                    {
+                        fieldSet.Add(prop.Name);
+                    };
+                }
+                this.CollectAllPropsForFrameWork(fieldSet, baseType);
+            }
+        }
+#pragma warning restore CS8604
 
         private ObjectTypeDiscriminator? BuildDiscriminator()
         {
@@ -419,7 +496,7 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                 }
             }
 
-            if (_sourceTypeMapping?.Formats is {} formatsDefinedInSource)
+            if (_sourceTypeMapping?.Formats is { } formatsDefinedInSource)
             {
                 foreach (var format in formatsDefinedInSource)
                 {
@@ -446,18 +523,27 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                 .SelectMany(type => type.Properties)
                 .Select(p => p.SchemaProperty?.Language.Default.Name)
                 .ToHashSet();
-
+            var propSet = CollectAllPropsForFrameWork();
             foreach (var objectSchema in GetCombinedSchemas())
             {
+                if (this.IgnoreList.Contains(objectSchema.Name))
+                {
+                    continue;
+                }
                 foreach (Property property in objectSchema.Properties!)
                 {
+                    var name = BuilderHelpers.DisambiguateName(Type, property.CSharpName());
+                    if (propSet.Contains(name))
+                    {
+                        throw new NotSupportedException("Conflicting property names is not supported, " +
+                        " an inhertied types already has a property named " + name);
+                    }
                     if (existingProperties.Contains(property.Language.Default.Name))
                     {
                         // WORKAROUND: https://github.com/Azure/autorest.modelerfour/issues/261
                         continue;
                     }
 
-                    var name = BuilderHelpers.DisambiguateName(Type, property.CSharpName());
                     SourceMemberMapping? memberMapping = _sourceTypeMapping?.GetForMember(name);
 
                     var accessibility = property.IsDiscriminator == true ? "internal" : "public";
@@ -556,9 +642,12 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                 }
             }
         }
-
         private CSharpType? CreateInheritedType()
         {
+            if (this.IsArmType())
+            {
+                return new CSharpType(typeof(azure_proto_core.TrackedResource));
+            }
             var sourceBaseType = ExistingType?.BaseType;
             if (sourceBaseType != null &&
                 sourceBaseType.SpecialType != SpecialType.System_ValueType &&
