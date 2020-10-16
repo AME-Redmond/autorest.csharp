@@ -1,0 +1,972 @@
+!<!CodeModel> 
+info: !<!Info> 
+  description: >-
+    The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end
+    user and the Microsoft Azure Networks service.
+  title: NetworkManagementClient
+schemas: !<!Schemas> 
+  strings:
+    - !<!StringSchema> &ref_4
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorDetailsCode
+          description: Error code.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_5
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorDetailsTarget
+          description: Error target.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_6
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorDetailsMessage
+          description: Error message.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_7
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorCode
+          description: Error code.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_8
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorMessage
+          description: Error message.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_9
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorTarget
+          description: Error target.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_11
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorInnerError
+          description: Inner error message.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_12
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyCode
+          description: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_13
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyMessage
+          description: 'A message describing the error, intended to be suitable for display in a user interface.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_14
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyTarget
+          description: 'The target of the particular error. For example, the name of the property in error.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_0
+      type: string
+      language: !<!Languages> 
+        default:
+          name: String
+          description: simple string
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_18
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceId
+          description: Resource ID.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_19
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceName
+          description: Resource name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_20
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceType
+          description: Resource type.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_21
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceLocation
+          description: Resource location.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_1
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_23
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: TestClassNotARec
+          description: not a resource type
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_24
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: TestClassId
+          description: Resource Id
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_25
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: TestClassName
+          description: Resource name
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_26
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: TestClassType
+          description: Resource type
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_27
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: TestClassLocation
+          description: Resource location
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_29
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: SubResourceId
+          description: Resource ID.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_31
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ManagedServiceIdentityPrincipalId
+          description: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_32
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ManagedServiceIdentityTenantId
+          description: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_2
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: ManagedServiceIdentityUserAssignedIdentitiesProperties
+          description: The principal id of user assigned identity.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_3
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: The client id of user assigned identity.
+      protocol: !<!Protocols> {}
+  choices:
+    - !<!ChoiceSchema> &ref_16
+      choices:
+        - !<!ChoiceValue> 
+          value: InProgress
+          language:
+            default:
+              name: InProgress
+              description: ''
+        - !<!ChoiceValue> 
+          value: Succeeded
+          language:
+            default:
+              name: Succeeded
+              description: ''
+        - !<!ChoiceValue> 
+          value: Failed
+          language:
+            default:
+              name: Failed
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: NetworkOperationStatus
+          description: Status of the Azure async operation.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> 
+      choices:
+        - !<!ChoiceValue> 
+          value: Succeeded
+          language:
+            default:
+              name: Succeeded
+              description: ''
+        - !<!ChoiceValue> 
+          value: Updating
+          language:
+            default:
+              name: Updating
+              description: ''
+        - !<!ChoiceValue> 
+          value: Deleting
+          language:
+            default:
+              name: Deleting
+              description: ''
+        - !<!ChoiceValue> 
+          value: Failed
+          language:
+            default:
+              name: Failed
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ProvisioningState
+          description: The current provisioning state.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> 
+      choices:
+        - !<!ChoiceValue> 
+          value: Allow
+          language:
+            default:
+              name: Allow
+              description: ''
+        - !<!ChoiceValue> 
+          value: Deny
+          language:
+            default:
+              name: Deny
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Access
+          description: Access to be allowed or denied.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> 
+      choices:
+        - !<!ChoiceValue> 
+          value: EAPTLS
+          language:
+            default:
+              name: Eaptls
+              description: ''
+        - !<!ChoiceValue> 
+          value: EAPMSCHAPv2
+          language:
+            default:
+              name: EapmschaPv2
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: AuthenticationMethod
+          description: VPN client authentication method.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> 
+      choices:
+        - !<!ChoiceValue> 
+          value: Static
+          language:
+            default:
+              name: Static
+              description: ''
+        - !<!ChoiceValue> 
+          value: Dynamic
+          language:
+            default:
+              name: Dynamic
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: IPAllocationMethod
+          description: IP address allocation method.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> 
+      choices:
+        - !<!ChoiceValue> 
+          value: IPv4
+          language:
+            default:
+              name: IPv4
+              description: ''
+        - !<!ChoiceValue> 
+          value: IPv6
+          language:
+            default:
+              name: IPv6
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: IPVersion
+          description: IP address version.
+      protocol: !<!Protocols> {}
+  sealedChoices:
+    - !<!SealedChoiceSchema> &ref_33
+      choices:
+        - !<!ChoiceValue> 
+          value: SystemAssigned
+          language:
+            default:
+              name: SystemAssigned
+              description: ''
+        - !<!ChoiceValue> 
+          value: UserAssigned
+          language:
+            default:
+              name: UserAssigned
+              description: ''
+        - !<!ChoiceValue> 
+          value: 'SystemAssigned, UserAssigned'
+          language:
+            default:
+              name: SystemAssignedUserAssigned
+              description: ''
+        - !<!ChoiceValue> 
+          value: None
+          language:
+            default:
+              name: None
+              description: ''
+      type: sealed-choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ResourceIdentityType
+          description: >-
+            The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual
+            machine.
+      protocol: !<!Protocols> {}
+  dictionaries:
+    - !<!DictionarySchema> &ref_22
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: ResourceTags
+          description: Resource tags.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_28
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: TestClassTags
+          description: Resource tags
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_30
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: TagsObjectTags
+          description: Resource tags.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_34
+      type: dictionary
+      elementType: !<!ObjectSchema> &ref_35
+        type: object
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-06-01'
+        properties:
+          - !<!Property> 
+            schema: *ref_2
+            readOnly: true
+            serializedName: principalId
+            language: !<!Languages> 
+              default:
+                name: principalId
+                description: The principal id of user assigned identity.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: *ref_3
+            readOnly: true
+            serializedName: clientId
+            language: !<!Languages> 
+              default:
+                name: clientId
+                description: The client id of user assigned identity.
+            protocol: !<!Protocols> {}
+        language: !<!Languages> 
+          default:
+            name: Components1Jq1T4ISchemasManagedserviceidentityPropertiesUserassignedidentitiesAdditionalproperties
+            description: ''
+            namespace: ''
+        protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: ManagedServiceIdentityUserAssignedIdentities
+          description: >-
+            The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form:
+            '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+      protocol: !<!Protocols> {}
+  objects:
+    - !<!ObjectSchema> &ref_10
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_4
+          serializedName: code
+          language: !<!Languages> 
+            default:
+              name: code
+              description: Error code.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_5
+          serializedName: target
+          language: !<!Languages> 
+            default:
+              name: target
+              description: Error target.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_6
+          serializedName: message
+          language: !<!Languages> 
+            default:
+              name: message
+              description: Error message.
+          protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: ErrorDetails
+          description: Common error details representation.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> &ref_17
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_7
+          serializedName: code
+          language: !<!Languages> 
+            default:
+              name: code
+              description: Error code.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_8
+          serializedName: message
+          language: !<!Languages> 
+            default:
+              name: message
+              description: Error message.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_9
+          serializedName: target
+          language: !<!Languages> 
+            default:
+              name: target
+              description: Error target.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_36
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2020-06-01'
+            elementType: *ref_10
+            language: !<!Languages> 
+              default:
+                name: ErrorDetails
+                description: Error details.
+            protocol: !<!Protocols> {}
+          serializedName: details
+          language: !<!Languages> 
+            default:
+              name: details
+              description: Error details.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_11
+          serializedName: innerError
+          language: !<!Languages> 
+            default:
+              name: innerError
+              description: Inner error message.
+          protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: Error
+          description: Common error representation.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> 
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_15
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2020-06-01'
+            properties:
+              - !<!Property> 
+                schema: *ref_12
+                serializedName: code
+                language: !<!Languages> 
+                  default:
+                    name: code
+                    description: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_13
+                serializedName: message
+                language: !<!Languages> 
+                  default:
+                    name: message
+                    description: 'A message describing the error, intended to be suitable for display in a user interface.'
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_14
+                serializedName: target
+                language: !<!Languages> 
+                  default:
+                    name: target
+                    description: 'The target of the particular error. For example, the name of the property in error.'
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ArraySchema> &ref_37
+                  type: array
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '2020-06-01'
+                  elementType: *ref_15
+                  language: !<!Languages> 
+                    default:
+                      name: CloudErrorBodyDetails
+                      description: A list of additional details about the error.
+                  protocol: !<!Protocols> {}
+                serializedName: details
+                language: !<!Languages> 
+                  default:
+                    name: details
+                    description: A list of additional details about the error.
+                protocol: !<!Protocols> {}
+            extensions:
+              x-ms-external: true
+            language: !<!Languages> 
+              default:
+                name: CloudErrorBody
+                description: An error response from the service.
+                namespace: ''
+            protocol: !<!Protocols> {}
+          serializedName: error
+          language: !<!Languages> 
+            default:
+              name: error
+              description: Cloud error body.
+          protocol: !<!Protocols> {}
+      extensions:
+        x-ms-external: true
+      language: !<!Languages> 
+        default:
+          name: CloudError
+          description: An error response from the service.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_15
+    - !<!ObjectSchema> 
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_16
+          serializedName: status
+          language: !<!Languages> 
+            default:
+              name: status
+              description: Status of the Azure async operation.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_17
+          serializedName: error
+          language: !<!Languages> 
+            default:
+              name: error
+              description: Details of the error occurred during specified asynchronous operation.
+          protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: AzureAsyncOperationResult
+          description: >-
+            The response body contains the status of the specified asynchronous operation, indicating whether it has succeeded, is in progress, or has failed. Note that this status is distinct from the HTTP status code returned for the Get
+            Operation Status operation itself. If the asynchronous operation succeeded, the response body includes the HTTP status code for the successful request. If the asynchronous operation failed, the response body includes the HTTP
+            status code for the failed request and error information regarding the failure.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> 
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_18
+          serializedName: id
+          language: !<!Languages> 
+            default:
+              name: id
+              description: Resource ID.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_19
+          readOnly: true
+          serializedName: name
+          language: !<!Languages> 
+            default:
+              name: name
+              description: Resource name.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_20
+          readOnly: true
+          serializedName: type
+          language: !<!Languages> 
+            default:
+              name: type
+              description: Resource type.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_21
+          serializedName: location
+          language: !<!Languages> 
+            default:
+              name: location
+              description: Resource location.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_22
+          serializedName: tags
+          language: !<!Languages> 
+            default:
+              name: tags
+              description: Resource tags.
+          protocol: !<!Protocols> {}
+      extensions:
+        x-ms-azure-resource: true
+      language: !<!Languages> 
+        default:
+          name: Resource
+          description: Common resource representation.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> 
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_23
+          readOnly: true
+          required: false
+          serializedName: not_a_rec
+          language: !<!Languages> 
+            default:
+              name: notARec
+              description: not a resource type
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_24
+          readOnly: true
+          required: false
+          serializedName: id
+          language: !<!Languages> 
+            default:
+              name: id
+              description: Resource Id
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_25
+          readOnly: true
+          required: false
+          serializedName: name
+          language: !<!Languages> 
+            default:
+              name: name
+              description: Resource name
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_26
+          readOnly: true
+          required: false
+          serializedName: type
+          language: !<!Languages> 
+            default:
+              name: type
+              description: Resource type
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_27
+          required: true
+          serializedName: location
+          language: !<!Languages> 
+            default:
+              name: location
+              description: Resource location
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_28
+          required: false
+          serializedName: tags
+          language: !<!Languages> 
+            default:
+              name: tags
+              description: Resource tags
+          protocol: !<!Protocols> {}
+      extensions:
+        x-ms-azure-resource: true
+      language: !<!Languages> 
+        default:
+          name: TestClass
+          description: The Resource model definition.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> 
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_29
+          serializedName: id
+          language: !<!Languages> 
+            default:
+              name: id
+              description: Resource ID.
+          protocol: !<!Protocols> {}
+      extensions:
+        x-ms-azure-resource: true
+      language: !<!Languages> 
+        default:
+          name: SubResource
+          description: Reference to another subresource.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> 
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_30
+          serializedName: tags
+          language: !<!Languages> 
+            default:
+              name: tags
+              description: Resource tags.
+          protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: TagsObject
+          description: Tags object for patch operations.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> 
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-06-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_31
+          readOnly: true
+          serializedName: principalId
+          language: !<!Languages> 
+            default:
+              name: principalId
+              description: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_32
+          readOnly: true
+          serializedName: tenantId
+          language: !<!Languages> 
+            default:
+              name: tenantId
+              description: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_33
+          serializedName: type
+          language: !<!Languages> 
+            default:
+              name: type
+              description: >-
+                The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the
+                virtual machine.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_34
+          serializedName: userAssignedIdentities
+          language: !<!Languages> 
+            default:
+              name: userAssignedIdentities
+              description: >-
+                The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form:
+                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+          protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: ManagedServiceIdentity
+          description: Identity for the resource.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_35
+  arrays:
+    - *ref_36
+    - *ref_37
+operationGroups: []
+security: !<!Security> 
+  authenticationRequired: true
+language: !<!Languages> 
+  default:
+    name: NetworkManagementClient
+    description: ''
+protocol: !<!Protocols> 
+  http: !<!HttpModel> {}

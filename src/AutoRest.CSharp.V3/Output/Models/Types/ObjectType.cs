@@ -314,10 +314,6 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
         public bool IncludeSerializer => _usage.HasFlag(SchemaTypeUsage.Input);
         public bool IncludeDeserializer => _usage.HasFlag(SchemaTypeUsage.Output);
 
-        //public bool IsArmType()
-        //{
-        //    return _objectSchema.Extensions != null && _objectSchema.Extensions.ContainsKey("x-ms-azure-resource") && ((string)_objectSchema.Extensions["x-ms-azure-resource"]).Equals("true");
-        //}
         private bool IsArmType()
         {
             Dictionary<string, AllSchemaTypes> requiredFields = new Dictionary<string, AllSchemaTypes>(){
@@ -327,8 +323,11 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
             {"name", AllSchemaTypes.String},
             {"type", AllSchemaTypes.String}};
             var objectSchemas = _objectSchema.Parents!.All.OfType<ObjectSchema>().ToArray();
+            var combined = new ObjectSchema[objectSchemas.Length + 1];
+            objectSchemas.CopyTo(combined, 0);
+            combined[combined.Length - 1] = _objectSchema;
             HashSet<string> localIgnoreList = new HashSet<string>();
-            foreach (var objectSchema in objectSchemas)
+            foreach (var objectSchema in combined)
             {
                 foreach (var prop in objectSchema.Properties)
                 {
@@ -526,13 +525,13 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
             var propSet = CollectAllPropsForFrameWork();
             foreach (var objectSchema in GetCombinedSchemas())
             {
-                if (this.IgnoreList.Contains(objectSchema.Name))
-                {
-                    continue;
-                }
                 foreach (Property property in objectSchema.Properties!)
                 {
                     var name = BuilderHelpers.DisambiguateName(Type, property.CSharpName());
+                    if (this.IgnoreList.Contains(objectSchema.Name) && propSet.Contains(name))
+                    {
+                        continue;
+                    }
                     if (propSet.Contains(name))
                     {
                         throw new NotSupportedException("Conflicting property names is not supported, " +
