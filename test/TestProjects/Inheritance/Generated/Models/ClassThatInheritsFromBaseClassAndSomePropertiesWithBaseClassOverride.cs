@@ -5,10 +5,12 @@
 
 #nullable disable
 
+using azure_proto_core;
+
 namespace Inheritance.Models
 {
     /// <summary> The ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride. </summary>
-    internal partial class ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride : SomeProperties
+    internal partial class ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride : TrackedResource
     {
         /// <summary> Initializes a new instance of ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride. </summary>
         public ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride()
@@ -16,14 +18,22 @@ namespace Inheritance.Models
         }
 
         /// <summary> Initializes a new instance of ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride. </summary>
+        /// <param name="accountName"> Account name. </param>
+        /// <param name="baseClassProperty"> . </param>
         /// <param name="someProperty"> . </param>
         /// <param name="someOtherProperty"> . </param>
-        /// <param name="baseClassProperty"> . </param>
-        internal ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride(string someProperty, string someOtherProperty, string baseClassProperty) : base(someProperty, someOtherProperty)
+        internal ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride(string accountName, string baseClassProperty, string someProperty, string someOtherProperty)
         {
+            AccountName = accountName;
             BaseClassProperty = baseClassProperty;
+            SomeProperty = someProperty;
+            SomeOtherProperty = someOtherProperty;
         }
 
+        /// <summary> Account name. </summary>
+        public string AccountName { get; }
         public string BaseClassProperty { get; set; }
+        public string SomeProperty { get; set; }
+        public string SomeOtherProperty { get; set; }
     }
 }

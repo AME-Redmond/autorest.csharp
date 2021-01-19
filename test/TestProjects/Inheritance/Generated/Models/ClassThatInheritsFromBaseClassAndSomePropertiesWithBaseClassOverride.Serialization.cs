@@ -35,11 +35,17 @@ namespace Inheritance.Models
 
         internal static ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride DeserializeClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride(JsonElement element)
         {
+            Optional<string> accountName = default;
             Optional<string> baseClassProperty = default;
             Optional<string> someProperty = default;
             Optional<string> someOtherProperty = default;
             foreach (var property in element.EnumerateObject())
             {
+                if (property.NameEquals("account_name"))
+                {
+                    accountName = property.Value.GetString();
+                    continue;
+                }
                 if (property.NameEquals("BaseClassProperty"))
                 {
                     baseClassProperty = property.Value.GetString();
@@ -56,7 +62,7 @@ namespace Inheritance.Models
                     continue;
                 }
             }
-            return new ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride(someProperty.Value, someOtherProperty.Value, baseClassProperty.Value);
+            return new ClassThatInheritsFromBaseClassAndSomePropertiesWithBaseClassOverride(accountName.Value, baseClassProperty.Value, someProperty.Value, someOtherProperty.Value);
         }
     }
 }
