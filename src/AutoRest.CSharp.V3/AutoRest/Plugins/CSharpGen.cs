@@ -42,7 +42,7 @@ namespace AutoRest.CSharp.V3.AutoRest.Plugins
             var serializeWriter = new SerializationWriter();
             var headerModelModelWriter = new ResponseHeaderGroupWriter();
 
-            foreach (var model in context.Library.Models)
+            /*foreach (var model in context.Library.Models)
             {
                 var codeWriter = new CodeWriter();
                 modelWriter.WriteModel(codeWriter, model);
@@ -53,17 +53,18 @@ namespace AutoRest.CSharp.V3.AutoRest.Plugins
                 var name = model.Type.Name;
                 project.AddGeneratedFile($"Models/{name}.cs", codeWriter.ToString());
                 project.AddGeneratedFile($"Models/{name}.Serialization.cs", serializerCodeWriter.ToString());
-            }
+            }*/
 
             foreach (var client in context.Library.RestClients)
             {
+                //in clientMethod.Request.PathSegments)
                 var restCodeWriter = new CodeWriter();
                 restClientWriter.WriteClient(restCodeWriter, client);
 
                 project.AddGeneratedFile($"{client.Type.Name}.cs", restCodeWriter.ToString());
             }
 
-            foreach (ResponseHeaderGroupType responseHeaderModel in context.Library.HeaderModels)
+            /*foreach (ResponseHeaderGroupType responseHeaderModel in context.Library.HeaderModels)
             {
                 var headerModelCodeWriter = new CodeWriter();
                 headerModelModelWriter.WriteHeaderModel(headerModelCodeWriter, responseHeaderModel);
@@ -97,7 +98,7 @@ namespace AutoRest.CSharp.V3.AutoRest.Plugins
                 ManagementClientWriter.WriteAggregateClient(clientCodeWriter, context);
                 project.AddGeneratedFile($"{context.Configuration.LibraryName}ManagementClient.cs", clientCodeWriter.ToString());
 
-            }
+            }*/
 
             return project;
         }
@@ -125,10 +126,10 @@ namespace AutoRest.CSharp.V3.AutoRest.Plugins
                 Console.Error.WriteLine("Name is " + codeModelFileName);
                 codeModelYaml = await autoRest.ReadFile(codeModelFileName);
                 Console.Error.WriteLine("Size here is : " + codeModelYaml.Length);
-                //await autoRest.WriteFile("6CodeModel6.yaml", codeModelYaml, "source-file-csharp");
+                await autoRest.WriteFile("6CodeModel6.yaml", codeModelYaml, "source-file-csharp");
                 return CodeModelSerialization.DeserializeCodeModel(codeModelYaml);
             });
-
+            //var project = await ExecuteAsync(codeModelTask, configuration);
             if (configuration.SaveInputs)
             {
                 Console.Error.WriteLine("Writing file");

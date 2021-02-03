@@ -13,14 +13,14 @@ namespace AutoRest.CSharp.V3.Output.Models.Requests
         private readonly Constant? _constant;
         private readonly Reference? _reference;
 
-        private ReferenceOrConstant(Constant constant)
+        public ReferenceOrConstant(Constant constant)
         {
             Type = constant.Type;
             _constant = constant;
             _reference = null;
         }
 
-        private ReferenceOrConstant(Reference reference)
+        public ReferenceOrConstant(Reference reference)
         {
             Type = reference.Type;
             _reference = reference;

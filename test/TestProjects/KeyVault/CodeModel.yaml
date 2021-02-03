@@ -1,0 +1,4954 @@
+!<!CodeModel> 
+info: !<!Info> 
+  description: The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.
+  title: KeyVaultManagementClient
+schemas: !<!Schemas> 
+  booleans:
+    - !<!BooleanSchema> &ref_15
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_16
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_17
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_18
+      type: boolean
+      defaultValue: true
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: >-
+            Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot
+            be reverted to false.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_20
+      type: boolean
+      defaultValue: false
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: >-
+            Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored
+            (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is
+            created with the default value of false. Note that management actions are always authorized with RBAC.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_22
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: >-
+            Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard,
+            irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_53
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: 'Property to specify whether the ''soft delete'' functionality is enabled for this key vault. Once set to true, it cannot be reverted to false.'
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_54
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: >-
+            Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored
+            (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the value of
+            this property will not change.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_72
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: Purge protection status of the original vault.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_91
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: 'A boolean value that indicates whether the name is available for you to use. If true, the name is available. If false, the name has already been taken or is invalid and cannot be used.'
+      protocol: !<!Protocols> {}
+  numbers:
+    - !<!NumberSchema> &ref_19
+      type: integer
+      defaultValue: 90
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: softDelete data retention days. It accepts >=7 and <=90.
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_55
+      type: integer
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: softDelete data retention days. It accepts >=7 and <=90.
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_136
+      type: integer
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: ''
+          header: Retry-After
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_163
+      type: integer
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: ''
+          header: Retry-After
+      protocol: !<!Protocols> {}
+  strings:
+    - !<!StringSchema> &ref_0
+      type: string
+      language: !<!Languages> 
+        default:
+          name: String
+          description: simple string
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_1
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+          header: Azure-AsyncOperation
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_112
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      pattern: '^[a-zA-Z0-9-]{3,24}$'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_2
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultCreateOrUpdateParametersLocation
+          description: The supported Azure location where the key vault should be created.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_8
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: AccessPolicyEntryObjectId
+          description: 'The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_14
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultPropertiesVaultUri
+          description: The URI of the vault for performing operations on keys and secrets. This property is readonly
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_25
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: IPRuleValue
+          description: 'An IPv4 address range in CIDR notation, such as ''124.56.78.91'' (simple IP address) or ''124.56.78.0/24'' (all addresses that start with 124.56.78).'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_26
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VirtualNetworkRuleId
+          description: 'Full resource id of a vnet subnet, such as ''/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1''.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_28
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: PrivateEndpointId
+          description: Full identifier of the private endpoint resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_30
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: PrivateLinkServiceConnectionStateDescription
+          description: The reason for approval or rejection.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_31
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: PrivateLinkServiceConnectionStateActionsRequired
+          description: A message indicating if changes on the service provider require any updates on the consumer.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_43
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultId
+          description: Fully qualified identifier of the key vault resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_44
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultName
+          description: Name of the key vault resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_45
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultType
+          description: Resource type of the key vault resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_46
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultLocation
+          description: Azure location of the key vault resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_48
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyCode
+          description: Error code. This is a mnemonic that can be consumed programmatically.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_49
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyMessage
+          description: User friendly error message. The message is typically localized and may vary with service version.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_57
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultAccessPolicyParametersId
+          description: The resource id of the access policy.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_58
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultAccessPolicyParametersName
+          description: The resource name of the access policy.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_59
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultAccessPolicyParametersType
+          description: The resource name of the access policy.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_60
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultAccessPolicyParametersLocation
+          description: The resource type of the access policy.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_63
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultListResultNextLink
+          description: The URL to get the next set of vaults.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_64
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultId
+          description: The resource ID for the deleted key vault.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_65
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultName
+          description: The name of the key vault.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_66
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultType
+          description: The resource type of the key vault.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_67
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultPropertiesVaultId
+          description: The resource id of the original vault.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_68
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultPropertiesLocation
+          description: The location of the original vault.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_73
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultListResultNextLink
+          description: The URL to get the next set of deleted vaults.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_83
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceId
+          description: Fully qualified identifier of the key vault resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_84
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceName
+          description: Name of the key vault resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_85
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceType
+          description: Resource type of the key vault resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_86
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceLocation
+          description: Azure location of the key vault resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_88
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceListResultNextLink
+          description: The URL to get the next set of vault resources.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_89
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultCheckNameAvailabilityParametersName
+          description: The vault name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_93
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: CheckNameAvailabilityResultMessage
+          description: An error message explaining the Reason value in more detail.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_77
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: PrivateEndpointConnectionEtag
+          description: Modified whenever there is a change in the state of private endpoint connection.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_164
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+          header: Location
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_78
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: PrivateLinkResourcePropertiesGroupId
+          description: Group identifier of private link resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_79
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: PrivateLinkResourcePropertiesRequiredMembersItem
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_80
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: PrivateLinkResourcePropertiesRequiredZoneNamesItem
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> 
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+  choices:
+    - !<!ChoiceSchema> &ref_5
+      choices:
+        - !<!ChoiceValue> 
+          value: A
+          language:
+            default:
+              name: A
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      extensions:
+        x-ms-client-default: A
+      language: !<!Languages> 
+        default:
+          name: SkuFamily
+          description: SKU family name
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_10
+      choices:
+        - !<!ChoiceValue> 
+          value: all
+          language:
+            default:
+              name: All
+              description: ''
+        - !<!ChoiceValue> 
+          value: encrypt
+          language:
+            default:
+              name: Encrypt
+              description: ''
+        - !<!ChoiceValue> 
+          value: decrypt
+          language:
+            default:
+              name: Decrypt
+              description: ''
+        - !<!ChoiceValue> 
+          value: wrapKey
+          language:
+            default:
+              name: WrapKey
+              description: ''
+        - !<!ChoiceValue> 
+          value: unwrapKey
+          language:
+            default:
+              name: UnwrapKey
+              description: ''
+        - !<!ChoiceValue> 
+          value: sign
+          language:
+            default:
+              name: Sign
+              description: ''
+        - !<!ChoiceValue> 
+          value: verify
+          language:
+            default:
+              name: Verify
+              description: ''
+        - !<!ChoiceValue> 
+          value: get
+          language:
+            default:
+              name: Get
+              description: ''
+        - !<!ChoiceValue> 
+          value: list
+          language:
+            default:
+              name: List
+              description: ''
+        - !<!ChoiceValue> 
+          value: create
+          language:
+            default:
+              name: Create
+              description: ''
+        - !<!ChoiceValue> 
+          value: update
+          language:
+            default:
+              name: Update
+              description: ''
+        - !<!ChoiceValue> 
+          value: import
+          language:
+            default:
+              name: Import
+              description: ''
+        - !<!ChoiceValue> 
+          value: delete
+          language:
+            default:
+              name: Delete
+              description: ''
+        - !<!ChoiceValue> 
+          value: backup
+          language:
+            default:
+              name: Backup
+              description: ''
+        - !<!ChoiceValue> 
+          value: restore
+          language:
+            default:
+              name: Restore
+              description: ''
+        - !<!ChoiceValue> 
+          value: recover
+          language:
+            default:
+              name: Recover
+              description: ''
+        - !<!ChoiceValue> 
+          value: purge
+          language:
+            default:
+              name: Purge
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: KeyPermissions
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_11
+      choices:
+        - !<!ChoiceValue> 
+          value: all
+          language:
+            default:
+              name: All
+              description: ''
+        - !<!ChoiceValue> 
+          value: get
+          language:
+            default:
+              name: Get
+              description: ''
+        - !<!ChoiceValue> 
+          value: list
+          language:
+            default:
+              name: List
+              description: ''
+        - !<!ChoiceValue> 
+          value: set
+          language:
+            default:
+              name: Set
+              description: ''
+        - !<!ChoiceValue> 
+          value: delete
+          language:
+            default:
+              name: Delete
+              description: ''
+        - !<!ChoiceValue> 
+          value: backup
+          language:
+            default:
+              name: Backup
+              description: ''
+        - !<!ChoiceValue> 
+          value: restore
+          language:
+            default:
+              name: Restore
+              description: ''
+        - !<!ChoiceValue> 
+          value: recover
+          language:
+            default:
+              name: Recover
+              description: ''
+        - !<!ChoiceValue> 
+          value: purge
+          language:
+            default:
+              name: Purge
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: SecretPermissions
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_12
+      choices:
+        - !<!ChoiceValue> 
+          value: all
+          language:
+            default:
+              name: All
+              description: ''
+        - !<!ChoiceValue> 
+          value: get
+          language:
+            default:
+              name: Get
+              description: ''
+        - !<!ChoiceValue> 
+          value: list
+          language:
+            default:
+              name: List
+              description: ''
+        - !<!ChoiceValue> 
+          value: delete
+          language:
+            default:
+              name: Delete
+              description: ''
+        - !<!ChoiceValue> 
+          value: create
+          language:
+            default:
+              name: Create
+              description: ''
+        - !<!ChoiceValue> 
+          value: import
+          language:
+            default:
+              name: Import
+              description: ''
+        - !<!ChoiceValue> 
+          value: update
+          language:
+            default:
+              name: Update
+              description: ''
+        - !<!ChoiceValue> 
+          value: managecontacts
+          language:
+            default:
+              name: Managecontacts
+              description: ''
+        - !<!ChoiceValue> 
+          value: getissuers
+          language:
+            default:
+              name: Getissuers
+              description: ''
+        - !<!ChoiceValue> 
+          value: listissuers
+          language:
+            default:
+              name: Listissuers
+              description: ''
+        - !<!ChoiceValue> 
+          value: setissuers
+          language:
+            default:
+              name: Setissuers
+              description: ''
+        - !<!ChoiceValue> 
+          value: deleteissuers
+          language:
+            default:
+              name: Deleteissuers
+              description: ''
+        - !<!ChoiceValue> 
+          value: manageissuers
+          language:
+            default:
+              name: Manageissuers
+              description: ''
+        - !<!ChoiceValue> 
+          value: recover
+          language:
+            default:
+              name: Recover
+              description: ''
+        - !<!ChoiceValue> 
+          value: purge
+          language:
+            default:
+              name: Purge
+              description: ''
+        - !<!ChoiceValue> 
+          value: backup
+          language:
+            default:
+              name: Backup
+              description: ''
+        - !<!ChoiceValue> 
+          value: restore
+          language:
+            default:
+              name: Restore
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: CertificatePermissions
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_13
+      choices:
+        - !<!ChoiceValue> 
+          value: all
+          language:
+            default:
+              name: All
+              description: ''
+        - !<!ChoiceValue> 
+          value: get
+          language:
+            default:
+              name: Get
+              description: ''
+        - !<!ChoiceValue> 
+          value: list
+          language:
+            default:
+              name: List
+              description: ''
+        - !<!ChoiceValue> 
+          value: delete
+          language:
+            default:
+              name: Delete
+              description: ''
+        - !<!ChoiceValue> 
+          value: set
+          language:
+            default:
+              name: Set
+              description: ''
+        - !<!ChoiceValue> 
+          value: update
+          language:
+            default:
+              name: Update
+              description: ''
+        - !<!ChoiceValue> 
+          value: regeneratekey
+          language:
+            default:
+              name: Regeneratekey
+              description: ''
+        - !<!ChoiceValue> 
+          value: recover
+          language:
+            default:
+              name: Recover
+              description: ''
+        - !<!ChoiceValue> 
+          value: purge
+          language:
+            default:
+              name: Purge
+              description: ''
+        - !<!ChoiceValue> 
+          value: backup
+          language:
+            default:
+              name: Backup
+              description: ''
+        - !<!ChoiceValue> 
+          value: restore
+          language:
+            default:
+              name: Restore
+              description: ''
+        - !<!ChoiceValue> 
+          value: setsas
+          language:
+            default:
+              name: Setsas
+              description: ''
+        - !<!ChoiceValue> 
+          value: listsas
+          language:
+            default:
+              name: Listsas
+              description: ''
+        - !<!ChoiceValue> 
+          value: getsas
+          language:
+            default:
+              name: Getsas
+              description: ''
+        - !<!ChoiceValue> 
+          value: deletesas
+          language:
+            default:
+              name: Deletesas
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: StoragePermissions
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_23
+      choices:
+        - !<!ChoiceValue> 
+          value: AzureServices
+          language:
+            default:
+              name: AzureServices
+              description: ''
+        - !<!ChoiceValue> 
+          value: None
+          language:
+            default:
+              name: None
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: NetworkRuleBypassOptions
+          description: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_24
+      choices:
+        - !<!ChoiceValue> 
+          value: Allow
+          language:
+            default:
+              name: Allow
+              description: ''
+        - !<!ChoiceValue> 
+          value: Deny
+          language:
+            default:
+              name: Deny
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: NetworkRuleAction
+          description: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_27
+      choices:
+        - !<!ChoiceValue> 
+          value: Succeeded
+          language:
+            default:
+              name: Succeeded
+              description: ''
+        - !<!ChoiceValue> 
+          value: RegisteringDns
+          language:
+            default:
+              name: RegisteringDns
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: VaultProvisioningState
+          description: Provisioning state of the vault.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_29
+      choices:
+        - !<!ChoiceValue> 
+          value: Pending
+          language:
+            default:
+              name: Pending
+              description: ''
+        - !<!ChoiceValue> 
+          value: Approved
+          language:
+            default:
+              name: Approved
+              description: ''
+        - !<!ChoiceValue> 
+          value: Rejected
+          language:
+            default:
+              name: Rejected
+              description: ''
+        - !<!ChoiceValue> 
+          value: Disconnected
+          language:
+            default:
+              name: Disconnected
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: PrivateEndpointServiceConnectionStatus
+          description: The private endpoint connection status.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_32
+      choices:
+        - !<!ChoiceValue> 
+          value: Succeeded
+          language:
+            default:
+              name: Succeeded
+              description: ''
+        - !<!ChoiceValue> 
+          value: Creating
+          language:
+            default:
+              name: Creating
+              description: ''
+        - !<!ChoiceValue> 
+          value: Updating
+          language:
+            default:
+              name: Updating
+              description: ''
+        - !<!ChoiceValue> 
+          value: Deleting
+          language:
+            default:
+              name: Deleting
+              description: ''
+        - !<!ChoiceValue> 
+          value: Failed
+          language:
+            default:
+              name: Failed
+              description: ''
+        - !<!ChoiceValue> 
+          value: Disconnected
+          language:
+            default:
+              name: Disconnected
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: PrivateEndpointConnectionProvisioningState
+          description: The current provisioning state.
+      protocol: !<!Protocols> {}
+  sealedChoices:
+    - !<!SealedChoiceSchema> &ref_6
+      choices:
+        - !<!ChoiceValue> 
+          value: standard
+          language:
+            default:
+              name: Standard
+              description: ''
+        - !<!ChoiceValue> 
+          value: premium
+          language:
+            default:
+              name: Premium
+              description: ''
+      type: sealed-choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: SkuName
+          description: SKU name to specify whether the key vault is a standard vault or a premium vault.
+      protocol: !<!Protocols> {}
+    - !<!SealedChoiceSchema> &ref_21
+      choices:
+        - !<!ChoiceValue> 
+          value: recover
+          language:
+            default:
+              name: Recover
+              description: ''
+        - !<!ChoiceValue> 
+          value: default
+          language:
+            default:
+              name: Default
+              description: ''
+      type: sealed-choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: CreateMode
+          description: The vault's create mode to indicate whether the vault need to be recovered or not.
+      protocol: !<!Protocols> {}
+    - !<!SealedChoiceSchema> &ref_130
+      choices:
+        - !<!ChoiceValue> 
+          value: add
+          language:
+            default:
+              name: Add
+              description: ''
+        - !<!ChoiceValue> 
+          value: replace
+          language:
+            default:
+              name: Replace
+              description: ''
+        - !<!ChoiceValue> 
+          value: remove
+          language:
+            default:
+              name: Remove
+              description: ''
+      type: sealed-choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: AccessPolicyUpdateKind
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!SealedChoiceSchema> &ref_92
+      choices:
+        - !<!ChoiceValue> 
+          value: AccountNameInvalid
+          language:
+            default:
+              name: AccountNameInvalid
+              description: ''
+        - !<!ChoiceValue> 
+          value: AlreadyExists
+          language:
+            default:
+              name: AlreadyExists
+              description: ''
+      type: sealed-choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Reason
+          description: The reason that a vault name could not be used. The Reason element is only returned if NameAvailable is false.
+      protocol: !<!Protocols> {}
+  constants:
+    - !<!ConstantSchema> &ref_110
+      type: constant
+      value: !<!ConstantValue> 
+        value: '2019-09-01'
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApiVersion20190901
+          description: Api Version (2019-09-01)
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_115
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApplicationJson
+          description: Content Type 'application/json'
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_117
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Accept
+          description: 'Accept: application/json'
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_146
+      type: constant
+      value: !<!ConstantValue> 
+        value: resourceType eq 'Microsoft.KeyVault/vaults'
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Constant17
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_147
+      type: constant
+      value: !<!ConstantValue> 
+        value: '2015-11-01'
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Constant18
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_90
+      type: constant
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      value: !<!ConstantValue> 
+        value: Microsoft.KeyVault/vaults
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Type
+          description: 'The type of resource, Microsoft.KeyVault/vaults'
+      protocol: !<!Protocols> {}
+  dictionaries:
+    - !<!DictionarySchema> &ref_3
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: VaultCreateOrUpdateParametersTags
+          description: The tags that will be assigned to the key vault.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_47
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: VaultTags
+          description: Tags assigned to the key vault resource.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_51
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: VaultPatchParametersTags
+          description: 'The tags that will be assigned to the key vault. '
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_71
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultPropertiesTags
+          description: Tags of the original vault.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_87
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: ResourceTags
+          description: Tags assigned to the key vault resource.
+      protocol: !<!Protocols> {}
+  dateTimes:
+    - !<!DateTimeSchema> &ref_69
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultPropertiesDeletionDate
+          description: The deleted date.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_70
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultPropertiesScheduledPurgeDate
+          description: The scheduled purged date.
+      protocol: !<!Protocols> {}
+  uuids:
+    - !<!UuidSchema> &ref_4
+      type: uuid
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultPropertiesTenantId
+          description: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+      protocol: !<!Protocols> {}
+    - !<!UuidSchema> &ref_7
+      type: uuid
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: AccessPolicyEntryTenantId
+          description: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+      protocol: !<!Protocols> {}
+    - !<!UuidSchema> &ref_9
+      type: uuid
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: AccessPolicyEntryApplicationId
+          description: ' Application ID of the client making request on behalf of a principal'
+      protocol: !<!Protocols> {}
+    - !<!UuidSchema> &ref_52
+      type: uuid
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      language: !<!Languages> 
+        default:
+          name: VaultPatchPropertiesTenantId
+          description: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+      protocol: !<!Protocols> {}
+  objects:
+    - !<!ObjectSchema> &ref_116
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_2
+          required: true
+          serializedName: location
+          language: !<!Languages> 
+            default:
+              name: location
+              description: The supported Azure location where the key vault should be created.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_3
+          required: false
+          serializedName: tags
+          language: !<!Languages> 
+            default:
+              name: tags
+              description: The tags that will be assigned to the key vault.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_33
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2019-09-01'
+            properties:
+              - !<!Property> 
+                schema: *ref_4
+                required: true
+                serializedName: tenantId
+                language: !<!Languages> 
+                  default:
+                    name: tenantId
+                    description: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ObjectSchema> &ref_34
+                  type: object
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '2019-09-01'
+                  properties:
+                    - !<!Property> 
+                      schema: *ref_5
+                      clientDefaultValue: A
+                      required: true
+                      serializedName: family
+                      language: !<!Languages> 
+                        default:
+                          name: family
+                          description: SKU family name
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_6
+                      required: true
+                      serializedName: name
+                      language: !<!Languages> 
+                        default:
+                          name: name
+                          description: SKU name to specify whether the key vault is a standard vault or a premium vault.
+                      protocol: !<!Protocols> {}
+                  serializationFormats:
+                    - json
+                  usage:
+                    - input
+                    - output
+                  language: !<!Languages> 
+                    default:
+                      name: Sku
+                      description: SKU details
+                      namespace: ''
+                  protocol: !<!Protocols> {}
+                required: true
+                serializedName: sku
+                language: !<!Languages> 
+                  default:
+                    name: sku
+                    description: SKU details
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ArraySchema> &ref_98
+                  type: array
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '2019-09-01'
+                  elementType: !<!ObjectSchema> &ref_35
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2019-09-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_7
+                        required: true
+                        serializedName: tenantId
+                        language: !<!Languages> 
+                          default:
+                            name: tenantId
+                            description: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_8
+                        required: true
+                        serializedName: objectId
+                        language: !<!Languages> 
+                          default:
+                            name: objectId
+                            description: 'The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_9
+                        required: false
+                        serializedName: applicationId
+                        language: !<!Languages> 
+                          default:
+                            name: applicationId
+                            description: ' Application ID of the client making request on behalf of a principal'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ObjectSchema> &ref_36
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2019-09-01'
+                          properties:
+                            - !<!Property> 
+                              schema: !<!ArraySchema> &ref_94
+                                type: array
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '2019-09-01'
+                                elementType: *ref_10
+                                language: !<!Languages> 
+                                  default:
+                                    name: PermissionsKeys
+                                    description: Permissions to keys
+                                protocol: !<!Protocols> {}
+                              serializedName: keys
+                              language: !<!Languages> 
+                                default:
+                                  name: keys
+                                  description: Permissions to keys
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: !<!ArraySchema> &ref_95
+                                type: array
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '2019-09-01'
+                                elementType: *ref_11
+                                language: !<!Languages> 
+                                  default:
+                                    name: PermissionsSecrets
+                                    description: Permissions to secrets
+                                protocol: !<!Protocols> {}
+                              serializedName: secrets
+                              language: !<!Languages> 
+                                default:
+                                  name: secrets
+                                  description: Permissions to secrets
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: !<!ArraySchema> &ref_96
+                                type: array
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '2019-09-01'
+                                elementType: *ref_12
+                                language: !<!Languages> 
+                                  default:
+                                    name: PermissionsCertificates
+                                    description: Permissions to certificates
+                                protocol: !<!Protocols> {}
+                              serializedName: certificates
+                              language: !<!Languages> 
+                                default:
+                                  name: certificates
+                                  description: Permissions to certificates
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: !<!ArraySchema> &ref_97
+                                type: array
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '2019-09-01'
+                                elementType: *ref_13
+                                language: !<!Languages> 
+                                  default:
+                                    name: PermissionsStorage
+                                    description: Permissions to storage accounts
+                                protocol: !<!Protocols> {}
+                              serializedName: storage
+                              language: !<!Languages> 
+                                default:
+                                  name: storage
+                                  description: Permissions to storage accounts
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - input
+                            - output
+                          language: !<!Languages> 
+                            default:
+                              name: Permissions
+                              description: 'Permissions the identity has for keys, secrets, certificates and storage.'
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        required: true
+                        serializedName: permissions
+                        language: !<!Languages> 
+                          default:
+                            name: permissions
+                            description: 'Permissions the identity has for keys, secrets and certificates.'
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - input
+                      - output
+                    language: !<!Languages> 
+                      default:
+                        name: AccessPolicyEntry
+                        description: An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  language: !<!Languages> 
+                    default:
+                      name: VaultPropertiesAccessPolicies
+                      description: >-
+                        An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not
+                        required. Otherwise, access policies are required.
+                  protocol: !<!Protocols> {}
+                required: false
+                serializedName: accessPolicies
+                language: !<!Languages> 
+                  default:
+                    name: accessPolicies
+                    description: >-
+                      An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not
+                      required. Otherwise, access policies are required.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_14
+                required: false
+                serializedName: vaultUri
+                language: !<!Languages> 
+                  default:
+                    name: vaultUri
+                    description: The URI of the vault for performing operations on keys and secrets. This property is readonly
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_15
+                required: false
+                serializedName: enabledForDeployment
+                language: !<!Languages> 
+                  default:
+                    name: enabledForDeployment
+                    description: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_16
+                required: false
+                serializedName: enabledForDiskEncryption
+                language: !<!Languages> 
+                  default:
+                    name: enabledForDiskEncryption
+                    description: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_17
+                required: false
+                serializedName: enabledForTemplateDeployment
+                language: !<!Languages> 
+                  default:
+                    name: enabledForTemplateDeployment
+                    description: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_18
+                required: false
+                serializedName: enableSoftDelete
+                language: !<!Languages> 
+                  default:
+                    name: enableSoftDelete
+                    description: >-
+                      Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true,
+                      it cannot be reverted to false.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_19
+                required: false
+                serializedName: softDeleteRetentionInDays
+                language: !<!Languages> 
+                  default:
+                    name: softDeleteRetentionInDays
+                    description: softDelete data retention days. It accepts >=7 and <=90.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_20
+                required: false
+                serializedName: enableRbacAuthorization
+                language: !<!Languages> 
+                  default:
+                    name: enableRbacAuthorization
+                    description: >-
+                      Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will
+                      be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not
+                      specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_21
+                required: false
+                serializedName: createMode
+                language: !<!Languages> 
+                  default:
+                    name: createMode
+                    description: The vault's create mode to indicate whether the vault need to be recovered or not.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_22
+                required: false
+                serializedName: enablePurgeProtection
+                language: !<!Languages> 
+                  default:
+                    name: enablePurgeProtection
+                    description: >-
+                      Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate
+                      a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ObjectSchema> &ref_37
+                  type: object
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '2019-09-01'
+                  properties:
+                    - !<!Property> 
+                      schema: *ref_23
+                      serializedName: bypass
+                      language: !<!Languages> 
+                        default:
+                          name: bypass
+                          description: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_24
+                      serializedName: defaultAction
+                      language: !<!Languages> 
+                        default:
+                          name: defaultAction
+                          description: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: !<!ArraySchema> &ref_99
+                        type: array
+                        apiVersions:
+                          - !<!ApiVersion> 
+                            version: '2019-09-01'
+                        elementType: !<!ObjectSchema> &ref_38
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2019-09-01'
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_25
+                              required: true
+                              serializedName: value
+                              language: !<!Languages> 
+                                default:
+                                  name: value
+                                  description: 'An IPv4 address range in CIDR notation, such as ''124.56.78.91'' (simple IP address) or ''124.56.78.0/24'' (all addresses that start with 124.56.78).'
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - input
+                            - output
+                          language: !<!Languages> 
+                            default:
+                              name: IPRule
+                              description: A rule governing the accessibility of a vault from a specific ip address or ip range.
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        language: !<!Languages> 
+                          default:
+                            name: NetworkRuleSetIpRules
+                            description: The list of IP address rules.
+                        protocol: !<!Protocols> {}
+                      serializedName: ipRules
+                      language: !<!Languages> 
+                        default:
+                          name: ipRules
+                          description: The list of IP address rules.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: !<!ArraySchema> &ref_100
+                        type: array
+                        apiVersions:
+                          - !<!ApiVersion> 
+                            version: '2019-09-01'
+                        elementType: !<!ObjectSchema> &ref_39
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2019-09-01'
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_26
+                              required: true
+                              serializedName: id
+                              language: !<!Languages> 
+                                default:
+                                  name: id
+                                  description: 'Full resource id of a vnet subnet, such as ''/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1''.'
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - input
+                            - output
+                          language: !<!Languages> 
+                            default:
+                              name: VirtualNetworkRule
+                              description: A rule governing the accessibility of a vault from a specific virtual network.
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        language: !<!Languages> 
+                          default:
+                            name: NetworkRuleSetVirtualNetworkRules
+                            description: The list of virtual network rules.
+                        protocol: !<!Protocols> {}
+                      serializedName: virtualNetworkRules
+                      language: !<!Languages> 
+                        default:
+                          name: virtualNetworkRules
+                          description: The list of virtual network rules.
+                      protocol: !<!Protocols> {}
+                  serializationFormats:
+                    - json
+                  usage:
+                    - input
+                    - output
+                  language: !<!Languages> 
+                    default:
+                      name: NetworkRuleSet
+                      description: A set of rules governing the network accessibility of a vault.
+                      namespace: ''
+                  protocol: !<!Protocols> {}
+                required: false
+                serializedName: networkAcls
+                language: !<!Languages> 
+                  default:
+                    name: networkAcls
+                    description: Rules governing the accessibility of the key vault from specific network locations.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_27
+                required: false
+                serializedName: provisioningState
+                language: !<!Languages> 
+                  default:
+                    name: provisioningState
+                    description: Provisioning state of the vault.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ArraySchema> &ref_101
+                  type: array
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '2019-09-01'
+                  elementType: !<!ObjectSchema> &ref_40
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2019-09-01'
+                    properties:
+                      - !<!Property> 
+                        schema: !<!ObjectSchema> &ref_41
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2019-09-01'
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_28
+                              readOnly: true
+                              serializedName: id
+                              language: !<!Languages> 
+                                default:
+                                  name: id
+                                  description: Full identifier of the private endpoint resource.
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - input
+                            - output
+                          language: !<!Languages> 
+                            default:
+                              name: PrivateEndpoint
+                              description: Private endpoint object properties.
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        flattenedNames:
+                          - properties
+                          - privateEndpoint
+                        serializedName: privateEndpoint
+                        language: !<!Languages> 
+                          default:
+                            name: privateEndpoint
+                            description: Properties of the private endpoint object.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ObjectSchema> &ref_42
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2019-09-01'
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_29
+                              serializedName: status
+                              language: !<!Languages> 
+                                default:
+                                  name: status
+                                  description: 'Indicates whether the connection has been approved, rejected or removed by the key vault owner.'
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: *ref_30
+                              serializedName: description
+                              language: !<!Languages> 
+                                default:
+                                  name: description
+                                  description: The reason for approval or rejection.
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: *ref_31
+                              serializedName: actionsRequired
+                              language: !<!Languages> 
+                                default:
+                                  name: actionsRequired
+                                  description: A message indicating if changes on the service provider require any updates on the consumer.
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - input
+                            - output
+                          language: !<!Languages> 
+                            default:
+                              name: PrivateLinkServiceConnectionState
+                              description: An object that represents the approval state of the private link connection.
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        flattenedNames:
+                          - properties
+                          - privateLinkServiceConnectionState
+                        serializedName: privateLinkServiceConnectionState
+                        language: !<!Languages> 
+                          default:
+                            name: privateLinkServiceConnectionState
+                            description: Approval state of the private link connection.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_32
+                        flattenedNames:
+                          - properties
+                          - provisioningState
+                        readOnly: true
+                        serializedName: provisioningState
+                        language: !<!Languages> 
+                          default:
+                            name: provisioningState
+                            description: Provisioning state of the private endpoint connection.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - input
+                      - output
+                    language: !<!Languages> 
+                      default:
+                        name: PrivateEndpointConnectionItem
+                        description: Private endpoint connection item.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  language: !<!Languages> 
+                    default:
+                      name: VaultPropertiesPrivateEndpointConnections
+                      description: List of private endpoint connections associated with the key vault.
+                  protocol: !<!Protocols> {}
+                readOnly: true
+                required: false
+                serializedName: privateEndpointConnections
+                language: !<!Languages> 
+                  default:
+                    name: privateEndpointConnections
+                    description: List of private endpoint connections associated with the key vault.
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - input
+              - output
+            language: !<!Languages> 
+              default:
+                name: VaultProperties
+                description: Properties of the vault
+                namespace: ''
+            protocol: !<!Protocols> {}
+          required: true
+          serializedName: properties
+          language: !<!Languages> 
+            default:
+              name: properties
+              description: Properties of the vault
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - input
+      extensions:
+        x-ms-azure-resource: true
+      language: !<!Languages> 
+        default:
+          name: VaultCreateOrUpdateParameters
+          description: Parameters for creating or updating a vault
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_33
+    - *ref_34
+    - *ref_35
+    - *ref_36
+    - *ref_37
+    - *ref_38
+    - *ref_39
+    - *ref_40
+    - *ref_41
+    - *ref_42
+    - !<!ObjectSchema> &ref_62
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_43
+          readOnly: true
+          required: false
+          serializedName: id
+          language: !<!Languages> 
+            default:
+              name: id
+              description: Fully qualified identifier of the key vault resource.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_44
+          readOnly: true
+          required: false
+          serializedName: name
+          language: !<!Languages> 
+            default:
+              name: name
+              description: Name of the key vault resource.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_45
+          readOnly: true
+          required: false
+          serializedName: type
+          language: !<!Languages> 
+            default:
+              name: type
+              description: Resource type of the key vault resource.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_46
+          required: false
+          serializedName: location
+          language: !<!Languages> 
+            default:
+              name: location
+              description: Azure location of the key vault resource.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_47
+          required: false
+          serializedName: tags
+          language: !<!Languages> 
+            default:
+              name: tags
+              description: Tags assigned to the key vault resource.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_33
+          required: true
+          serializedName: properties
+          language: !<!Languages> 
+            default:
+              name: properties
+              description: Properties of the vault
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      extensions:
+        x-ms-azure-resource: true
+      language: !<!Languages> 
+        default:
+          name: Vault
+          description: Resource information with extended details.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> &ref_121
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_50
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2019-09-01'
+            properties:
+              - !<!Property> 
+                schema: *ref_48
+                serializedName: code
+                language: !<!Languages> 
+                  default:
+                    name: code
+                    description: Error code. This is a mnemonic that can be consumed programmatically.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_49
+                serializedName: message
+                language: !<!Languages> 
+                  default:
+                    name: message
+                    description: User friendly error message. The message is typically localized and may vary with service version.
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - exception
+            extensions:
+              x-ms-external: true
+            language: !<!Languages> 
+              default:
+                name: CloudErrorBody
+                description: An error response from Key Vault resource provider
+                namespace: ''
+            protocol: !<!Protocols> {}
+          serializedName: error
+          language: !<!Languages> 
+            default:
+              name: error
+              description: An error response from Key Vault resource provider
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - exception
+      extensions:
+        x-ms-external: true
+      language: !<!Languages> 
+        default:
+          name: CloudError
+          description: An error response from Key Vault resource provider
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_50
+    - !<!ObjectSchema> &ref_122
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_51
+          serializedName: tags
+          language: !<!Languages> 
+            default:
+              name: tags
+              description: 'The tags that will be assigned to the key vault. '
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_56
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2019-09-01'
+            properties:
+              - !<!Property> 
+                schema: *ref_52
+                serializedName: tenantId
+                language: !<!Languages> 
+                  default:
+                    name: tenantId
+                    description: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_34
+                serializedName: sku
+                language: !<!Languages> 
+                  default:
+                    name: sku
+                    description: SKU details
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ArraySchema> &ref_102
+                  type: array
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '2019-09-01'
+                  elementType: *ref_35
+                  language: !<!Languages> 
+                    default:
+                      name: VaultPatchPropertiesAccessPolicies
+                      description: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+                  protocol: !<!Protocols> {}
+                serializedName: accessPolicies
+                language: !<!Languages> 
+                  default:
+                    name: accessPolicies
+                    description: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_15
+                serializedName: enabledForDeployment
+                language: !<!Languages> 
+                  default:
+                    name: enabledForDeployment
+                    description: Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_16
+                serializedName: enabledForDiskEncryption
+                language: !<!Languages> 
+                  default:
+                    name: enabledForDiskEncryption
+                    description: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_17
+                serializedName: enabledForTemplateDeployment
+                language: !<!Languages> 
+                  default:
+                    name: enabledForTemplateDeployment
+                    description: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_53
+                serializedName: enableSoftDelete
+                language: !<!Languages> 
+                  default:
+                    name: enableSoftDelete
+                    description: 'Property to specify whether the ''soft delete'' functionality is enabled for this key vault. Once set to true, it cannot be reverted to false.'
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_54
+                serializedName: enableRbacAuthorization
+                language: !<!Languages> 
+                  default:
+                    name: enableRbacAuthorization
+                    description: >-
+                      Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will
+                      be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not
+                      specified, the value of this property will not change.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_55
+                serializedName: softDeleteRetentionInDays
+                language: !<!Languages> 
+                  default:
+                    name: softDeleteRetentionInDays
+                    description: softDelete data retention days. It accepts >=7 and <=90.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_21
+                serializedName: createMode
+                language: !<!Languages> 
+                  default:
+                    name: createMode
+                    description: The vault's create mode to indicate whether the vault need to be recovered or not.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_22
+                serializedName: enablePurgeProtection
+                language: !<!Languages> 
+                  default:
+                    name: enablePurgeProtection
+                    description: >-
+                      Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate
+                      a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_37
+                serializedName: networkAcls
+                language: !<!Languages> 
+                  default:
+                    name: networkAcls
+                    description: A collection of rules governing the accessibility of the vault from specific network locations.
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - input
+            language: !<!Languages> 
+              default:
+                name: VaultPatchProperties
+                description: Properties of the vault
+                namespace: ''
+            protocol: !<!Protocols> {}
+          serializedName: properties
+          language: !<!Languages> 
+            default:
+              name: properties
+              description: Properties of the vault
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - input
+      extensions:
+        x-ms-azure-resource: true
+      language: !<!Languages> 
+        default:
+          name: VaultPatchParameters
+          description: Parameters for creating or updating a vault
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_56
+    - !<!ObjectSchema> &ref_131
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_57
+          readOnly: true
+          required: false
+          serializedName: id
+          language: !<!Languages> 
+            default:
+              name: id
+              description: The resource id of the access policy.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_58
+          readOnly: true
+          required: false
+          serializedName: name
+          language: !<!Languages> 
+            default:
+              name: name
+              description: The resource name of the access policy.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_59
+          readOnly: true
+          required: false
+          serializedName: type
+          language: !<!Languages> 
+            default:
+              name: type
+              description: The resource name of the access policy.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_60
+          readOnly: true
+          required: false
+          serializedName: location
+          language: !<!Languages> 
+            default:
+              name: location
+              description: The resource type of the access policy.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_61
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2019-09-01'
+            properties:
+              - !<!Property> 
+                schema: !<!ArraySchema> &ref_103
+                  type: array
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '2019-09-01'
+                  elementType: *ref_35
+                  language: !<!Languages> 
+                    default:
+                      name: VaultAccessPolicyPropertiesAccessPolicies
+                      description: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+                  protocol: !<!Protocols> {}
+                required: true
+                serializedName: accessPolicies
+                language: !<!Languages> 
+                  default:
+                    name: accessPolicies
+                    description: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - input
+              - output
+            language: !<!Languages> 
+              default:
+                name: VaultAccessPolicyProperties
+                description: Properties of the vault access policy
+                namespace: ''
+            protocol: !<!Protocols> {}
+          required: true
+          serializedName: properties
+          language: !<!Languages> 
+            default:
+              name: properties
+              description: Properties of the access policy
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - input
+        - output
+      extensions:
+        x-ms-azure-resource: true
+      language: !<!Languages> 
+        default:
+          name: VaultAccessPolicyParameters
+          description: Parameters for updating the access policy in a vault
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_61
+    - !<!ObjectSchema> &ref_139
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_104
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2019-09-01'
+            elementType: *ref_62
+            language: !<!Languages> 
+              default:
+                name: VaultListResultValue
+                description: The list of vaults.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: The list of vaults.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_63
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The URL to get the next set of vaults.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: VaultListResult
+          description: List of vaults
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> &ref_141
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_105
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2019-09-01'
+            elementType: !<!ObjectSchema> &ref_74
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2019-09-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_64
+                  readOnly: true
+                  serializedName: id
+                  language: !<!Languages> 
+                    default:
+                      name: id
+                      description: The resource ID for the deleted key vault.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_65
+                  readOnly: true
+                  serializedName: name
+                  language: !<!Languages> 
+                    default:
+                      name: name
+                      description: The name of the key vault.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_66
+                  readOnly: true
+                  serializedName: type
+                  language: !<!Languages> 
+                    default:
+                      name: type
+                      description: The resource type of the key vault.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_75
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2019-09-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_67
+                        readOnly: true
+                        serializedName: vaultId
+                        language: !<!Languages> 
+                          default:
+                            name: vaultId
+                            description: The resource id of the original vault.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_68
+                        readOnly: true
+                        serializedName: location
+                        language: !<!Languages> 
+                          default:
+                            name: location
+                            description: The location of the original vault.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_69
+                        readOnly: true
+                        serializedName: deletionDate
+                        language: !<!Languages> 
+                          default:
+                            name: deletionDate
+                            description: The deleted date.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_70
+                        readOnly: true
+                        serializedName: scheduledPurgeDate
+                        language: !<!Languages> 
+                          default:
+                            name: scheduledPurgeDate
+                            description: The scheduled purged date.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_71
+                        readOnly: true
+                        serializedName: tags
+                        language: !<!Languages> 
+                          default:
+                            name: tags
+                            description: Tags of the original vault.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_72
+                        readOnly: true
+                        serializedName: purgeProtectionEnabled
+                        language: !<!Languages> 
+                          default:
+                            name: purgeProtectionEnabled
+                            description: Purge protection status of the original vault.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                    language: !<!Languages> 
+                      default:
+                        name: DeletedVaultProperties
+                        description: Properties of the deleted vault.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  serializedName: properties
+                  language: !<!Languages> 
+                    default:
+                      name: properties
+                      description: Properties of the vault
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+              language: !<!Languages> 
+                default:
+                  name: DeletedVault
+                  description: Deleted vault information with extended details.
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: DeletedVaultListResultValue
+                description: The list of deleted vaults.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: The list of deleted vaults.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_73
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The URL to get the next set of deleted vaults.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: DeletedVaultListResult
+          description: List of vaults
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_74
+    - *ref_75
+    - !<!ObjectSchema> &ref_149
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_106
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2019-09-01'
+            elementType: !<!ObjectSchema> &ref_76
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2019-09-01'
+              children: !<!Relations> 
+                all:
+                  - !<!ObjectSchema> &ref_81
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2019-09-01'
+                    parents: !<!Relations> 
+                      all:
+                        - *ref_76
+                      immediate:
+                        - *ref_76
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_77
+                        serializedName: etag
+                        language: !<!Languages> 
+                          default:
+                            name: etag
+                            description: Modified whenever there is a change in the state of private endpoint connection.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_41
+                        flattenedNames:
+                          - properties
+                          - privateEndpoint
+                        serializedName: privateEndpoint
+                        language: !<!Languages> 
+                          default:
+                            name: privateEndpoint
+                            description: Properties of the private endpoint object.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_42
+                        flattenedNames:
+                          - properties
+                          - privateLinkServiceConnectionState
+                        serializedName: privateLinkServiceConnectionState
+                        language: !<!Languages> 
+                          default:
+                            name: privateLinkServiceConnectionState
+                            description: Approval state of the private link connection.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_32
+                        flattenedNames:
+                          - properties
+                          - provisioningState
+                        readOnly: true
+                        serializedName: provisioningState
+                        language: !<!Languages> 
+                          default:
+                            name: provisioningState
+                            description: Provisioning state of the private endpoint connection.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                      - input
+                    extensions:
+                      x-ms-azure-resource: true
+                    language: !<!Languages> 
+                      default:
+                        name: PrivateEndpointConnection
+                        description: Private endpoint connection resource.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  - !<!ObjectSchema> &ref_82
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2019-09-01'
+                    parents: !<!Relations> 
+                      all:
+                        - *ref_76
+                      immediate:
+                        - *ref_76
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_78
+                        flattenedNames:
+                          - properties
+                          - groupId
+                        readOnly: true
+                        serializedName: groupId
+                        language: !<!Languages> 
+                          default:
+                            name: groupId
+                            description: Group identifier of private link resource.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ArraySchema> &ref_107
+                          type: array
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2019-09-01'
+                          elementType: *ref_79
+                          language: !<!Languages> 
+                            default:
+                              name: PrivateLinkResourcePropertiesRequiredMembers
+                              description: Required member names of private link resource.
+                          protocol: !<!Protocols> {}
+                        flattenedNames:
+                          - properties
+                          - requiredMembers
+                        readOnly: true
+                        serializedName: requiredMembers
+                        language: !<!Languages> 
+                          default:
+                            name: requiredMembers
+                            description: Required member names of private link resource.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ArraySchema> &ref_108
+                          type: array
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2019-09-01'
+                          elementType: *ref_80
+                          language: !<!Languages> 
+                            default:
+                              name: PrivateLinkResourcePropertiesRequiredZoneNames
+                              description: Required DNS zone names of the the private link resource.
+                          protocol: !<!Protocols> {}
+                        flattenedNames:
+                          - properties
+                          - requiredZoneNames
+                        serializedName: requiredZoneNames
+                        language: !<!Languages> 
+                          default:
+                            name: requiredZoneNames
+                            description: Required DNS zone names of the the private link resource.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                      - input
+                    language: !<!Languages> 
+                      default:
+                        name: PrivateLinkResource
+                        description: A private link resource
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                immediate:
+                  - *ref_81
+                  - *ref_82
+              properties:
+                - !<!Property> 
+                  schema: *ref_83
+                  readOnly: true
+                  serializedName: id
+                  language: !<!Languages> 
+                    default:
+                      name: id
+                      description: Fully qualified identifier of the key vault resource.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_84
+                  readOnly: true
+                  serializedName: name
+                  language: !<!Languages> 
+                    default:
+                      name: name
+                      description: Name of the key vault resource.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_85
+                  readOnly: true
+                  serializedName: type
+                  language: !<!Languages> 
+                    default:
+                      name: type
+                      description: Resource type of the key vault resource.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_86
+                  readOnly: true
+                  serializedName: location
+                  language: !<!Languages> 
+                    default:
+                      name: location
+                      description: Azure location of the key vault resource.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_87
+                  readOnly: true
+                  serializedName: tags
+                  language: !<!Languages> 
+                    default:
+                      name: tags
+                      description: Tags assigned to the key vault resource.
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+                - input
+              extensions:
+                x-ms-azure-resource: true
+              language: !<!Languages> 
+                default:
+                  name: Resource
+                  description: Key Vault resource
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: ResourceListResultValue
+                description: The list of vault resources.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: The list of vault resources.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_88
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The URL to get the next set of vault resources.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: ResourceListResult
+          description: List of vault resources.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_76
+    - !<!ObjectSchema> &ref_150
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_89
+          required: true
+          serializedName: name
+          language: !<!Languages> 
+            default:
+              name: name
+              description: The vault name.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_90
+          required: true
+          serializedName: type
+          language: !<!Languages> 
+            default:
+              name: type
+              description: 'The type of resource, Microsoft.KeyVault/vaults'
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - input
+      language: !<!Languages> 
+        default:
+          name: VaultCheckNameAvailabilityParameters
+          description: The parameters used to check the availability of the vault name.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> &ref_152
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_91
+          readOnly: true
+          serializedName: nameAvailable
+          language: !<!Languages> 
+            default:
+              name: nameAvailable
+              description: 'A boolean value that indicates whether the name is available for you to use. If true, the name is available. If false, the name has already been taken or is invalid and cannot be used.'
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_92
+          readOnly: true
+          serializedName: reason
+          language: !<!Languages> 
+            default:
+              name: reason
+              description: The reason that a vault name could not be used. The Reason element is only returned if NameAvailable is false.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_93
+          readOnly: true
+          serializedName: message
+          language: !<!Languages> 
+            default:
+              name: message
+              description: An error message explaining the Reason value in more detail.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: CheckNameAvailabilityResult
+          description: The CheckNameAvailability operation response.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_81
+    - !<!ObjectSchema> &ref_167
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2019-09-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_109
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2019-09-01'
+            elementType: *ref_82
+            language: !<!Languages> 
+              default:
+                name: PrivateLinkResourceListResultValue
+                description: Array of private link resources
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: Array of private link resources
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: PrivateLinkResourceListResult
+          description: A list of private link resources
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_82
+  arrays:
+    - *ref_94
+    - *ref_95
+    - *ref_96
+    - *ref_97
+    - *ref_98
+    - *ref_99
+    - *ref_100
+    - *ref_101
+    - *ref_102
+    - *ref_103
+    - *ref_104
+    - *ref_105
+    - *ref_106
+    - *ref_107
+    - *ref_108
+    - *ref_109
+globalParameters:
+  - !<!Parameter> &ref_114
+    schema: *ref_1
+    implementation: Client
+    required: true
+    extensions:
+      x-ms-priority: 0
+    language: !<!Languages> 
+      default:
+        name: SubscriptionId
+        description: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+        serializedName: subscriptionId
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: path
+  - !<!Parameter> &ref_111
+    schema: *ref_0
+    clientDefaultValue: 'https://management.azure.com'
+    implementation: Client
+    origin: 'modelerfour:synthesized/host'
+    required: true
+    extensions:
+      x-ms-skip-url-encoding: true
+    language: !<!Languages> 
+      default:
+        name: $host
+        description: server parameter
+        serializedName: $host
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: uri
+  - !<!Parameter> &ref_113
+    schema: *ref_110
+    implementation: Client
+    origin: 'modelerfour:synthesized/api-version'
+    required: true
+    language: !<!Languages> 
+      default:
+        name: apiVersion
+        description: Api Version
+        serializedName: api-version
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: query
+operationGroups:
+  - !<!OperationGroup> 
+    $key: Vaults
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> &ref_119
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the Resource Group to which the server belongs.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_120
+            schema: *ref_112
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: Name of the vault
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_115
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_118
+                schema: *ref_116
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: parameters
+                    description: Parameters to create or update the vault
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_118
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}'
+                method: put
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_119
+          - *ref_120
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_62
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!SchemaResponse> 
+            schema: *ref_62
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '201'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '400'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '409'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-long-running-operation: true
+        language: !<!Languages> 
+          default:
+            name: CreateOrUpdate
+            description: Create or update a key vault in the specified subscription.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> &ref_124
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the Resource Group to which the server belongs.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_125
+            schema: *ref_112
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: Name of the vault
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_115
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_123
+                schema: *ref_122
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: parameters
+                    description: Parameters to patch the vault
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_123
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}'
+                method: patch
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_124
+          - *ref_125
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_62
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!SchemaResponse> 
+            schema: *ref_62
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '201'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '400'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '409'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Update
+            description: Update a key vault in the specified subscription.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> &ref_126
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the Resource Group to which the vault belongs.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_127
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: The name of the vault to delete
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}'
+                method: delete
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_126
+          - *ref_127
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '400'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Delete
+            description: Deletes the specified Azure key vault.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> &ref_128
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the Resource Group to which the vault belongs.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_129
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: The name of the vault.
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_128
+          - *ref_129
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_62
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Gets the specified Azure key vault.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> &ref_133
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the Resource Group to which the vault belongs.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_134
+            schema: *ref_112
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: Name of the vault
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_135
+            schema: *ref_130
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: operationKind
+                description: Name of the operation
+                serializedName: operationKind
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_115
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_132
+                schema: *ref_131
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: parameters
+                    description: Access policy to merge into the vault
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_132
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicies/{operationKind}'
+                method: put
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_133
+          - *ref_134
+          - *ref_135
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_131
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!SchemaResponse> 
+            schema: *ref_131
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '201'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '400'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '404'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '409'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: UpdateAccessPolicy
+            description: Update access policies in a key vault in the specified subscription.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> &ref_137
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the Resource Group to which the vault belongs.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_138
+            schema: *ref_136
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: top
+                description: Maximum number of results to return.
+                serializedName: $top
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_137
+          - *ref_138
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_139
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListByResourceGroup
+            description: The List operation gets information about the vaults associated with the subscription and within the specified resource group.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> &ref_140
+            schema: *ref_136
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: top
+                description: Maximum number of results to return.
+                serializedName: $top
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/vaults'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_140
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_139
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListBySubscription
+            description: The List operation gets information about the vaults associated with the subscription.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/deletedVaults'
+                method: get
+                uri: '{$host}'
+        signatureParameters: []
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_141
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListDeleted
+            description: Gets information about the deleted vaults in a subscription.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> &ref_142
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: The name of the vault.
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_143
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: location
+                description: The location of the deleted vault.
+                serializedName: location
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/locations/{location}/deletedVaults/{vaultName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_142
+          - *ref_143
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_74
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: GetDeleted
+            description: Gets the deleted Azure key vault.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> &ref_144
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: The name of the soft-deleted vault.
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_145
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: location
+                description: The location of the soft-deleted vault.
+                serializedName: location
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/locations/{location}/deletedVaults/{vaultName}/purge'
+                method: post
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_144
+          - *ref_145
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '202'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '400'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            extensions:
+              x-ms-error-response: true
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '404'
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-long-running-operation: true
+        language: !<!Languages> 
+          default:
+            name: PurgeDeleted
+            description: Permanently deletes the specified vault. aka Purges the deleted Azure key vault.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - !<!Parameter> 
+            schema: *ref_146
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: filter
+                description: The filter to apply on the operation.
+                serializedName: $filter
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - !<!Parameter> &ref_148
+            schema: *ref_136
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: top
+                description: Maximum number of results to return.
+                serializedName: $top
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - !<!Parameter> 
+            schema: *ref_147
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: apiVersion
+                description: Azure Resource Manager Api Version.
+                serializedName: api-version
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resources'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_148
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_149
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: The List operation gets information about the vaults associated with the subscription.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - *ref_113
+          - *ref_114
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_115
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_151
+                schema: *ref_150
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: vaultName
+                    description: The name of the vault.
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_151
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/checkNameAvailability'
+                method: post
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters: []
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_152
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        language: !<!Languages> 
+          default:
+            name: CheckNameAvailability
+            description: Checks that the vault name is valid and is not already in use.
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Vaults
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: PrivateEndpointConnections
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - *ref_114
+          - !<!Parameter> &ref_153
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: Name of the resource group that contains the key vault.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_154
+            schema: *ref_112
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: The name of the key vault.
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_155
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: privateEndpointConnectionName
+                description: Name of the private endpoint connection associated with the key vault.
+                serializedName: privateEndpointConnectionName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_153
+          - *ref_154
+          - *ref_155
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_81
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Gets the specified private endpoint connection associated with the key vault.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - *ref_114
+          - !<!Parameter> &ref_157
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: Name of the resource group that contains the key vault.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_158
+            schema: *ref_112
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: The name of the key vault.
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_159
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: privateEndpointConnectionName
+                description: Name of the private endpoint connection associated with the key vault.
+                serializedName: privateEndpointConnectionName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_115
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_156
+                schema: *ref_81
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: properties
+                    description: The intended state of private endpoint connection.
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_156
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}'
+                method: put
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_157
+          - *ref_158
+          - *ref_159
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_81
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                headers:
+                  - !<!HttpHeader> 
+                    schema: *ref_136
+                    header: Retry-After
+                    language:
+                      default:
+                        name: RetryAfter
+                        description: (specified only if operation does not finish synchronously) The recommended number of seconds to wait before calling the URI specified in Azure-AsyncOperation.
+                  - !<!HttpHeader> 
+                    schema: *ref_1
+                    header: Azure-AsyncOperation
+                    language:
+                      default:
+                        name: AzureAsyncOperation
+                        description: (specified only if operation does not finish synchronously) The URI to poll for completion status. The response of this URI may be synchronous or asynchronous.
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Put
+            description: Updates the specified private endpoint connection associated with the key vault.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - *ref_114
+          - !<!Parameter> &ref_160
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: Name of the resource group that contains the key vault.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_161
+            schema: *ref_112
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: The name of the key vault.
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_162
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: privateEndpointConnectionName
+                description: Name of the private endpoint connection associated with the key vault.
+                serializedName: privateEndpointConnectionName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}'
+                method: delete
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_160
+          - *ref_161
+          - *ref_162
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_81
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                headers:
+                  - !<!HttpHeader> 
+                    schema: *ref_163
+                    header: Retry-After
+                    language:
+                      default:
+                        name: RetryAfter
+                        description: The recommended number of seconds to wait before calling the URI specified in the location header.
+                  - !<!HttpHeader> 
+                    schema: *ref_164
+                    header: Location
+                    language:
+                      default:
+                        name: Location
+                        description: The URI to poll for completion status.
+                statusCodes:
+                  - '202'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-long-running-operation: true
+        language: !<!Languages> 
+          default:
+            name: Delete
+            description: Deletes the specified private endpoint connection associated with the key vault.
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: PrivateEndpointConnections
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: PrivateLinkResources
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-09-01'
+        parameters:
+          - *ref_111
+          - *ref_114
+          - !<!Parameter> &ref_165
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: Name of the resource group that contains the key vault.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_166
+            schema: *ref_112
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: vaultName
+                description: The name of the key vault.
+                serializedName: vaultName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_113
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_117
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/privateLinkResources'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_165
+          - *ref_166
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_167
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_121
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: ListByVault
+            description: Gets the private link resources supported for the key vault.
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: PrivateLinkResources
+        description: ''
+    protocol: !<!Protocols> {}
+security: !<!Security> 
+  authenticationRequired: true
+language: !<!Languages> 
+  default:
+    name: KeyVaultManagementClient
+    description: ''
+protocol: !<!Protocols> 
+  http: !<!HttpModel> {}

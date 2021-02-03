@@ -1,0 +1,3978 @@
+!<!CodeModel> 
+info: !<!Info> 
+  description: 'Azure Blueprints Client provides access to blueprint definitions, assignments, and artifacts, and related blueprint operations.'
+  title: BlueprintClient
+schemas: !<!Schemas> 
+  strings:
+    - !<!StringSchema> &ref_0
+      type: string
+      language: !<!Languages> 
+        default:
+          name: String
+          description: simple string
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_6
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_3
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      maxLength: 256
+      language: !<!Languages> 
+        default:
+          name: ParameterDefinitionMetadataDisplayName
+          description: DisplayName of this parameter/resourceGroup.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_4
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      maxLength: 500
+      language: !<!Languages> 
+        default:
+          name: ParameterDefinitionMetadataDescription
+          description: Description of this parameter/resourceGroup.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_5
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      maxLength: 64
+      language: !<!Languages> 
+        default:
+          name: ParameterDefinitionMetadataStrongType
+          description: 'StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_7
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ResourceGroupDefinitionName
+          description: Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_8
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ResourceGroupDefinitionLocation
+          description: Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_9
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ResourceGroupDefinitionDependsOnItem
+          description: Name of peer artifact.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_18
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      maxLength: 256
+      language: !<!Languages> 
+        default:
+          name: BlueprintResourcePropertiesBaseDisplayName
+          description: One-liner string explain this resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_19
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      maxLength: 500
+      language: !<!Languages> 
+        default:
+          name: BlueprintResourcePropertiesBaseDescription
+          description: Multi-line explain this resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_44
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: AzureResourceBaseId
+          description: String Id used to locate any resource on Azure.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_45
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: AzureResourceBaseType
+          description: Type of this resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_46
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: AzureResourceBaseName
+          description: Name of this resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_57
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ErrorResponseCode
+          description: The error code.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_58
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ErrorResponseMessage
+          description: The error message.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_59
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ErrorResponseTarget
+          description: The error target.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_61
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ErrorAdditionalInfoType
+          description: The additional info type.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_63
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: BlueprintListNextLink
+          description: Link to the next page of results.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_64
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ArtifactListNextLink
+          description: Link to the next page of results.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_41
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: PublishedBlueprintPropertiesBlueprintName
+          description: Name of the published blueprint definition.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_42
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      maxLength: 500
+      language: !<!Languages> 
+        default:
+          name: PublishedBlueprintPropertiesChangeNotes
+          description: Version-specific change notes.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_65
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: PublishedBlueprintListNextLink
+          description: Link to the next page of results.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_66
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ResourceProviderOperationName
+          description: 'Operation name, in format of {provider}/{resource}/{operation}'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_67
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ResourceProviderOperationDisplayProvider
+          description: 'Resource provider: Microsoft Blueprint.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_68
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ResourceProviderOperationDisplayResource
+          description: Resource on which the operation is performed.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_69
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ResourceProviderOperationDisplayOperation
+          description: 'Type of operation: get, read, delete, etc.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_70
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ResourceProviderOperationDisplayDescription
+          description: Description of this operation.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_21
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: TemplateArtifactPropertiesResourceGroup
+          description: 'If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_11
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: KeyVaultReferenceId
+          description: Azure resource ID of the Key Vault.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_12
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: SecretValueReferenceSecretName
+          description: Name of the secret.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_13
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: SecretValueReferenceSecretVersion
+          description: 'The version of the secret to use. If left blank, the latest version of the secret is used.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_20
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: ArtifactPropertiesBaseDependsOnItem
+          description: ID of peer artifact.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_24
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: RoleAssignmentArtifactPropertiesRoleDefinitionId
+          description: Azure resource ID of the RoleDefinition.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_25
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: RoleAssignmentArtifactPropertiesResourceGroup
+          description: 'RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_26
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: PolicyAssignmentArtifactPropertiesPolicyDefinitionId
+          description: Azure resource ID of the policy definition.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_28
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: PolicyAssignmentArtifactPropertiesResourceGroup
+          description: Name of the resource group placeholder to which the policy will be assigned.
+      protocol: !<!Protocols> {}
+  choices:
+    - !<!ChoiceSchema> &ref_38
+      choices:
+        - !<!ChoiceValue> 
+          value: subscription
+          language:
+            default:
+              name: Subscription
+              description: The blueprint targets a subscription during blueprint assignment.
+        - !<!ChoiceValue> 
+          value: managementGroup
+          language:
+            default:
+              name: ManagementGroup
+              description: The blueprint targets a management group during blueprint assignment. This is reserved for future use.
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: BlueprintTargetScope
+          description: The scope where this blueprint definition can be assigned.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_1
+      choices:
+        - !<!ChoiceValue> 
+          value: string
+          language:
+            default:
+              name: String
+              description: ''
+        - !<!ChoiceValue> 
+          value: array
+          language:
+            default:
+              name: Array
+              description: ''
+        - !<!ChoiceValue> 
+          value: bool
+          language:
+            default:
+              name: Bool
+              description: ''
+        - !<!ChoiceValue> 
+          value: int
+          language:
+            default:
+              name: Int
+              description: ''
+        - !<!ChoiceValue> 
+          value: object
+          language:
+            default:
+              name: Object
+              description: ''
+        - !<!ChoiceValue> 
+          value: secureObject
+          language:
+            default:
+              name: SecureObject
+              description: ''
+        - !<!ChoiceValue> 
+          value: secureString
+          language:
+            default:
+              name: SecureString
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: TemplateParameterType
+          description: Allowed data types for Resource Manager template parameters.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_32
+      choices:
+        - !<!ChoiceValue> 
+          value: template
+          language:
+            default:
+              name: Template
+              description: ''
+        - !<!ChoiceValue> 
+          value: roleAssignment
+          language:
+            default:
+              name: RoleAssignment
+              description: ''
+        - !<!ChoiceValue> 
+          value: policyAssignment
+          language:
+            default:
+              name: PolicyAssignment
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ArtifactKind
+          description: Specifies the kind of blueprint artifact.
+      protocol: !<!Protocols> {}
+  constants:
+    - !<!ConstantSchema> &ref_83
+      type: constant
+      value: !<!ConstantValue> 
+        value: 2018-11-01-preview
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApiVersion20181101Preview
+          description: Api Version (2018-11-01-preview)
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_86
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApplicationJson
+          description: Content Type 'application/json'
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_87
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Accept
+          description: 'Accept: application/json'
+      protocol: !<!Protocols> {}
+  dictionaries:
+    - !<!DictionarySchema> &ref_39
+      type: dictionary
+      elementType: !<!ObjectSchema> &ref_55
+        type: object
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        properties:
+          - !<!Property> 
+            schema: *ref_1
+            required: true
+            serializedName: type
+            language: !<!Languages> 
+              default:
+                name: type
+                description: Allowed data types for Resource Manager template parameters.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: !<!AnySchema> &ref_2
+              type: any
+              language: !<!Languages> 
+                default:
+                  name: any
+                  description: Any object
+              protocol: !<!Protocols> {}
+            required: false
+            serializedName: defaultValue
+            language: !<!Languages> 
+              default:
+                name: defaultValue
+                description: Default Value for this parameter.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: !<!ArraySchema> &ref_75
+              type: array
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: 2018-11-01-preview
+              elementType: *ref_2
+              language: !<!Languages> 
+                default:
+                  name: ParameterDefinitionAllowedValues
+                  description: Array of allowed values for this parameter.
+              protocol: !<!Protocols> {}
+            required: false
+            serializedName: allowedValues
+            language: !<!Languages> 
+              default:
+                name: allowedValues
+                description: Array of allowed values for this parameter.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: *ref_3
+            flattenedNames:
+              - metadata
+              - displayName
+            required: false
+            serializedName: displayName
+            language: !<!Languages> 
+              default:
+                name: displayName
+                description: DisplayName of this parameter/resourceGroup.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: *ref_4
+            flattenedNames:
+              - metadata
+              - description
+            required: false
+            serializedName: description
+            language: !<!Languages> 
+              default:
+                name: description
+                description: Description of this parameter/resourceGroup.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: *ref_5
+            flattenedNames:
+              - metadata
+              - strongType
+            required: false
+            serializedName: strongType
+            language: !<!Languages> 
+              default:
+                name: strongType
+                description: 'StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.'
+            protocol: !<!Protocols> {}
+        serializationFormats:
+          - json
+        usage:
+          - input
+          - output
+        language: !<!Languages> 
+          default:
+            name: ParameterDefinition
+            description: Represent a parameter with constrains and metadata.
+            namespace: ''
+        protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: SharedBlueprintPropertiesParameters
+          description: Parameters required by this blueprint definition.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_10
+      type: dictionary
+      elementType: *ref_6
+      language: !<!Languages> 
+        default:
+          name: ResourceGroupDefinitionTags
+          description: Tags to be assigned to this resource group.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_40
+      type: dictionary
+      elementType: !<!ObjectSchema> &ref_56
+        type: object
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        properties:
+          - !<!Property> 
+            schema: *ref_7
+            serializedName: name
+            language: !<!Languages> 
+              default:
+                name: name
+                description: Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: *ref_8
+            serializedName: location
+            language: !<!Languages> 
+              default:
+                name: location
+                description: Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: !<!ArraySchema> &ref_76
+              type: array
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: 2018-11-01-preview
+              elementType: *ref_9
+              language: !<!Languages> 
+                default:
+                  name: ResourceGroupDefinitionDependsOn
+                  description: Artifacts which need to be deployed before this resource group.
+              protocol: !<!Protocols> {}
+            serializedName: dependsOn
+            language: !<!Languages> 
+              default:
+                name: dependsOn
+                description: Artifacts which need to be deployed before this resource group.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: *ref_10
+            serializedName: tags
+            language: !<!Languages> 
+              default:
+                name: tags
+                description: Tags to be assigned to this resource group.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: *ref_3
+            flattenedNames:
+              - metadata
+              - displayName
+            serializedName: displayName
+            language: !<!Languages> 
+              default:
+                name: displayName
+                description: DisplayName of this parameter/resourceGroup.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: *ref_4
+            flattenedNames:
+              - metadata
+              - description
+            serializedName: description
+            language: !<!Languages> 
+              default:
+                name: description
+                description: Description of this parameter/resourceGroup.
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: *ref_5
+            flattenedNames:
+              - metadata
+              - strongType
+            serializedName: strongType
+            language: !<!Languages> 
+              default:
+                name: strongType
+                description: 'StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.'
+            protocol: !<!Protocols> {}
+        serializationFormats:
+          - json
+        usage:
+          - input
+          - output
+        language: !<!Languages> 
+          default:
+            name: ResourceGroupDefinition
+            description: Represents an Azure resource group in a blueprint definition.
+            namespace: ''
+        protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: SharedBlueprintPropertiesResourceGroups
+          description: Resource group placeholders defined by this blueprint definition.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_22
+      type: dictionary
+      elementType: !<!ObjectSchema> &ref_14
+        type: object
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        properties:
+          - !<!Property> 
+            schema: *ref_2
+            serializedName: value
+            language: !<!Languages> 
+              default:
+                name: value
+                description: 'Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.'
+            protocol: !<!Protocols> {}
+          - !<!Property> 
+            schema: !<!ObjectSchema> &ref_73
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: 2018-11-01-preview
+              properties:
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_74
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: 2018-11-01-preview
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_11
+                        required: true
+                        serializedName: id
+                        language: !<!Languages> 
+                          default:
+                            name: id
+                            description: Azure resource ID of the Key Vault.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - input
+                      - output
+                    language: !<!Languages> 
+                      default:
+                        name: KeyVaultReference
+                        description: Specifies the link to a Key Vault.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  required: true
+                  serializedName: keyVault
+                  language: !<!Languages> 
+                    default:
+                      name: keyVault
+                      description: Specifies the reference to a given Azure Key Vault.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_12
+                  required: true
+                  serializedName: secretName
+                  language: !<!Languages> 
+                    default:
+                      name: secretName
+                      description: Name of the secret.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_13
+                  required: false
+                  serializedName: secretVersion
+                  language: !<!Languages> 
+                    default:
+                      name: secretVersion
+                      description: 'The version of the secret to use. If left blank, the latest version of the secret is used.'
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - input
+                - output
+              language: !<!Languages> 
+                default:
+                  name: SecretValueReference
+                  description: Reference to a Key Vault secret.
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            serializedName: reference
+            language: !<!Languages> 
+              default:
+                name: reference
+                description: Parameter value as reference type.
+            protocol: !<!Protocols> {}
+        serializationFormats:
+          - json
+        usage:
+          - input
+          - output
+        language: !<!Languages> 
+          default:
+            name: ParameterValue
+            description: Value for the specified parameter. Can be either 'value' or 'reference' but not both.
+            namespace: ''
+        protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: TemplateArtifactPropertiesParameters
+          description: Resource Manager template blueprint artifact parameter values.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_27
+      type: dictionary
+      elementType: *ref_14
+      language: !<!Languages> 
+        default:
+          name: PolicyAssignmentArtifactPropertiesParameters
+          description: Parameter values for the policy definition.
+      protocol: !<!Protocols> {}
+  any:
+    - *ref_2
+  dateTimes:
+    - !<!DateTimeSchema> &ref_36
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: BlueprintResourceStatusBaseTimeCreated
+          description: Creation time of this blueprint definition.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_37
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      language: !<!Languages> 
+        default:
+          name: BlueprintResourceStatusBaseLastModified
+          description: Last modified time of this blueprint definition.
+      protocol: !<!Protocols> {}
+  objects:
+    - !<!ObjectSchema> &ref_15
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      parents: !<!Relations> 
+        all:
+          - !<!ObjectSchema> &ref_17
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: 2018-11-01-preview
+            children: !<!Relations> 
+              all:
+                - *ref_15
+                - !<!ObjectSchema> &ref_16
+                  type: object
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: 2018-11-01-preview
+                  children: !<!Relations> 
+                    all:
+                      - !<!ObjectSchema> &ref_29
+                        type: object
+                        apiVersions:
+                          - !<!ApiVersion> 
+                            version: 2018-11-01-preview
+                        discriminatorValue: template
+                        parents: !<!Relations> 
+                          all:
+                            - *ref_16
+                            - *ref_17
+                          immediate:
+                            - *ref_16
+                        properties:
+                          - !<!Property> 
+                            schema: *ref_18
+                            flattenedNames:
+                              - properties
+                              - displayName
+                            serializedName: displayName
+                            language: !<!Languages> 
+                              default:
+                                name: displayName
+                                description: One-liner string explain this resource.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_19
+                            flattenedNames:
+                              - properties
+                              - description
+                            serializedName: description
+                            language: !<!Languages> 
+                              default:
+                                name: description
+                                description: Multi-line explain this resource.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: !<!ArraySchema> &ref_23
+                              type: array
+                              apiVersions:
+                                - !<!ApiVersion> 
+                                  version: 2018-11-01-preview
+                              elementType: *ref_20
+                              language: !<!Languages> 
+                                default:
+                                  name: ArtifactPropertiesBaseDependsOn
+                                  description: Artifacts which need to be deployed before the specified artifact.
+                              protocol: !<!Protocols> {}
+                            flattenedNames:
+                              - properties
+                              - dependsOn
+                            serializedName: dependsOn
+                            language: !<!Languages> 
+                              default:
+                                name: dependsOn
+                                description: Artifacts which need to be deployed before the specified artifact.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_2
+                            flattenedNames:
+                              - properties
+                              - template
+                            required: true
+                            serializedName: template
+                            language: !<!Languages> 
+                              default:
+                                name: template
+                                description: The Resource Manager template blueprint artifact body.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_21
+                            flattenedNames:
+                              - properties
+                              - resourceGroup
+                            required: false
+                            serializedName: resourceGroup
+                            language: !<!Languages> 
+                              default:
+                                name: resourceGroup
+                                description: 'If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.'
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_22
+                            flattenedNames:
+                              - properties
+                              - parameters
+                            required: true
+                            serializedName: parameters
+                            language: !<!Languages> 
+                              default:
+                                name: parameters
+                                description: Resource Manager template blueprint artifact parameter values.
+                            protocol: !<!Protocols> {}
+                        serializationFormats:
+                          - json
+                        usage:
+                          - input
+                          - output
+                        extensions:
+                          x-ms-discriminator-value: template
+                        language: !<!Languages> 
+                          default:
+                            name: TemplateArtifact
+                            description: Blueprint artifact that deploys a Resource Manager template.
+                            namespace: ''
+                        protocol: !<!Protocols> {}
+                      - !<!ObjectSchema> &ref_30
+                        type: object
+                        apiVersions:
+                          - !<!ApiVersion> 
+                            version: 2018-11-01-preview
+                        discriminatorValue: roleAssignment
+                        parents: !<!Relations> 
+                          all:
+                            - *ref_16
+                            - *ref_17
+                          immediate:
+                            - *ref_16
+                        properties:
+                          - !<!Property> 
+                            schema: *ref_18
+                            flattenedNames:
+                              - properties
+                              - displayName
+                            serializedName: displayName
+                            language: !<!Languages> 
+                              default:
+                                name: displayName
+                                description: One-liner string explain this resource.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_19
+                            flattenedNames:
+                              - properties
+                              - description
+                            serializedName: description
+                            language: !<!Languages> 
+                              default:
+                                name: description
+                                description: Multi-line explain this resource.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_23
+                            flattenedNames:
+                              - properties
+                              - dependsOn
+                            serializedName: dependsOn
+                            language: !<!Languages> 
+                              default:
+                                name: dependsOn
+                                description: Artifacts which need to be deployed before the specified artifact.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_24
+                            flattenedNames:
+                              - properties
+                              - roleDefinitionId
+                            required: true
+                            serializedName: roleDefinitionId
+                            language: !<!Languages> 
+                              default:
+                                name: roleDefinitionId
+                                description: Azure resource ID of the RoleDefinition.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_2
+                            flattenedNames:
+                              - properties
+                              - principalIds
+                            required: true
+                            serializedName: principalIds
+                            language: !<!Languages> 
+                              default:
+                                name: principalIds
+                                description: Array of user or group identities in Azure Active Directory. The roleDefinition will apply to each identity.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_25
+                            flattenedNames:
+                              - properties
+                              - resourceGroup
+                            required: false
+                            serializedName: resourceGroup
+                            language: !<!Languages> 
+                              default:
+                                name: resourceGroup
+                                description: 'RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.'
+                            protocol: !<!Protocols> {}
+                        serializationFormats:
+                          - json
+                        usage:
+                          - input
+                          - output
+                        extensions:
+                          x-ms-discriminator-value: roleAssignment
+                        language: !<!Languages> 
+                          default:
+                            name: RoleAssignmentArtifact
+                            description: Blueprint artifact that applies a Role assignment.
+                            namespace: ''
+                        protocol: !<!Protocols> {}
+                      - !<!ObjectSchema> &ref_31
+                        type: object
+                        apiVersions:
+                          - !<!ApiVersion> 
+                            version: 2018-11-01-preview
+                        discriminatorValue: policyAssignment
+                        parents: !<!Relations> 
+                          all:
+                            - *ref_16
+                            - *ref_17
+                          immediate:
+                            - *ref_16
+                        properties:
+                          - !<!Property> 
+                            schema: *ref_18
+                            flattenedNames:
+                              - properties
+                              - displayName
+                            serializedName: displayName
+                            language: !<!Languages> 
+                              default:
+                                name: displayName
+                                description: One-liner string explain this resource.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_19
+                            flattenedNames:
+                              - properties
+                              - description
+                            serializedName: description
+                            language: !<!Languages> 
+                              default:
+                                name: description
+                                description: Multi-line explain this resource.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_23
+                            flattenedNames:
+                              - properties
+                              - dependsOn
+                            serializedName: dependsOn
+                            language: !<!Languages> 
+                              default:
+                                name: dependsOn
+                                description: Artifacts which need to be deployed before the specified artifact.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_26
+                            flattenedNames:
+                              - properties
+                              - policyDefinitionId
+                            required: true
+                            serializedName: policyDefinitionId
+                            language: !<!Languages> 
+                              default:
+                                name: policyDefinitionId
+                                description: Azure resource ID of the policy definition.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_27
+                            flattenedNames:
+                              - properties
+                              - parameters
+                            required: true
+                            serializedName: parameters
+                            language: !<!Languages> 
+                              default:
+                                name: parameters
+                                description: Parameter values for the policy definition.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_28
+                            flattenedNames:
+                              - properties
+                              - resourceGroup
+                            required: false
+                            serializedName: resourceGroup
+                            language: !<!Languages> 
+                              default:
+                                name: resourceGroup
+                                description: Name of the resource group placeholder to which the policy will be assigned.
+                            protocol: !<!Protocols> {}
+                        serializationFormats:
+                          - json
+                        usage:
+                          - input
+                          - output
+                        extensions:
+                          x-ms-discriminator-value: policyAssignment
+                        language: !<!Languages> 
+                          default:
+                            name: PolicyAssignmentArtifact
+                            description: Blueprint artifact that applies a Policy assignment.
+                            namespace: ''
+                        protocol: !<!Protocols> {}
+                    immediate:
+                      - *ref_29
+                      - *ref_30
+                      - *ref_31
+                  discriminator: !<!Discriminator> 
+                    all:
+                      policyAssignment: *ref_31
+                      roleAssignment: *ref_30
+                      template: *ref_29
+                    immediate:
+                      policyAssignment: *ref_31
+                      roleAssignment: *ref_30
+                      template: *ref_29
+                    property: !<!Property> &ref_33
+                      schema: *ref_32
+                      isDiscriminator: true
+                      required: true
+                      serializedName: kind
+                      language: !<!Languages> 
+                        default:
+                          name: kind
+                          description: Specifies the kind of blueprint artifact.
+                      protocol: !<!Protocols> {}
+                  discriminatorValue: Artifact
+                  parents: !<!Relations> 
+                    all:
+                      - *ref_17
+                    immediate:
+                      - *ref_17
+                  properties:
+                    - *ref_33
+                  serializationFormats:
+                    - json
+                  usage:
+                    - input
+                    - output
+                  language: !<!Languages> 
+                    default:
+                      name: Artifact
+                      description: Represents a blueprint artifact.
+                      namespace: ''
+                  protocol: !<!Protocols> {}
+                - !<!ObjectSchema> &ref_43
+                  type: object
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: 2018-11-01-preview
+                  parents: !<!Relations> 
+                    all:
+                      - *ref_17
+                    immediate:
+                      - *ref_17
+                  properties:
+                    - !<!Property> 
+                      schema: *ref_18
+                      flattenedNames:
+                        - properties
+                        - displayName
+                      serializedName: displayName
+                      language: !<!Languages> 
+                        default:
+                          name: displayName
+                          description: One-liner string explain this resource.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_19
+                      flattenedNames:
+                        - properties
+                        - description
+                      serializedName: description
+                      language: !<!Languages> 
+                        default:
+                          name: description
+                          description: Multi-line explain this resource.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: !<!ObjectSchema> &ref_34
+                        type: object
+                        apiVersions:
+                          - !<!ApiVersion> 
+                            version: 2018-11-01-preview
+                        children: !<!Relations> 
+                          all:
+                            - !<!ObjectSchema> &ref_35
+                              type: object
+                              apiVersions:
+                                - !<!ApiVersion> 
+                                  version: 2018-11-01-preview
+                              parents: !<!Relations> 
+                                all:
+                                  - *ref_34
+                                immediate:
+                                  - *ref_34
+                              serializationFormats:
+                                - json
+                              usage:
+                                - input
+                                - output
+                              language: !<!Languages> 
+                                default:
+                                  name: BlueprintStatus
+                                  description: The status of the blueprint. This field is readonly.
+                                  namespace: ''
+                              protocol: !<!Protocols> {}
+                          immediate:
+                            - *ref_35
+                        properties:
+                          - !<!Property> 
+                            schema: *ref_36
+                            readOnly: true
+                            serializedName: timeCreated
+                            language: !<!Languages> 
+                              default:
+                                name: timeCreated
+                                description: Creation time of this blueprint definition.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_37
+                            readOnly: true
+                            serializedName: lastModified
+                            language: !<!Languages> 
+                              default:
+                                name: lastModified
+                                description: Last modified time of this blueprint definition.
+                            protocol: !<!Protocols> {}
+                        serializationFormats:
+                          - json
+                        usage:
+                          - input
+                          - output
+                        language: !<!Languages> 
+                          default:
+                            name: BlueprintResourceStatusBase
+                            description: Shared status properties between all blueprint resources.
+                            namespace: ''
+                        protocol: !<!Protocols> {}
+                      flattenedNames:
+                        - properties
+                        - status
+                      readOnly: true
+                      serializedName: status
+                      language: !<!Languages> 
+                        default:
+                          name: status
+                          description: Status of the blueprint. This field is readonly.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_38
+                      flattenedNames:
+                        - properties
+                        - targetScope
+                      serializedName: targetScope
+                      language: !<!Languages> 
+                        default:
+                          name: targetScope
+                          description: The scope where this blueprint definition can be assigned.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_39
+                      flattenedNames:
+                        - properties
+                        - parameters
+                      serializedName: parameters
+                      language: !<!Languages> 
+                        default:
+                          name: parameters
+                          description: Parameters required by this blueprint definition.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_40
+                      flattenedNames:
+                        - properties
+                        - resourceGroups
+                      serializedName: resourceGroups
+                      language: !<!Languages> 
+                        default:
+                          name: resourceGroups
+                          description: Resource group placeholders defined by this blueprint definition.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_41
+                      flattenedNames:
+                        - properties
+                        - blueprintName
+                      serializedName: blueprintName
+                      language: !<!Languages> 
+                        default:
+                          name: blueprintName
+                          description: Name of the published blueprint definition.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_42
+                      flattenedNames:
+                        - properties
+                        - changeNotes
+                      serializedName: changeNotes
+                      language: !<!Languages> 
+                        default:
+                          name: changeNotes
+                          description: Version-specific change notes.
+                      protocol: !<!Protocols> {}
+                  serializationFormats:
+                    - json
+                  usage:
+                    - input
+                    - output
+                  language: !<!Languages> 
+                    default:
+                      name: PublishedBlueprint
+                      description: Represents a published blueprint.
+                      namespace: ''
+                  protocol: !<!Protocols> {}
+                - *ref_29
+                - *ref_30
+                - *ref_31
+              immediate:
+                - *ref_15
+                - *ref_16
+                - *ref_43
+            properties:
+              - !<!Property> 
+                schema: *ref_44
+                readOnly: true
+                serializedName: id
+                language: !<!Languages> 
+                  default:
+                    name: id
+                    description: String Id used to locate any resource on Azure.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_45
+                readOnly: true
+                serializedName: type
+                language: !<!Languages> 
+                  default:
+                    name: type
+                    description: Type of this resource.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_46
+                readOnly: true
+                serializedName: name
+                language: !<!Languages> 
+                  default:
+                    name: name
+                    description: Name of this resource.
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - input
+              - output
+            extensions:
+              x-ms-azure-resource: true
+            language: !<!Languages> 
+              default:
+                name: AzureResourceBase
+                description: Common properties for all Azure resources.
+                namespace: ''
+            protocol: !<!Protocols> {}
+        immediate:
+          - *ref_17
+      properties:
+        - !<!Property> 
+          schema: *ref_18
+          flattenedNames:
+            - properties
+            - displayName
+          serializedName: displayName
+          language: !<!Languages> 
+            default:
+              name: displayName
+              description: One-liner string explain this resource.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_19
+          flattenedNames:
+            - properties
+            - description
+          serializedName: description
+          language: !<!Languages> 
+            default:
+              name: description
+              description: Multi-line explain this resource.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_34
+          flattenedNames:
+            - properties
+            - status
+          readOnly: true
+          serializedName: status
+          language: !<!Languages> 
+            default:
+              name: status
+              description: Status of the blueprint. This field is readonly.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_38
+          flattenedNames:
+            - properties
+            - targetScope
+          serializedName: targetScope
+          language: !<!Languages> 
+            default:
+              name: targetScope
+              description: The scope where this blueprint definition can be assigned.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_39
+          flattenedNames:
+            - properties
+            - parameters
+          serializedName: parameters
+          language: !<!Languages> 
+            default:
+              name: parameters
+              description: Parameters required by this blueprint definition.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_40
+          flattenedNames:
+            - properties
+            - resourceGroups
+          serializedName: resourceGroups
+          language: !<!Languages> 
+            default:
+              name: resourceGroups
+              description: Resource group placeholders defined by this blueprint definition.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_2
+          flattenedNames:
+            - properties
+            - versions
+          required: false
+          serializedName: versions
+          language: !<!Languages> 
+            default:
+              name: versions
+              description: Published versions of this blueprint definition.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_2
+          flattenedNames:
+            - properties
+            - layout
+          required: false
+          serializedName: layout
+          language: !<!Languages> 
+            default:
+              name: layout
+              description: Layout view of the blueprint definition for UI reference.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - input
+        - output
+      language: !<!Languages> 
+        default:
+          name: Blueprint
+          description: Represents a Blueprint definition.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> &ref_47
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      parents: !<!Relations> 
+        all:
+          - !<!ObjectSchema> &ref_48
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: 2018-11-01-preview
+            children: !<!Relations> 
+              all:
+                - *ref_47
+                - !<!ObjectSchema> &ref_49
+                  type: object
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: 2018-11-01-preview
+                  parents: !<!Relations> 
+                    all:
+                      - *ref_48
+                      - !<!ObjectSchema> &ref_50
+                        type: object
+                        apiVersions:
+                          - !<!ApiVersion> 
+                            version: 2018-11-01-preview
+                        children: !<!Relations> 
+                          all:
+                            - *ref_48
+                            - *ref_47
+                            - *ref_49
+                            - !<!ObjectSchema> &ref_51
+                              type: object
+                              apiVersions:
+                                - !<!ApiVersion> 
+                                  version: 2018-11-01-preview
+                              parents: !<!Relations> 
+                                all:
+                                  - *ref_50
+                                  - !<!ObjectSchema> &ref_52
+                                    type: object
+                                    apiVersions:
+                                      - !<!ApiVersion> 
+                                        version: 2018-11-01-preview
+                                    children: !<!Relations> 
+                                      all:
+                                        - *ref_51
+                                        - !<!ObjectSchema> &ref_53
+                                          type: object
+                                          apiVersions:
+                                            - !<!ApiVersion> 
+                                              version: 2018-11-01-preview
+                                          parents: !<!Relations> 
+                                            all:
+                                              - *ref_50
+                                              - *ref_52
+                                            immediate:
+                                              - *ref_50
+                                              - *ref_52
+                                          properties:
+                                            - !<!Property> 
+                                              schema: *ref_24
+                                              required: true
+                                              serializedName: roleDefinitionId
+                                              language: !<!Languages> 
+                                                default:
+                                                  name: roleDefinitionId
+                                                  description: Azure resource ID of the RoleDefinition.
+                                              protocol: !<!Protocols> {}
+                                            - !<!Property> 
+                                              schema: *ref_2
+                                              required: true
+                                              serializedName: principalIds
+                                              language: !<!Languages> 
+                                                default:
+                                                  name: principalIds
+                                                  description: Array of user or group identities in Azure Active Directory. The roleDefinition will apply to each identity.
+                                              protocol: !<!Protocols> {}
+                                            - !<!Property> 
+                                              schema: *ref_25
+                                              required: false
+                                              serializedName: resourceGroup
+                                              language: !<!Languages> 
+                                                default:
+                                                  name: resourceGroup
+                                                  description: 'RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.'
+                                              protocol: !<!Protocols> {}
+                                          serializationFormats:
+                                            - json
+                                          usage:
+                                            - input
+                                            - output
+                                          extensions:
+                                            x-ms-flattened: true
+                                          language: !<!Languages> 
+                                            default:
+                                              name: RoleAssignmentArtifactProperties
+                                              description: Properties of a Role assignment blueprint artifact.
+                                              namespace: ''
+                                          protocol: !<!Protocols> {}
+                                        - !<!ObjectSchema> &ref_54
+                                          type: object
+                                          apiVersions:
+                                            - !<!ApiVersion> 
+                                              version: 2018-11-01-preview
+                                          parents: !<!Relations> 
+                                            all:
+                                              - *ref_50
+                                              - *ref_52
+                                            immediate:
+                                              - *ref_50
+                                              - *ref_52
+                                          properties:
+                                            - !<!Property> 
+                                              schema: *ref_26
+                                              required: true
+                                              serializedName: policyDefinitionId
+                                              language: !<!Languages> 
+                                                default:
+                                                  name: policyDefinitionId
+                                                  description: Azure resource ID of the policy definition.
+                                              protocol: !<!Protocols> {}
+                                            - !<!Property> 
+                                              schema: *ref_27
+                                              required: true
+                                              serializedName: parameters
+                                              language: !<!Languages> 
+                                                default:
+                                                  name: parameters
+                                                  description: Parameter values for the policy definition.
+                                              protocol: !<!Protocols> {}
+                                            - !<!Property> 
+                                              schema: *ref_28
+                                              required: false
+                                              serializedName: resourceGroup
+                                              language: !<!Languages> 
+                                                default:
+                                                  name: resourceGroup
+                                                  description: Name of the resource group placeholder to which the policy will be assigned.
+                                              protocol: !<!Protocols> {}
+                                          serializationFormats:
+                                            - json
+                                          usage:
+                                            - input
+                                            - output
+                                          extensions:
+                                            x-ms-flattened: true
+                                          language: !<!Languages> 
+                                            default:
+                                              name: PolicyAssignmentArtifactProperties
+                                              description: Properties of a Policy assignment blueprint artifact.
+                                              namespace: ''
+                                          protocol: !<!Protocols> {}
+                                      immediate:
+                                        - *ref_51
+                                        - *ref_53
+                                        - *ref_54
+                                    properties:
+                                      - !<!Property> 
+                                        schema: *ref_23
+                                        serializedName: dependsOn
+                                        language: !<!Languages> 
+                                          default:
+                                            name: dependsOn
+                                            description: Artifacts which need to be deployed before the specified artifact.
+                                        protocol: !<!Protocols> {}
+                                    serializationFormats:
+                                      - json
+                                    usage:
+                                      - input
+                                      - output
+                                    extensions:
+                                      x-ms-external: true
+                                    language: !<!Languages> 
+                                      default:
+                                        name: ArtifactPropertiesBase
+                                        description: Common properties shared by different artifacts.
+                                        namespace: ''
+                                    protocol: !<!Protocols> {}
+                                immediate:
+                                  - *ref_50
+                                  - *ref_52
+                              properties:
+                                - !<!Property> 
+                                  schema: *ref_2
+                                  required: true
+                                  serializedName: template
+                                  language: !<!Languages> 
+                                    default:
+                                      name: template
+                                      description: The Resource Manager template blueprint artifact body.
+                                  protocol: !<!Protocols> {}
+                                - !<!Property> 
+                                  schema: *ref_21
+                                  required: false
+                                  serializedName: resourceGroup
+                                  language: !<!Languages> 
+                                    default:
+                                      name: resourceGroup
+                                      description: 'If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.'
+                                  protocol: !<!Protocols> {}
+                                - !<!Property> 
+                                  schema: *ref_22
+                                  required: true
+                                  serializedName: parameters
+                                  language: !<!Languages> 
+                                    default:
+                                      name: parameters
+                                      description: Resource Manager template blueprint artifact parameter values.
+                                  protocol: !<!Protocols> {}
+                              serializationFormats:
+                                - json
+                              usage:
+                                - input
+                                - output
+                              extensions:
+                                x-ms-flattened: true
+                              language: !<!Languages> 
+                                default:
+                                  name: TemplateArtifactProperties
+                                  description: Properties of a Resource Manager template blueprint artifact.
+                                  namespace: ''
+                              protocol: !<!Protocols> {}
+                            - *ref_53
+                            - *ref_54
+                          immediate:
+                            - *ref_48
+                            - *ref_51
+                            - *ref_53
+                            - *ref_54
+                        properties:
+                          - !<!Property> 
+                            schema: *ref_18
+                            serializedName: displayName
+                            language: !<!Languages> 
+                              default:
+                                name: displayName
+                                description: One-liner string explain this resource.
+                            protocol: !<!Protocols> {}
+                          - !<!Property> 
+                            schema: *ref_19
+                            serializedName: description
+                            language: !<!Languages> 
+                              default:
+                                name: description
+                                description: Multi-line explain this resource.
+                            protocol: !<!Protocols> {}
+                        serializationFormats:
+                          - json
+                        usage:
+                          - input
+                          - output
+                        extensions:
+                          x-ms-external: true
+                        language: !<!Languages> 
+                          default:
+                            name: BlueprintResourcePropertiesBase
+                            description: Shared properties between all blueprint resources.
+                            namespace: ''
+                        protocol: !<!Protocols> {}
+                    immediate:
+                      - *ref_48
+                  properties:
+                    - !<!Property> 
+                      schema: *ref_41
+                      serializedName: blueprintName
+                      language: !<!Languages> 
+                        default:
+                          name: blueprintName
+                          description: Name of the published blueprint definition.
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_42
+                      serializedName: changeNotes
+                      language: !<!Languages> 
+                        default:
+                          name: changeNotes
+                          description: Version-specific change notes.
+                      protocol: !<!Protocols> {}
+                  serializationFormats:
+                    - json
+                  usage:
+                    - input
+                    - output
+                  extensions:
+                    x-ms-external: true
+                    x-ms-flattened: true
+                  language: !<!Languages> 
+                    default:
+                      name: PublishedBlueprintProperties
+                      description: Schema for published blueprint definition properties.
+                      namespace: ''
+                  protocol: !<!Protocols> {}
+              immediate:
+                - *ref_47
+                - *ref_49
+            parents: !<!Relations> 
+              all:
+                - *ref_50
+              immediate:
+                - *ref_50
+            properties:
+              - !<!Property> 
+                schema: *ref_34
+                readOnly: true
+                serializedName: status
+                language: !<!Languages> 
+                  default:
+                    name: status
+                    description: Status of the blueprint. This field is readonly.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_38
+                serializedName: targetScope
+                language: !<!Languages> 
+                  default:
+                    name: targetScope
+                    description: The scope where this blueprint definition can be assigned.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_39
+                serializedName: parameters
+                language: !<!Languages> 
+                  default:
+                    name: parameters
+                    description: Parameters required by this blueprint definition.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_40
+                serializedName: resourceGroups
+                language: !<!Languages> 
+                  default:
+                    name: resourceGroups
+                    description: Resource group placeholders defined by this blueprint definition.
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - input
+              - output
+            extensions:
+              x-ms-external: true
+            language: !<!Languages> 
+              default:
+                name: SharedBlueprintProperties
+                description: Shared Schema for both blueprintProperties and publishedBlueprintProperties.
+                namespace: ''
+            protocol: !<!Protocols> {}
+          - *ref_50
+        immediate:
+          - *ref_48
+      properties:
+        - !<!Property> 
+          schema: *ref_2
+          required: false
+          serializedName: versions
+          language: !<!Languages> 
+            default:
+              name: versions
+              description: Published versions of this blueprint definition.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_2
+          required: false
+          serializedName: layout
+          language: !<!Languages> 
+            default:
+              name: layout
+              description: Layout view of the blueprint definition for UI reference.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - input
+        - output
+      extensions:
+        x-ms-external: true
+        x-ms-flattened: true
+      language: !<!Languages> 
+        default:
+          name: BlueprintProperties
+          description: Schema for blueprint definition properties.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_48
+    - *ref_34
+    - *ref_55
+    - *ref_56
+    - *ref_50
+    - *ref_17
+    - !<!ObjectSchema> &ref_91
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      properties:
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_60
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '1.0'
+            properties:
+              - !<!Property> 
+                schema: *ref_57
+                readOnly: true
+                serializedName: code
+                language: !<!Languages> 
+                  default:
+                    name: code
+                    description: The error code.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_58
+                readOnly: true
+                serializedName: message
+                language: !<!Languages> 
+                  default:
+                    name: message
+                    description: The error message.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_59
+                readOnly: true
+                serializedName: target
+                language: !<!Languages> 
+                  default:
+                    name: target
+                    description: The error target.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ArraySchema> &ref_77
+                  type: array
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '1.0'
+                  elementType: *ref_60
+                  language: !<!Languages> 
+                    default:
+                      name: ErrorResponseDetails
+                      description: The error details.
+                  protocol: !<!Protocols> {}
+                readOnly: true
+                serializedName: details
+                language: !<!Languages> 
+                  default:
+                    name: details
+                    description: The error details.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ArraySchema> &ref_78
+                  type: array
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '1.0'
+                  elementType: !<!ObjectSchema> &ref_62
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '1.0'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_61
+                        readOnly: true
+                        serializedName: type
+                        language: !<!Languages> 
+                          default:
+                            name: type
+                            description: The additional info type.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_2
+                        readOnly: true
+                        serializedName: info
+                        language: !<!Languages> 
+                          default:
+                            name: info
+                            description: The additional info.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - exception
+                    language: !<!Languages> 
+                      default:
+                        name: ErrorAdditionalInfo
+                        description: The resource management error additional info.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  language: !<!Languages> 
+                    default:
+                      name: ErrorResponseAdditionalInfo
+                      description: The error additional info.
+                  protocol: !<!Protocols> {}
+                readOnly: true
+                serializedName: additionalInfo
+                language: !<!Languages> 
+                  default:
+                    name: additionalInfo
+                    description: The error additional info.
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - exception
+            language: !<!Languages> 
+              default:
+                name: ErrorResponse
+                description: The resource management error response.
+                namespace: ''
+            protocol: !<!Protocols> {}
+          serializedName: error
+          language: !<!Languages> 
+            default:
+              name: error
+              description: The resource management error response.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - exception
+      extensions:
+        x-ms-external: true
+      language: !<!Languages> 
+        default:
+          name: CloudError
+          description: ''
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_60
+    - *ref_62
+    - !<!ObjectSchema> &ref_97
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_79
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: 2018-11-01-preview
+            elementType: *ref_15
+            language: !<!Languages> 
+              default:
+                name: BlueprintListValue
+                description: List of blueprint definitions.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: List of blueprint definitions.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_63
+          readOnly: true
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: Link to the next page of results.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      summary: BlueprintList
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: BlueprintList
+          description: List of blueprint definitions.
+          namespace: ''
+          summary: BlueprintList
+      protocol: !<!Protocols> {}
+    - *ref_16
+    - !<!ObjectSchema> &ref_110
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_80
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: 2018-11-01-preview
+            elementType: *ref_16
+            language: !<!Languages> 
+              default:
+                name: ArtifactListValue
+                description: List of blueprint artifacts.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: List of blueprint artifacts.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_64
+          readOnly: true
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: Link to the next page of results.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: ArtifactList
+          description: List of blueprint artifacts.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_43
+    - *ref_49
+    - !<!ObjectSchema> &ref_123
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_81
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: 2018-11-01-preview
+            elementType: *ref_43
+            language: !<!Languages> 
+              default:
+                name: PublishedBlueprintListValue
+                description: List of published blueprint definitions.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: List of published blueprint definitions.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_65
+          readOnly: true
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: Link to the next page of results.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      summary: BlueprintList
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: PublishedBlueprintList
+          description: List of published blueprint definitions.
+          namespace: ''
+          summary: BlueprintList
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> 
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: 2018-11-01-preview
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_82
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: 2018-11-01-preview
+            elementType: !<!ObjectSchema> &ref_71
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: 2018-11-01-preview
+              properties:
+                - !<!Property> 
+                  schema: *ref_66
+                  serializedName: name
+                  language: !<!Languages> 
+                    default:
+                      name: name
+                      description: 'Operation name, in format of {provider}/{resource}/{operation}'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_72
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: 2018-11-01-preview
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_67
+                        serializedName: provider
+                        language: !<!Languages> 
+                          default:
+                            name: provider
+                            description: 'Resource provider: Microsoft Blueprint.'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_68
+                        serializedName: resource
+                        language: !<!Languages> 
+                          default:
+                            name: resource
+                            description: Resource on which the operation is performed.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_69
+                        serializedName: operation
+                        language: !<!Languages> 
+                          default:
+                            name: operation
+                            description: 'Type of operation: get, read, delete, etc.'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_70
+                        serializedName: description
+                        language: !<!Languages> 
+                          default:
+                            name: description
+                            description: Description of this operation.
+                        protocol: !<!Protocols> {}
+                    extensions:
+                      x-internal-autorest-anonymous-schema:
+                        anonymous: true
+                    language: !<!Languages> 
+                      default:
+                        name: ResourceProviderOperationDisplay
+                        description: Display metadata associated with the operation.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  serializedName: display
+                  language: !<!Languages> 
+                    default:
+                      name: display
+                      description: Display metadata associated with the operation.
+                  protocol: !<!Protocols> {}
+              language: !<!Languages> 
+                default:
+                  name: ResourceProviderOperation
+                  description: Supported operations of this resource provider.
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: ResourceProviderOperationListValue
+                description: List of operations supported by this resource provider.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: List of operations supported by this resource provider.
+          protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: ResourceProviderOperationList
+          description: Results of the request to list operations.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_71
+    - *ref_72
+    - *ref_35
+    - *ref_51
+    - *ref_14
+    - *ref_73
+    - *ref_74
+    - *ref_52
+    - *ref_29
+    - *ref_53
+    - *ref_30
+    - *ref_54
+    - *ref_31
+  arrays:
+    - *ref_75
+    - *ref_76
+    - *ref_77
+    - *ref_78
+    - *ref_79
+    - *ref_80
+    - *ref_81
+    - *ref_82
+    - *ref_23
+globalParameters:
+  - !<!Parameter> &ref_84
+    schema: *ref_0
+    clientDefaultValue: 'https://management.azure.com'
+    implementation: Client
+    origin: 'modelerfour:synthesized/host'
+    required: true
+    extensions:
+      x-ms-skip-url-encoding: true
+    language: !<!Languages> 
+      default:
+        name: $host
+        description: server parameter
+        serializedName: $host
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: uri
+  - !<!Parameter> &ref_85
+    schema: *ref_83
+    implementation: Client
+    origin: 'modelerfour:synthesized/api-version'
+    required: true
+    language: !<!Languages> 
+      default:
+        name: apiVersion
+        description: Api Version
+        serializedName: api-version
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: query
+operationGroups:
+  - !<!OperationGroup> 
+    $key: Blueprints
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_89
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_90
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_86
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_88
+                schema: *ref_15
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: blueprint
+                    description: Blueprint definition.
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_88
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}'
+                method: put
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_89
+          - *ref_90
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_15
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '201'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: CreateOrUpdate
+            description: Create or update a blueprint definition.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_92
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_93
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_92
+          - *ref_93
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_15
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Get a blueprint definition.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_94
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_95
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}'
+                method: delete
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_94
+          - *ref_95
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_15
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Delete
+            description: Delete a blueprint definition.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_96
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_96
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_97
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: List blueprint definitions.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Blueprints
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: Artifacts
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_99
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_100
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_101
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: artifactName
+                description: Name of the blueprint artifact.
+                serializedName: artifactName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_86
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_98
+                schema: *ref_16
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: artifact
+                    description: Blueprint artifact to create or update.
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_98
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/artifacts/{artifactName}'
+                method: put
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_99
+          - *ref_100
+          - *ref_101
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_16
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '201'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: CreateOrUpdate
+            description: Create or update blueprint artifact.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_102
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_103
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_104
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: artifactName
+                description: Name of the blueprint artifact.
+                serializedName: artifactName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/artifacts/{artifactName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_102
+          - *ref_103
+          - *ref_104
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_16
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Get a blueprint artifact.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_105
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_106
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_107
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: artifactName
+                description: Name of the blueprint artifact.
+                serializedName: artifactName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/artifacts/{artifactName}'
+                method: delete
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_105
+          - *ref_106
+          - *ref_107
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_16
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Delete
+            description: Delete a blueprint artifact.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_108
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_109
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/artifacts'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_108
+          - *ref_109
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_110
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: List artifacts for a given blueprint definition.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Artifacts
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: PublishedBlueprints
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_112
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_113
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_114
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: versionId
+                description: Version of the published blueprint definition.
+                serializedName: versionId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_86
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_111
+                schema: *ref_43
+                implementation: Method
+                required: false
+                language: !<!Languages> 
+                  default:
+                    name: publishedBlueprint
+                    description: Published Blueprint to create or update.
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_111
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId}'
+                method: put
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_112
+          - *ref_113
+          - *ref_114
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_43
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '201'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Create
+            description: Publish a new version of the blueprint definition with the latest artifacts. Published blueprint definitions are immutable.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_115
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_116
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_117
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: versionId
+                description: Version of the published blueprint definition.
+                serializedName: versionId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_115
+          - *ref_116
+          - *ref_117
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_43
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Get a published version of a blueprint definition.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_118
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_119
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_120
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: versionId
+                description: Version of the published blueprint definition.
+                serializedName: versionId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId}'
+                method: delete
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_118
+          - *ref_119
+          - *ref_120
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_43
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Delete
+            description: Delete a published version of a blueprint definition.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_121
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_122
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_121
+          - *ref_122
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_123
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: List published versions of given blueprint definition.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: PublishedBlueprints
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: PublishedArtifacts
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_124
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_125
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_126
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: versionId
+                description: Version of the published blueprint definition.
+                serializedName: versionId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_127
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: artifactName
+                description: Name of the blueprint artifact.
+                serializedName: artifactName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId}/artifacts/{artifactName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_124
+          - *ref_125
+          - *ref_126
+          - *ref_127
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_16
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Get an artifact for a published blueprint definition.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: 2018-11-01-preview
+        parameters:
+          - *ref_84
+          - *ref_85
+          - !<!Parameter> &ref_128
+            schema: *ref_6
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceScope
+                description: 'The scope of the resource. Valid scopes are: management group (format: ''/providers/Microsoft.Management/managementGroups/{managementGroup}''), subscription (format: ''/subscriptions/{subscriptionId}'').'
+                serializedName: resourceScope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_129
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: blueprintName
+                description: Name of the blueprint definition.
+                serializedName: blueprintName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_130
+            schema: *ref_6
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: versionId
+                description: Version of the published blueprint definition.
+                serializedName: versionId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_87
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId}/artifacts'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_128
+          - *ref_129
+          - *ref_130
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_110
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: List artifacts for a version of a published blueprint definition.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: PublishedArtifacts
+        description: ''
+    protocol: !<!Protocols> {}
+security: !<!Security> 
+  authenticationRequired: true
+language: !<!Languages> 
+  default:
+    name: BlueprintClient
+    description: ''
+protocol: !<!Protocols> 
+  http: !<!HttpModel> {}

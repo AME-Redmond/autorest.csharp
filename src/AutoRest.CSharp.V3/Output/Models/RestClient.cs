@@ -328,6 +328,11 @@ namespace AutoRest.CSharp.V3.Output.Models
                 body
             );
 
+            PathSegment[] segs = GetPathSegments(httpRequest.Path);
+
+            request.segments = segs;
+            request.plainTextSegment = httpRequest.Path;
+
             string operationName = operation.CSharpName();
 
             List<Response> clientResponse = new List<Response>();
@@ -394,6 +399,42 @@ namespace AutoRest.CSharp.V3.Output.Models
             }
         }
 
+        private static PathSegment[] GetPathSegments(string httpRequestUri)
+        {
+            List<PathSegment> seg = new List<PathSegment>();
+            string canidate = "";
+
+            foreach (var ch in httpRequestUri)
+            {
+                if (ch == '{')
+                {
+                    if (canidate != "" && canidate != "/")
+                    {
+                        {
+                            seg.Add(new PathSegment(new ReferenceOrConstant(new Constant(canidate, new CSharpType(typeof(string)))), false, SerializationFormat.Default));
+                        }
+                    }
+                    canidate = "";
+                }
+                else if (ch == '}')
+                {
+                    if (canidate != "")
+                    {
+                        seg.Add(new PathSegment(new ReferenceOrConstant(new Reference(canidate, new CSharpType(typeof(string)))), false, SerializationFormat.Default));
+                    }
+                    canidate = "";
+                }
+                else
+                {
+                    canidate += ch;
+                }
+            }
+            if (canidate != "")
+            {
+                seg.Add(new PathSegment(new ReferenceOrConstant(new Constant(canidate, new CSharpType(typeof(string)))), false, SerializationFormat.Default));
+            }
+            return seg.ToArray();
+        }
         private static IEnumerable<PathSegment> GetPathSegments(string httpRequestUri, Dictionary<string, PathSegment> parameters, bool isRaw = false)
         {
             PathSegment TextSegment(string text)
