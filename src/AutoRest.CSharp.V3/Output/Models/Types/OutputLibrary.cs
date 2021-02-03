@@ -312,7 +312,7 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
             //pseudo code based on comment from mark:
             //      I had asked the RM folks if Extensions could be limited by target resource type, and the answer was unequivocally no.  
             // check if find the following:
-            //      has : {scope}/ (although blueprint may be a counter example)
+            //      has : {scope}/ (although blueprint may be a counter example? Although pretty sure it is one)
             //      or
             //      or has a provider/miscrosoft.{rp}/{resourceName} with the following parents in the URI of some operation
             //      a resource group
@@ -361,8 +361,8 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                 }
                 hasSpecialScope = !hasSpecialScope ? (segments[j].Length > 0 ? (segments[j].First().Value.IsConstant ? false : true) : false) : true;
             }
-
-            return (fullProviderAfterAbProvider && attachedToRg && attachedToSubscription && tenant) || hasSpecialScope;
+            Console.WriteLine("had tenant " + tenant);
+            return (fullProviderAfterAbProvider && attachedToRg && attachedToSubscription) || hasSpecialScope;
         }
 
         private string PrintParent(Dictionary<string, string> hier, string key)
