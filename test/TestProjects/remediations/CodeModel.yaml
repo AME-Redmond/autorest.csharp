@@ -3295,7 +3295,7 @@ operationGroups:
             version: '2019-07-01'
         parameters:
           - *ref_46
-          - !<!Parameter> &ref_107
+          - !<!Parameter> &ref_106
             schema: *ref_3
             implementation: Method
             required: true
@@ -3309,7 +3309,214 @@ operationGroups:
             protocol: !<!Protocols> 
               http: !<!HttpParameter> 
                 in: path
+          - !<!Parameter> &ref_107
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: remediationName
+                description: The name of the remediation.
+                serializedName: remediationName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_49
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_50
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceId}/providers/Microsoft.PolicyInsights/VMimage/{remediationName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_106
+          - *ref_107
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_38
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_55
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: GetAtResource
+            description: Gets an existing remediation at resource scope.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-07-01'
+        parameters:
+          - *ref_46
           - !<!Parameter> &ref_108
+            schema: *ref_3
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceId
+                description: Resource ID.
+                serializedName: resourceId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_109
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: remediationName
+                description: The name of the remediation.
+                serializedName: remediationName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_49
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_50
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceId}/providers/Microsoft.PolicyInsights/VMimage/{remediationName}'
+                method: delete
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_108
+          - *ref_109
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_38
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_55
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: DeleteAtResource
+            description: Deletes an existing remediation at individual resource scope.
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Remediations
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: VirtualImage
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2019-07-01'
+        parameters:
+          - *ref_46
+          - !<!Parameter> &ref_111
+            schema: *ref_3
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceId
+                description: Resource ID.
+                serializedName: resourceId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_112
             schema: *ref_3
             implementation: Method
             required: true
@@ -3338,7 +3545,7 @@ operationGroups:
                 protocol: !<!Protocols> 
                   http: !<!HttpParameter> 
                     in: header
-              - !<!Parameter> &ref_106
+              - !<!Parameter> &ref_110
                 schema: *ref_38
                 implementation: Method
                 required: true
@@ -3364,22 +3571,22 @@ operationGroups:
                   http: !<!HttpParameter> 
                     in: header
             signatureParameters:
-              - *ref_106
+              - *ref_110
             language: !<!Languages> 
               default:
                 name: ''
                 description: ''
             protocol: !<!Protocols> 
               http: !<!HttpWithBodyRequest> 
-                path: '/{resourceId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}'
+                path: '/{resourceId}/providers/Microsoft.PolicyInsights/VMimage/{remediationName}'
                 method: put
                 knownMediaType: json
                 mediaTypes:
                   - application/json
                 uri: '{$host}'
         signatureParameters:
-          - *ref_107
-          - *ref_108
+          - *ref_111
+          - *ref_112
         responses:
           - !<!SchemaResponse> 
             schema: *ref_38
@@ -3426,208 +3633,9 @@ operationGroups:
             name: CreateOrUpdateAtResource
             description: Creates or updates a remediation at resource scope.
         protocol: !<!Protocols> {}
-      - !<!Operation> 
-        apiVersions:
-          - !<!ApiVersion> 
-            version: '2019-07-01'
-        parameters:
-          - *ref_46
-          - !<!Parameter> &ref_109
-            schema: *ref_3
-            implementation: Method
-            required: true
-            extensions:
-              x-ms-skip-url-encoding: true
-            language: !<!Languages> 
-              default:
-                name: resourceId
-                description: Resource ID.
-                serializedName: resourceId
-            protocol: !<!Protocols> 
-              http: !<!HttpParameter> 
-                in: path
-          - !<!Parameter> &ref_110
-            schema: *ref_3
-            implementation: Method
-            required: true
-            language: !<!Languages> 
-              default:
-                name: remediationName
-                description: The name of the remediation.
-                serializedName: remediationName
-            protocol: !<!Protocols> 
-              http: !<!HttpParameter> 
-                in: path
-          - *ref_49
-        requests:
-          - !<!Request> 
-            parameters:
-              - !<!Parameter> 
-                schema: *ref_50
-                implementation: Method
-                origin: 'modelerfour:synthesized/accept'
-                required: true
-                language: !<!Languages> 
-                  default:
-                    name: accept
-                    description: Accept header
-                    serializedName: Accept
-                protocol: !<!Protocols> 
-                  http: !<!HttpParameter> 
-                    in: header
-            signatureParameters: []
-            language: !<!Languages> 
-              default:
-                name: ''
-                description: ''
-            protocol: !<!Protocols> 
-              http: !<!HttpRequest> 
-                path: '/{resourceId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}'
-                method: get
-                uri: '{$host}'
-        signatureParameters:
-          - *ref_109
-          - *ref_110
-        responses:
-          - !<!SchemaResponse> 
-            schema: *ref_38
-            language: !<!Languages> 
-              default:
-                name: ''
-                description: ''
-            protocol: !<!Protocols> 
-              http: !<!HttpResponse> 
-                knownMediaType: json
-                mediaTypes:
-                  - application/json
-                statusCodes:
-                  - '200'
-        exceptions:
-          - !<!SchemaResponse> 
-            schema: *ref_55
-            language: !<!Languages> 
-              default:
-                name: ''
-                description: ''
-            protocol: !<!Protocols> 
-              http: !<!HttpResponse> 
-                knownMediaType: json
-                mediaTypes:
-                  - application/json
-                statusCodes:
-                  - default
-        language: !<!Languages> 
-          default:
-            name: GetAtResource
-            description: Gets an existing remediation at resource scope.
-        protocol: !<!Protocols> {}
-      - !<!Operation> 
-        apiVersions:
-          - !<!ApiVersion> 
-            version: '2019-07-01'
-        parameters:
-          - *ref_46
-          - !<!Parameter> &ref_111
-            schema: *ref_3
-            implementation: Method
-            required: true
-            extensions:
-              x-ms-skip-url-encoding: true
-            language: !<!Languages> 
-              default:
-                name: resourceId
-                description: Resource ID.
-                serializedName: resourceId
-            protocol: !<!Protocols> 
-              http: !<!HttpParameter> 
-                in: path
-          - !<!Parameter> &ref_112
-            schema: *ref_3
-            implementation: Method
-            required: true
-            language: !<!Languages> 
-              default:
-                name: remediationName
-                description: The name of the remediation.
-                serializedName: remediationName
-            protocol: !<!Protocols> 
-              http: !<!HttpParameter> 
-                in: path
-          - *ref_49
-        requests:
-          - !<!Request> 
-            parameters:
-              - !<!Parameter> 
-                schema: *ref_50
-                implementation: Method
-                origin: 'modelerfour:synthesized/accept'
-                required: true
-                language: !<!Languages> 
-                  default:
-                    name: accept
-                    description: Accept header
-                    serializedName: Accept
-                protocol: !<!Protocols> 
-                  http: !<!HttpParameter> 
-                    in: header
-            signatureParameters: []
-            language: !<!Languages> 
-              default:
-                name: ''
-                description: ''
-            protocol: !<!Protocols> 
-              http: !<!HttpRequest> 
-                path: '/{resourceId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}'
-                method: delete
-                uri: '{$host}'
-        signatureParameters:
-          - *ref_111
-          - *ref_112
-        responses:
-          - !<!SchemaResponse> 
-            schema: *ref_38
-            language: !<!Languages> 
-              default:
-                name: ''
-                description: ''
-            protocol: !<!Protocols> 
-              http: !<!HttpResponse> 
-                knownMediaType: json
-                mediaTypes:
-                  - application/json
-                statusCodes:
-                  - '200'
-          - !<!Response> 
-            language: !<!Languages> 
-              default:
-                name: ''
-                description: ''
-            protocol: !<!Protocols> 
-              http: !<!HttpResponse> 
-                statusCodes:
-                  - '204'
-        exceptions:
-          - !<!SchemaResponse> 
-            schema: *ref_55
-            language: !<!Languages> 
-              default:
-                name: ''
-                description: ''
-            protocol: !<!Protocols> 
-              http: !<!HttpResponse> 
-                knownMediaType: json
-                mediaTypes:
-                  - application/json
-                statusCodes:
-                  - default
-        language: !<!Languages> 
-          default:
-            name: DeleteAtResource
-            description: Deletes an existing remediation at individual resource scope.
-        protocol: !<!Protocols> {}
     language: !<!Languages> 
       default:
-        name: Remediations
+        name: VirtualImage
         description: ''
     protocol: !<!Protocols> {}
 security: !<!Security> 

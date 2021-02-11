@@ -1,0 +1,2494 @@
+!<!CodeModel> 
+info: !<!Info> 
+  description: API spec for Microsoft.Security (Azure Security Center) alerts resource provider
+  title: Security Center
+schemas: !<!Schemas> 
+  booleans:
+    - !<!BooleanSchema> &ref_37
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: This field determines whether the alert is an incident (a compound grouping of several alerts) or a single alert.
+      protocol: !<!Protocols> {}
+  strings:
+    - !<!StringSchema> &ref_0
+      type: string
+      language: !<!Languages> 
+        default:
+          name: String
+          description: simple string
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_56
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      pattern: '^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_8
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesAlertType
+          description: Unique identifier for the detection logic (all alert instances from the same detection logic will have the same alertType).
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_9
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesSystemAlertId
+          description: Unique identifier for the alert.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_10
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesProductComponentName
+          description: 'The name of Azure Security Center pricing tier which powering this alert. Learn more: https://docs.microsoft.com/en-us/azure/security-center/security-center-pricing'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_11
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesAlertDisplayName
+          description: The display name of the alert.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_12
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesDescription
+          description: Description of the suspicious activity that was detected.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_27
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesRemediationStepsItem
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_28
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesVendorName
+          description: The name of the vendor that raises the alert.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_1
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_31
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesAlertUri
+          description: A direct link to the alert page in Azure Portal.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_33
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesProductName
+          description: 'The name of the product which published this alert (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS, and so on).'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_36
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertEntityType
+          description: Type of entity
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_38
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesCorrelationKey
+          description: Key for corelating related alerts. Alerts with the same correlation key considered to be related.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_40
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesCompromisedEntity
+          description: The display name of the resource most related to this alert.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_4
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ResourceId
+          description: Resource Id
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_5
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ResourceName
+          description: Resource name
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_6
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ResourceType
+          description: Resource type
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_41
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertListNextLink
+          description: The URI to fetch the next page.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_43
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyCode
+          description: The error code.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_44
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyMessage
+          description: The error message.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_45
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyTarget
+          description: The error target.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_47
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ErrorAdditionalInfoType
+          description: The additional info type.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_65
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      maxLength: 90
+      minLength: 1
+      pattern: '^[-\w\._\(\)]+$'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_57
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_18
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AzureResourceIdentifierAzureResourceId
+          description: ARM resource identifier for the cloud resource being alerted on
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_19
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: LogAnalyticsIdentifierWorkspaceId
+          description: The LogAnalytics workspace id that stores this alert.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_20
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      pattern: '^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$'
+      language: !<!Languages> 
+        default:
+          name: LogAnalyticsIdentifierWorkspaceSubscriptionId
+          description: The azure subscription id for the LogAnalytics workspace storing this alert.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_21
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: LogAnalyticsIdentifierWorkspaceResourceGroup
+          description: The azure resource group for the LogAnalytics workspace storing this alert
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_22
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: LogAnalyticsIdentifierAgentId
+          description: (optional) The LogAnalytics agent id reporting the event that this alert is based on.
+      protocol: !<!Protocols> {}
+  choices:
+    - !<!ChoiceSchema> &ref_13
+      choices:
+        - !<!ChoiceValue> 
+          value: Informational
+          language:
+            default:
+              name: Informational
+              description: Informational
+        - !<!ChoiceValue> 
+          value: Low
+          language:
+            default:
+              name: Low
+              description: Low
+        - !<!ChoiceValue> 
+          value: Medium
+          language:
+            default:
+              name: Medium
+              description: Medium
+        - !<!ChoiceValue> 
+          value: High
+          language:
+            default:
+              name: High
+              description: High
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: AlertSeverity
+          description: 'The risk level of the threat that was detected. Learn more: https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-overview#how-are-alerts-classified.'
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_14
+      choices:
+        - !<!ChoiceValue> 
+          value: Unknown
+          language:
+            default:
+              name: Unknown
+              description: Unknown
+        - !<!ChoiceValue> 
+          value: PreAttack
+          language:
+            default:
+              name: PreAttack
+              description: >-
+                PreAttack could be either an attempt to access a certain resource regardless of a malicious intent, or a failed attempt to gain access to a target system to gather information prior to exploitation. This step is usually
+                detected as an attempt, originating from outside the network, to scan the target system and find a way in.  Further details on the PreAttack stage can be read in [MITRE Pre-Att&ck
+                matrix](https://attack.mitre.org/matrices/pre/).
+        - !<!ChoiceValue> 
+          value: InitialAccess
+          language:
+            default:
+              name: InitialAccess
+              description: InitialAccess is the stage where an attacker manages to get foothold on the attacked resource.
+        - !<!ChoiceValue> 
+          value: Persistence
+          language:
+            default:
+              name: Persistence
+              description: 'Persistence is any access, action, or configuration change to a system that gives a threat actor a persistent presence on that system.'
+        - !<!ChoiceValue> 
+          value: PrivilegeEscalation
+          language:
+            default:
+              name: PrivilegeEscalation
+              description: Privilege escalation is the result of actions that allow an adversary to obtain a higher level of permissions on a system or network.
+        - !<!ChoiceValue> 
+          value: DefenseEvasion
+          language:
+            default:
+              name: DefenseEvasion
+              description: Defense evasion consists of techniques an adversary may use to evade detection or avoid other defenses.
+        - !<!ChoiceValue> 
+          value: CredentialAccess
+          language:
+            default:
+              name: CredentialAccess
+              description: 'Credential access represents techniques resulting in access to or control over system, domain, or service credentials that are used within an enterprise environment.'
+        - !<!ChoiceValue> 
+          value: Discovery
+          language:
+            default:
+              name: Discovery
+              description: Discovery consists of techniques that allow the adversary to gain knowledge about the system and internal network.
+        - !<!ChoiceValue> 
+          value: LateralMovement
+          language:
+            default:
+              name: LateralMovement
+              description: 'Lateral movement consists of techniques that enable an adversary to access and control remote systems on a network and could, but does not necessarily, include execution of tools on remote systems.'
+        - !<!ChoiceValue> 
+          value: Execution
+          language:
+            default:
+              name: Execution
+              description: The execution tactic represents techniques that result in execution of adversary-controlled code on a local or remote system.
+        - !<!ChoiceValue> 
+          value: Collection
+          language:
+            default:
+              name: Collection
+              description: 'Collection consists of techniques used to identify and gather information, such as sensitive files, from a target network prior to exfiltration.'
+        - !<!ChoiceValue> 
+          value: Exfiltration
+          language:
+            default:
+              name: Exfiltration
+              description: Exfiltration refers to techniques and attributes that result or aid in the adversary removing files and information from a target network.
+        - !<!ChoiceValue> 
+          value: CommandAndControl
+          language:
+            default:
+              name: CommandAndControl
+              description: The command and control tactic represents how adversaries communicate with systems under their control within a target network.
+        - !<!ChoiceValue> 
+          value: Impact
+          language:
+            default:
+              name: Impact
+              description: 'Impact events primarily try to directly reduce the availability or integrity of a system, service, or network; including manipulation of data to impact a business or operational process.'
+        - !<!ChoiceValue> 
+          value: Probing
+          language:
+            default:
+              name: Probing
+              description: 'Probing could be either an attempt to access a certain resource regardless of a malicious intent, or a failed attempt to gain access to a target system to gather information prior to exploitation.'
+        - !<!ChoiceValue> 
+          value: Exploitation
+          language:
+            default:
+              name: Exploitation
+              description: 'Exploitation is the stage where an attacker manages to get a foothold on the attacked resource. This stage is relevant for compute hosts and resources such as user accounts, certificates etc.'
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Intent
+          description: 'The kill chain related intent behind the alert. For list of supported values, and explanations of Azure Security Center''s supported kill chain intents.'
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_25
+      choices:
+        - !<!ChoiceValue> 
+          value: AzureResource
+          language:
+            default:
+              name: AzureResource
+              description: ''
+        - !<!ChoiceValue> 
+          value: LogAnalytics
+          language:
+            default:
+              name: LogAnalytics
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ResourceIdentifierType
+          description: 'There can be multiple identifiers of different type per alert, this field specify the identifier type.'
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_29
+      choices:
+        - !<!ChoiceValue> 
+          value: Active
+          language:
+            default:
+              name: Active
+              description: An alert which doesn't specify a value is assigned the status 'Active'
+        - !<!ChoiceValue> 
+          value: Resolved
+          language:
+            default:
+              name: Resolved
+              description: Alert closed after handling
+        - !<!ChoiceValue> 
+          value: Dismissed
+          language:
+            default:
+              name: Dismissed
+              description: Alert dismissed as false positive
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: AlertStatus
+          description: The life cycle status of the alert.
+      protocol: !<!Protocols> {}
+  constants:
+    - !<!ConstantSchema> &ref_58
+      type: constant
+      value: !<!ConstantValue> 
+        value: '2020-01-01'
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApiVersion202001
+          description: Api Version (2020-01-01)
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_62
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Accept
+          description: 'Accept: application/json'
+      protocol: !<!Protocols> {}
+  dictionaries:
+    - !<!DictionarySchema> &ref_30
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: AlertExtendedLinks
+          description: Links related to the alert
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_35
+      type: dictionary
+      elementType: !<!AnySchema> &ref_2
+        type: any
+        language: !<!Languages> 
+          default:
+            name: any
+            description: Any object
+        protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: AlertEntity
+          description: Changing set of properties depending on the entity type.
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_39
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: AlertExtendedProperties
+          description: Custom properties for the alert.
+      protocol: !<!Protocols> {}
+  any:
+    - *ref_2
+  dateTimes:
+    - !<!DateTimeSchema> &ref_15
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesStartTimeUtc
+          description: The UTC time of the first event or activity included in the alert in ISO8601 format.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_16
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesEndTimeUtc
+          description: The UTC time of the last event or activity included in the alert in ISO8601 format.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_32
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesTimeGeneratedUtc
+          description: The UTC time the alert was generated in ISO8601 format.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_34
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AlertPropertiesProcessingEndTimeUtc
+          description: The UTC processing end time of the alert in ISO8601 format.
+      protocol: !<!Protocols> {}
+  objects:
+    - !<!ObjectSchema> &ref_63
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_55
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2020-01-01'
+            elementType: !<!ObjectSchema> &ref_3
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2020-01-01'
+              parents: !<!Relations> 
+                all:
+                  - !<!ObjectSchema> &ref_7
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '1.0'
+                    children: !<!Relations> 
+                      all:
+                        - *ref_3
+                      immediate:
+                        - *ref_3
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_4
+                        readOnly: true
+                        serializedName: id
+                        language: !<!Languages> 
+                          default:
+                            name: id
+                            description: Resource Id
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_5
+                        readOnly: true
+                        serializedName: name
+                        language: !<!Languages> 
+                          default:
+                            name: name
+                            description: Resource name
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_6
+                        readOnly: true
+                        serializedName: type
+                        language: !<!Languages> 
+                          default:
+                            name: type
+                            description: Resource type
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                    extensions:
+                      x-ms-azure-resource: true
+                    language: !<!Languages> 
+                      default:
+                        name: Resource
+                        description: Describes an Azure resource.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                immediate:
+                  - *ref_7
+              properties:
+                - !<!Property> 
+                  schema: *ref_8
+                  flattenedNames:
+                    - properties
+                    - alertType
+                  readOnly: true
+                  serializedName: alertType
+                  language: !<!Languages> 
+                    default:
+                      name: alertType
+                      description: Unique identifier for the detection logic (all alert instances from the same detection logic will have the same alertType).
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_9
+                  flattenedNames:
+                    - properties
+                    - systemAlertId
+                  readOnly: true
+                  serializedName: systemAlertId
+                  language: !<!Languages> 
+                    default:
+                      name: systemAlertId
+                      description: Unique identifier for the alert.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_10
+                  flattenedNames:
+                    - properties
+                    - productComponentName
+                  readOnly: true
+                  serializedName: productComponentName
+                  language: !<!Languages> 
+                    default:
+                      name: productComponentName
+                      description: 'The name of Azure Security Center pricing tier which powering this alert. Learn more: https://docs.microsoft.com/en-us/azure/security-center/security-center-pricing'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_11
+                  flattenedNames:
+                    - properties
+                    - alertDisplayName
+                  readOnly: true
+                  serializedName: alertDisplayName
+                  language: !<!Languages> 
+                    default:
+                      name: alertDisplayName
+                      description: The display name of the alert.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_12
+                  flattenedNames:
+                    - properties
+                    - description
+                  readOnly: true
+                  serializedName: description
+                  language: !<!Languages> 
+                    default:
+                      name: description
+                      description: Description of the suspicious activity that was detected.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_13
+                  flattenedNames:
+                    - properties
+                    - severity
+                  readOnly: true
+                  serializedName: severity
+                  language: !<!Languages> 
+                    default:
+                      name: severity
+                      description: 'The risk level of the threat that was detected. Learn more: https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-overview#how-are-alerts-classified.'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_14
+                  flattenedNames:
+                    - properties
+                    - intent
+                  readOnly: true
+                  serializedName: intent
+                  language: !<!Languages> 
+                    default:
+                      name: intent
+                      description: 'The kill chain related intent behind the alert. For list of supported values, and explanations of Azure Security Center''s supported kill chain intents.'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_15
+                  flattenedNames:
+                    - properties
+                    - startTimeUtc
+                  readOnly: true
+                  serializedName: startTimeUtc
+                  language: !<!Languages> 
+                    default:
+                      name: startTimeUtc
+                      description: The UTC time of the first event or activity included in the alert in ISO8601 format.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_16
+                  flattenedNames:
+                    - properties
+                    - endTimeUtc
+                  readOnly: true
+                  serializedName: endTimeUtc
+                  language: !<!Languages> 
+                    default:
+                      name: endTimeUtc
+                      description: The UTC time of the last event or activity included in the alert in ISO8601 format.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_51
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2020-01-01'
+                    elementType: !<!ObjectSchema> &ref_17
+                      type: object
+                      apiVersions:
+                        - !<!ApiVersion> 
+                          version: '2020-01-01'
+                      children: !<!Relations> 
+                        all:
+                          - !<!ObjectSchema> &ref_23
+                            type: object
+                            apiVersions:
+                              - !<!ApiVersion> 
+                                version: '2020-01-01'
+                            discriminatorValue: AzureResource
+                            parents: !<!Relations> 
+                              all:
+                                - *ref_17
+                              immediate:
+                                - *ref_17
+                            properties:
+                              - !<!Property> 
+                                schema: *ref_18
+                                readOnly: true
+                                serializedName: azureResourceId
+                                language: !<!Languages> 
+                                  default:
+                                    name: azureResourceId
+                                    description: ARM resource identifier for the cloud resource being alerted on
+                                protocol: !<!Protocols> {}
+                            serializationFormats:
+                              - json
+                            usage:
+                              - output
+                            extensions:
+                              x-ms-discriminator-value: AzureResource
+                            language: !<!Languages> 
+                              default:
+                                name: AzureResourceIdentifier
+                                description: Azure resource identifier.
+                                namespace: ''
+                            protocol: !<!Protocols> {}
+                          - !<!ObjectSchema> &ref_24
+                            type: object
+                            apiVersions:
+                              - !<!ApiVersion> 
+                                version: '2020-01-01'
+                            discriminatorValue: LogAnalytics
+                            parents: !<!Relations> 
+                              all:
+                                - *ref_17
+                              immediate:
+                                - *ref_17
+                            properties:
+                              - !<!Property> 
+                                schema: *ref_19
+                                readOnly: true
+                                serializedName: workspaceId
+                                language: !<!Languages> 
+                                  default:
+                                    name: workspaceId
+                                    description: The LogAnalytics workspace id that stores this alert.
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: *ref_20
+                                readOnly: true
+                                serializedName: workspaceSubscriptionId
+                                language: !<!Languages> 
+                                  default:
+                                    name: workspaceSubscriptionId
+                                    description: The azure subscription id for the LogAnalytics workspace storing this alert.
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: *ref_21
+                                readOnly: true
+                                serializedName: workspaceResourceGroup
+                                language: !<!Languages> 
+                                  default:
+                                    name: workspaceResourceGroup
+                                    description: The azure resource group for the LogAnalytics workspace storing this alert
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: *ref_22
+                                readOnly: true
+                                serializedName: agentId
+                                language: !<!Languages> 
+                                  default:
+                                    name: agentId
+                                    description: (optional) The LogAnalytics agent id reporting the event that this alert is based on.
+                                protocol: !<!Protocols> {}
+                            serializationFormats:
+                              - json
+                            usage:
+                              - output
+                            extensions:
+                              x-ms-discriminator-value: LogAnalytics
+                            language: !<!Languages> 
+                              default:
+                                name: LogAnalyticsIdentifier
+                                description: Represents a Log Analytics workspace scope identifier.
+                                namespace: ''
+                            protocol: !<!Protocols> {}
+                        immediate:
+                          - *ref_23
+                          - *ref_24
+                      discriminator: !<!Discriminator> 
+                        all:
+                          AzureResource: *ref_23
+                          LogAnalytics: *ref_24
+                        immediate:
+                          AzureResource: *ref_23
+                          LogAnalytics: *ref_24
+                        property: !<!Property> &ref_26
+                          schema: *ref_25
+                          isDiscriminator: true
+                          required: true
+                          serializedName: type
+                          language: !<!Languages> 
+                            default:
+                              name: type
+                              description: 'There can be multiple identifiers of different type per alert, this field specify the identifier type.'
+                          protocol: !<!Protocols> {}
+                      properties:
+                        - *ref_26
+                      serializationFormats:
+                        - json
+                      usage:
+                        - output
+                      language: !<!Languages> 
+                        default:
+                          name: ResourceIdentifier
+                          description: 'A resource identifier for an alert which can be used to direct the alert to the right product exposure group (tenant, workspace, subscription etc.).'
+                          namespace: ''
+                      protocol: !<!Protocols> {}
+                    language: !<!Languages> 
+                      default:
+                        name: AlertPropertiesResourceIdentifiers
+                        description: 'The resource identifiers that can be used to direct the alert to the right product exposure group (tenant, workspace, subscription etc.). There can be multiple identifiers of different type per alert.'
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - resourceIdentifiers
+                  readOnly: true
+                  serializedName: resourceIdentifiers
+                  language: !<!Languages> 
+                    default:
+                      name: resourceIdentifiers
+                      description: 'The resource identifiers that can be used to direct the alert to the right product exposure group (tenant, workspace, subscription etc.). There can be multiple identifiers of different type per alert.'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_52
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2020-01-01'
+                    elementType: *ref_27
+                    language: !<!Languages> 
+                      default:
+                        name: AlertPropertiesRemediationSteps
+                        description: Manual action items to take to remediate the alert.
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - remediationSteps
+                  readOnly: true
+                  serializedName: remediationSteps
+                  language: !<!Languages> 
+                    default:
+                      name: remediationSteps
+                      description: Manual action items to take to remediate the alert.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_28
+                  flattenedNames:
+                    - properties
+                    - vendorName
+                  readOnly: true
+                  serializedName: vendorName
+                  language: !<!Languages> 
+                    default:
+                      name: vendorName
+                      description: The name of the vendor that raises the alert.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_29
+                  flattenedNames:
+                    - properties
+                    - status
+                  readOnly: true
+                  serializedName: status
+                  language: !<!Languages> 
+                    default:
+                      name: status
+                      description: The life cycle status of the alert.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_53
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2020-01-01'
+                    elementType: *ref_30
+                    language: !<!Languages> 
+                      default:
+                        name: AlertPropertiesExtendedLinks
+                        description: Links related to the alert
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - extendedLinks
+                  readOnly: true
+                  serializedName: extendedLinks
+                  language: !<!Languages> 
+                    default:
+                      name: extendedLinks
+                      description: Links related to the alert
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_31
+                  flattenedNames:
+                    - properties
+                    - alertUri
+                  readOnly: true
+                  serializedName: alertUri
+                  language: !<!Languages> 
+                    default:
+                      name: alertUri
+                      description: A direct link to the alert page in Azure Portal.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_32
+                  flattenedNames:
+                    - properties
+                    - timeGeneratedUtc
+                  readOnly: true
+                  serializedName: timeGeneratedUtc
+                  language: !<!Languages> 
+                    default:
+                      name: timeGeneratedUtc
+                      description: The UTC time the alert was generated in ISO8601 format.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_33
+                  flattenedNames:
+                    - properties
+                    - productName
+                  readOnly: true
+                  serializedName: productName
+                  language: !<!Languages> 
+                    default:
+                      name: productName
+                      description: 'The name of the product which published this alert (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS, and so on).'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_34
+                  flattenedNames:
+                    - properties
+                    - processingEndTimeUtc
+                  readOnly: true
+                  serializedName: processingEndTimeUtc
+                  language: !<!Languages> 
+                    default:
+                      name: processingEndTimeUtc
+                      description: The UTC processing end time of the alert in ISO8601 format.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_54
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2020-01-01'
+                    elementType: !<!ObjectSchema> &ref_42
+                      type: object
+                      apiVersions:
+                        - !<!ApiVersion> 
+                          version: '2020-01-01'
+                      parents: !<!Relations> 
+                        all:
+                          - *ref_35
+                        immediate:
+                          - *ref_35
+                      properties:
+                        - !<!Property> 
+                          schema: *ref_36
+                          readOnly: true
+                          serializedName: type
+                          language: !<!Languages> 
+                            default:
+                              name: type
+                              description: Type of entity
+                          protocol: !<!Protocols> {}
+                      serializationFormats:
+                        - json
+                      usage:
+                        - output
+                      language: !<!Languages> 
+                        default:
+                          name: AlertEntity
+                          description: Changing set of properties depending on the entity type.
+                          namespace: ''
+                      protocol: !<!Protocols> {}
+                    language: !<!Languages> 
+                      default:
+                        name: AlertPropertiesEntities
+                        description: A list of entities related to the alert.
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - entities
+                  readOnly: true
+                  serializedName: entities
+                  language: !<!Languages> 
+                    default:
+                      name: entities
+                      description: A list of entities related to the alert.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_37
+                  flattenedNames:
+                    - properties
+                    - isIncident
+                  readOnly: true
+                  serializedName: isIncident
+                  language: !<!Languages> 
+                    default:
+                      name: isIncident
+                      description: This field determines whether the alert is an incident (a compound grouping of several alerts) or a single alert.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_38
+                  flattenedNames:
+                    - properties
+                    - correlationKey
+                  readOnly: true
+                  serializedName: correlationKey
+                  language: !<!Languages> 
+                    default:
+                      name: correlationKey
+                      description: Key for corelating related alerts. Alerts with the same correlation key considered to be related.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_39
+                  flattenedNames:
+                    - properties
+                    - extendedProperties
+                  serializedName: extendedProperties
+                  language: !<!Languages> 
+                    default:
+                      name: extendedProperties
+                      description: Custom properties for the alert.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_40
+                  flattenedNames:
+                    - properties
+                    - compromisedEntity
+                  readOnly: true
+                  serializedName: compromisedEntity
+                  language: !<!Languages> 
+                    default:
+                      name: compromisedEntity
+                      description: The display name of the resource most related to this alert.
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+              language: !<!Languages> 
+                default:
+                  name: Alert
+                  description: Security alert
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: AlertListValue
+                description: describes security alert properties.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: describes security alert properties.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_41
+          readOnly: true
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The URI to fetch the next page.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: AlertList
+          description: List of security alerts
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_3
+    - *ref_17
+    - *ref_42
+    - *ref_7
+    - !<!ObjectSchema> &ref_64
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      properties:
+        - !<!Property> 
+          schema: *ref_43
+          flattenedNames:
+            - error
+            - code
+          readOnly: true
+          serializedName: code
+          language: !<!Languages> 
+            default:
+              name: code
+              description: The error code.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_44
+          flattenedNames:
+            - error
+            - message
+          readOnly: true
+          serializedName: message
+          language: !<!Languages> 
+            default:
+              name: message
+              description: The error message.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_45
+          flattenedNames:
+            - error
+            - target
+          readOnly: true
+          serializedName: target
+          language: !<!Languages> 
+            default:
+              name: target
+              description: The error target.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_46
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '1.0'
+            elementType: !<!ObjectSchema> &ref_49
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '1.0'
+              properties:
+                - !<!Property> 
+                  schema: *ref_43
+                  readOnly: true
+                  serializedName: code
+                  language: !<!Languages> 
+                    default:
+                      name: code
+                      description: The error code.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_44
+                  readOnly: true
+                  serializedName: message
+                  language: !<!Languages> 
+                    default:
+                      name: message
+                      description: The error message.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_45
+                  readOnly: true
+                  serializedName: target
+                  language: !<!Languages> 
+                    default:
+                      name: target
+                      description: The error target.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_46
+                  readOnly: true
+                  serializedName: details
+                  language: !<!Languages> 
+                    default:
+                      name: details
+                      description: The error details.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_48
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '1.0'
+                    elementType: !<!ObjectSchema> &ref_50
+                      type: object
+                      apiVersions:
+                        - !<!ApiVersion> 
+                          version: '1.0'
+                      properties:
+                        - !<!Property> 
+                          schema: *ref_47
+                          readOnly: true
+                          serializedName: type
+                          language: !<!Languages> 
+                            default:
+                              name: type
+                              description: The additional info type.
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: *ref_2
+                          readOnly: true
+                          serializedName: info
+                          language: !<!Languages> 
+                            default:
+                              name: info
+                              description: The additional info.
+                          protocol: !<!Protocols> {}
+                      serializationFormats:
+                        - json
+                      usage:
+                        - exception
+                      language: !<!Languages> 
+                        default:
+                          name: ErrorAdditionalInfo
+                          description: The resource management error additional info.
+                          namespace: ''
+                      protocol: !<!Protocols> {}
+                    language: !<!Languages> 
+                      default:
+                        name: CloudErrorBodyAdditionalInfo
+                        description: The error additional info.
+                    protocol: !<!Protocols> {}
+                  readOnly: true
+                  serializedName: additionalInfo
+                  language: !<!Languages> 
+                    default:
+                      name: additionalInfo
+                      description: The error additional info.
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - exception
+              extensions:
+                x-ms-external: true
+                x-ms-flattened: true
+              language: !<!Languages> 
+                default:
+                  name: CloudErrorBody
+                  description: The error detail.
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: CloudErrorBodyDetails
+                description: The error details.
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - error
+            - details
+          readOnly: true
+          serializedName: details
+          language: !<!Languages> 
+            default:
+              name: details
+              description: The error details.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_48
+          flattenedNames:
+            - error
+            - additionalInfo
+          readOnly: true
+          serializedName: additionalInfo
+          language: !<!Languages> 
+            default:
+              name: additionalInfo
+              description: The error additional info.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - exception
+      extensions:
+        x-ms-external: true
+      language: !<!Languages> 
+        default:
+          name: CloudError
+          description: Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_49
+    - *ref_50
+    - *ref_23
+    - *ref_24
+  arrays:
+    - *ref_51
+    - *ref_52
+    - *ref_53
+    - *ref_54
+    - *ref_55
+    - *ref_46
+    - *ref_48
+globalParameters:
+  - !<!Parameter> &ref_61
+    schema: *ref_56
+    implementation: Client
+    required: true
+    extensions:
+      x-ms-priority: 0
+    language: !<!Languages> 
+      default:
+        name: SubscriptionId
+        description: Azure subscription ID
+        serializedName: subscriptionId
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: path
+  - !<!Parameter> &ref_67
+    schema: *ref_57
+    implementation: Client
+    required: true
+    extensions:
+      x-ms-priority: 2
+    language: !<!Languages> 
+      default:
+        name: AscLocation
+        description: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+        serializedName: ascLocation
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: path
+  - !<!Parameter> &ref_59
+    schema: *ref_0
+    clientDefaultValue: 'https://management.azure.com'
+    implementation: Client
+    origin: 'modelerfour:synthesized/host'
+    required: true
+    extensions:
+      x-ms-skip-url-encoding: true
+    language: !<!Languages> 
+      default:
+        name: $host
+        description: server parameter
+        serializedName: $host
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: uri
+  - !<!Parameter> &ref_60
+    schema: *ref_58
+    implementation: Client
+    origin: 'modelerfour:synthesized/api-version'
+    required: true
+    language: !<!Languages> 
+      default:
+        name: apiVersion
+        description: Api Version
+        serializedName: api-version
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: query
+operationGroups:
+  - !<!OperationGroup> 
+    $key: Alerts
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.Security/alerts'
+                method: get
+                uri: '{$host}'
+        signatureParameters: []
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_63
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: List all the alerts that are associated with the subscription
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - !<!Parameter> &ref_66
+            schema: *ref_65
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group within the user's subscription. The name is case insensitive.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/alerts'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_66
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_63
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListByResourceGroup
+            description: List all the alerts that are associated with the resource group
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.Security/locations/{ascLocation}/alerts'
+                method: get
+                uri: '{$host}'
+        signatureParameters: []
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_63
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListSubscriptionLevelAlertsByRegion
+            description: List all the alerts that are associated with the subscription that are stored in a specific location
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+          - !<!Parameter> &ref_68
+            schema: *ref_65
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group within the user's subscription. The name is case insensitive.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/alerts'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_68
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_63
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListResourceGroupLevelAlertsByRegion
+            description: List all the alerts that are associated with the resource group that are stored in a specific location
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+          - !<!Parameter> &ref_69
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: alertName
+                description: Name of the alert object
+                serializedName: alertName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_69
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_3
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: GetSubscriptionLevelAlert
+            description: Get an alert that is associated with a subscription
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+          - !<!Parameter> &ref_70
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: alertName
+                description: Name of the alert object
+                serializedName: alertName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_71
+            schema: *ref_65
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group within the user's subscription. The name is case insensitive.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_70
+          - *ref_71
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_3
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: GetResourceGroupLevelAlerts
+            description: Get an alert that is associated a resource group or a resource in a resource group
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+          - !<!Parameter> &ref_72
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: alertName
+                description: Name of the alert object
+                serializedName: alertName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}/dismiss'
+                method: post
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_72
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: UpdateSubscriptionLevelAlertStateToDismiss
+            description: Update the alert's state
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+          - !<!Parameter> &ref_73
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: alertName
+                description: Name of the alert object
+                serializedName: alertName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}/resolve'
+                method: post
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_73
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: UpdateSubscriptionLevelStateToResolve
+            description: Update the alert's state
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+          - !<!Parameter> &ref_74
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: alertName
+                description: Name of the alert object
+                serializedName: alertName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}/activate'
+                method: post
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_74
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: UpdateSubscriptionLevelAlertStateToReactivate
+            description: Update the alert's state
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+          - !<!Parameter> &ref_75
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: alertName
+                description: Name of the alert object
+                serializedName: alertName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_76
+            schema: *ref_65
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group within the user's subscription. The name is case insensitive.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}/resolve'
+                method: post
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_75
+          - *ref_76
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: UpdateResourceGroupLevelStateToResolve
+            description: Update the alert's state
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+          - !<!Parameter> &ref_77
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: alertName
+                description: Name of the alert object
+                serializedName: alertName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_78
+            schema: *ref_65
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group within the user's subscription. The name is case insensitive.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}/dismiss'
+                method: post
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_77
+          - *ref_78
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: UpdateResourceGroupLevelAlertStateToDismiss
+            description: Update the alert's state
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_59
+          - *ref_60
+          - *ref_61
+          - *ref_67
+          - !<!Parameter> &ref_79
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: alertName
+                description: Name of the alert object
+                serializedName: alertName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_80
+            schema: *ref_65
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group within the user's subscription. The name is case insensitive.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_62
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}/activate'
+                method: post
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_79
+          - *ref_80
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_64
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: UpdateResourceGroupLevelAlertStateToReactivate
+            description: Update the alert's state
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Alerts
+        description: ''
+    protocol: !<!Protocols> {}
+security: !<!Security> 
+  authenticationRequired: true
+language: !<!Languages> 
+  default:
+    name: SecurityCenter
+    description: ''
+protocol: !<!Protocols> 
+  http: !<!HttpModel> {}

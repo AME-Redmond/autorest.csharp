@@ -429,7 +429,7 @@ namespace AutoRest.CSharp.V3.Output.Models
                     canidate += ch;
                 }
             }
-            if (canidate != "")
+            if (canidate != "" && canidate != "/")
             {
                 seg.Add(new PathSegment(new ReferenceOrConstant(new Constant(canidate, new CSharpType(typeof(string)))), false, SerializationFormat.Default));
             }

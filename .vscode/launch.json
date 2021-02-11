@@ -11,7 +11,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             "program": " C:\\Users\\stevens\\projects\\ameforks\\autorest.csharp\\artifacts\\bin\\AutoRest.CSharp.V3\\Debug\\netcoreapp3.0\\AutoRest.CSharp.V3.dll",
-            "args": "--standalone C:\\Users\\stevens\\projects\\ameforks\\autorest.csharp\\test\\TestProjects\\blueprint",
+            "args": "--standalone C:\\Users\\stevens\\projects\\ameforks\\autorest.csharp\\test\\TestProjects\\compute",
             "cwd": "${workspaceFolder}/src/AutoRest.CSharp.V3",
             "console": "internalConsole",
             "stopAtEntry": false

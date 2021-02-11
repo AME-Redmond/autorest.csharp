@@ -1,0 +1,3773 @@
+!<!CodeModel> 
+info: !<!Info> 
+  title: ServiceFabricManagementClient
+schemas: !<!Schemas> 
+  booleans:
+    - !<!BooleanSchema> &ref_11
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: 'Is this certificate used for admin access from the client, if false, it is used or query only access'
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_13
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: 'Is this certificate used for admin access from the client, if false , it is used or query only access'
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_29
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: Mark this as the primary node type
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_32
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: Use the user defined upgrade policy or not
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_33
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: Force node to restart or not
+      protocol: !<!Protocols> {}
+  numbers:
+    - !<!NumberSchema> &ref_23
+      type: integer
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: The TCP cluster management endpoint port
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_24
+      type: integer
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: The HTTP cluster management endpoint port
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_26
+      type: integer
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: Starting port of a range of ports
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_27
+      type: integer
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: End port of a range of ports
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_30
+      type: integer
+      maximum: 2147483647
+      minimum: 1
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: The number of node instances in the node type
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_31
+      type: integer
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: Endpoint used by reverse proxy
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_40
+      type: integer
+      maximum: 100
+      minimum: 0
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: 'The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. '
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_41
+      type: integer
+      maximum: 100
+      minimum: 0
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: 'The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. '
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_42
+      type: integer
+      maximum: 100
+      minimum: 0
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: Additional unhealthy nodes percentage
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_43
+      type: integer
+      maximum: 100
+      minimum: 0
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: 'Additional unhealthy nodes percentage per upgrade domain '
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_44
+      type: integer
+      maximum: 100
+      minimum: 0
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: Additional unhealthy applications percentage
+      protocol: !<!Protocols> {}
+  strings:
+    - !<!StringSchema> &ref_0
+      type: string
+      language: !<!Languages> 
+        default:
+          name: String
+          description: simple string
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_3
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_7
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesUpdateParametersClusterCodeVersion
+          description: >-
+            The ServiceFabric code version, if set it, please make sure you have set upgradeMode to Manual, otherwise ,it will fail, if you are using PUT new cluster, you can get the version by using ClusterVersions_List, if you are
+            updating existing cluster, you can get the availableClusterVersions from Clusters_Get
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_8
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: CertificateDescriptionThumbprint
+          description: Thumbprint of the primary certificate
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_9
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: CertificateDescriptionThumbprintSecondary
+          description: Thumbprint of the secondary certificate
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_12
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClientCertificateThumbprint
+          description: Certificate thumbprint
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_14
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClientCertificateCommonNameCertificateCommonName
+          description: Certificate common name to be granted access; be careful using wild card common names
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_15
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClientCertificateCommonNameCertificateIssuerThumbprint
+          description: Certificate issuer thumbprint
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_16
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: SettingsSectionDescriptionName
+          description: The name of settings section
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_17
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: SettingsParameterDescriptionName
+          description: The name of settings property
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_18
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: SettingsParameterDescriptionValue
+          description: The value of the property
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_20
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: NodeTypeDescriptionName
+          description: Name of the node type
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_1
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: Placement tag value
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_2
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: Capacity tag value
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_34
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterUpgradePolicyUpgradeReplicaSetCheckTimeout
+          description: 'Timeout for replica set upgrade to complete,it represents .Net TimeSpan'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_35
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterUpgradePolicyHealthCheckWaitDuration
+          description: 'The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_36
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterUpgradePolicyHealthCheckStableDuration
+          description: 'The length of time that health checks must pass continuously,it represents .Net TimeSpan'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_37
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterUpgradePolicyHealthCheckRetryTimeout
+          description: 'The length of time that health checks can fail continuously,it represents .Net TimeSpan'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_38
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterUpgradePolicyUpgradeTimeout
+          description: 'The upgrade timeout,it represents .Net TimeSpan'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_39
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterUpgradePolicyUpgradeDomainTimeout
+          description: 'The timeout for any upgrade domain,it represents .Net TimeSpan'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_60
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterVersionDetailsCodeVersion
+          description: The ServiceFabric runtime version of the cluster
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_61
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterVersionDetailsSupportExpiryUtc
+          description: The date of expiry of support of the version
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_63
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesClusterId
+          description: The unique identifier for the cluster resource
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_65
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesClusterEndpoint
+          description: The endpoint for the cluster connecting to servicefabric resource provider
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_66
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesClusterCodeVersion
+          description: The ServiceFabric code version running in your cluster
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_69
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesManagementEndpoint
+          description: The http management endpoint of the cluster
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_70
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: AzureActiveDirectoryTenantId
+          description: Azure active directory tenant id
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_71
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: AzureActiveDirectoryClusterApplication
+          description: Azure active directory cluster application id
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_72
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: AzureActiveDirectoryClientApplication
+          description: Azure active directory client application id
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_74
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesVmImage
+          description: The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_75
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: DiagnosticsStorageAccountConfigStorageAccountName
+          description: Diagnostics storage account name
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_76
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: DiagnosticsStorageAccountConfigProtectedAccountKeyName
+          description: Protected Diagnostics storage key name
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_77
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: DiagnosticsStorageAccountConfigBlobEndpoint
+          description: Diagnostics storage account blob endpoint
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_78
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: DiagnosticsStorageAccountConfigQueueEndpoint
+          description: Diagnostics storage account queue endpoint
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_79
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: DiagnosticsStorageAccountConfigTableEndpoint
+          description: Diagnostics storage account table endpoint
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_54
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceId
+          description: Resource ID.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_55
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceName
+          description: Resource name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_56
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceType
+          description: Resource type.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_57
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ResourceLocation
+          description: Resource location.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_83
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorModelErrorCode
+          description: The error code
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_84
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorModelErrorMessage
+          description: The error message
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_86
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterListResultNextLink
+          description: The URL to use for getting the next set of results.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_87
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterCodeVersionsResultId
+          description: The identification of the result
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_88
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterCodeVersionsResultName
+          description: The name of the result
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_89
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterCodeVersionsResultType
+          description: The result resource type
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_90
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: ClusterCodeVersionsListResultNextLink
+          description: The URL to use for getting the next set of results.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_92
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: OperationResultName
+          description: Result name
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_93
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: AvailableOperationDisplayProvider
+          description: Provider name
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_94
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: AvailableOperationDisplayResource
+          description: Resource name
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_95
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: AvailableOperationDisplayOperation
+          description: Operation name
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_96
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: AvailableOperationDisplayDescription
+          description: Operation description
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_97
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: OperationResultOrigin
+          description: Origin result
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_98
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: OperationResultNextLink
+          description: The URL to use for getting the next set of results.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_99
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      language: !<!Languages> 
+        default:
+          name: OperationListResultNextLink
+          description: URL to get the next set of operation list results if there are any.
+      protocol: !<!Protocols> {}
+  choices:
+    - !<!ChoiceSchema> &ref_5
+      choices:
+        - !<!ChoiceValue> 
+          value: Bronze
+          language:
+            default:
+              name: Bronze
+              description: ''
+        - !<!ChoiceValue> 
+          value: Silver
+          language:
+            default:
+              name: Silver
+              description: ''
+        - !<!ChoiceValue> 
+          value: Gold
+          language:
+            default:
+              name: Gold
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesUpdateParametersReliabilityLevel
+          description: This level is used to set the number of replicas of the system services
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_6
+      choices:
+        - !<!ChoiceValue> 
+          value: Automatic
+          language:
+            default:
+              name: Automatic
+              description: ''
+        - !<!ChoiceValue> 
+          value: Manual
+          language:
+            default:
+              name: Manual
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesUpdateParametersUpgradeMode
+          description: Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_10
+      choices:
+        - !<!ChoiceValue> 
+          value: AddressBook
+          language:
+            default:
+              name: AddressBook
+              description: ''
+        - !<!ChoiceValue> 
+          value: AuthRoot
+          language:
+            default:
+              name: AuthRoot
+              description: ''
+        - !<!ChoiceValue> 
+          value: CertificateAuthority
+          language:
+            default:
+              name: CertificateAuthority
+              description: ''
+        - !<!ChoiceValue> 
+          value: Disallowed
+          language:
+            default:
+              name: Disallowed
+              description: ''
+        - !<!ChoiceValue> 
+          value: My
+          language:
+            default:
+              name: My
+              description: ''
+        - !<!ChoiceValue> 
+          value: Root
+          language:
+            default:
+              name: Root
+              description: ''
+        - !<!ChoiceValue> 
+          value: TrustedPeople
+          language:
+            default:
+              name: TrustedPeople
+              description: ''
+        - !<!ChoiceValue> 
+          value: TrustedPublisher
+          language:
+            default:
+              name: TrustedPublisher
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: CertificateDescriptionX509StoreName
+          description: The local certificate store location
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_25
+      choices:
+        - !<!ChoiceValue> 
+          value: Bronze
+          language:
+            default:
+              name: Bronze
+              description: ''
+        - !<!ChoiceValue> 
+          value: Silver
+          language:
+            default:
+              name: Silver
+              description: ''
+        - !<!ChoiceValue> 
+          value: Gold
+          language:
+            default:
+              name: Gold
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: NodeTypeDescriptionDurabilityLevel
+          description: Node type durability Level
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_62
+      choices:
+        - !<!ChoiceValue> 
+          value: Windows
+          language:
+            default:
+              name: Windows
+              description: ''
+        - !<!ChoiceValue> 
+          value: Linux
+          language:
+            default:
+              name: Linux
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ClusterEnvironment
+          description: 'Cluster operating system, the default will be Windows'
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_64
+      choices:
+        - !<!ChoiceValue> 
+          value: WaitingForNodes
+          language:
+            default:
+              name: WaitingForNodes
+              description: ''
+        - !<!ChoiceValue> 
+          value: Deploying
+          language:
+            default:
+              name: Deploying
+              description: ''
+        - !<!ChoiceValue> 
+          value: BaselineUpgrade
+          language:
+            default:
+              name: BaselineUpgrade
+              description: ''
+        - !<!ChoiceValue> 
+          value: UpdatingUserConfiguration
+          language:
+            default:
+              name: UpdatingUserConfiguration
+              description: ''
+        - !<!ChoiceValue> 
+          value: UpdatingUserCertificate
+          language:
+            default:
+              name: UpdatingUserCertificate
+              description: ''
+        - !<!ChoiceValue> 
+          value: UpdatingInfrastructure
+          language:
+            default:
+              name: UpdatingInfrastructure
+              description: ''
+        - !<!ChoiceValue> 
+          value: EnforcingClusterVersion
+          language:
+            default:
+              name: EnforcingClusterVersion
+              description: ''
+        - !<!ChoiceValue> 
+          value: UpgradeServiceUnreachable
+          language:
+            default:
+              name: UpgradeServiceUnreachable
+              description: ''
+        - !<!ChoiceValue> 
+          value: AutoScale
+          language:
+            default:
+              name: AutoScale
+              description: ''
+        - !<!ChoiceValue> 
+          value: Ready
+          language:
+            default:
+              name: Ready
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesClusterState
+          description: The state for the cluster
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_67
+      choices:
+        - !<!ChoiceValue> 
+          value: Bronze
+          language:
+            default:
+              name: Bronze
+              description: ''
+        - !<!ChoiceValue> 
+          value: Silver
+          language:
+            default:
+              name: Silver
+              description: ''
+        - !<!ChoiceValue> 
+          value: Gold
+          language:
+            default:
+              name: Gold
+              description: ''
+        - !<!ChoiceValue> 
+          value: Platinum
+          language:
+            default:
+              name: Platinum
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesReliabilityLevel
+          description: Cluster reliability level indicates replica set size of system service
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_68
+      choices:
+        - !<!ChoiceValue> 
+          value: Automatic
+          language:
+            default:
+              name: Automatic
+              description: ''
+        - !<!ChoiceValue> 
+          value: Manual
+          language:
+            default:
+              name: Manual
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ClusterPropertiesUpgradeMode
+          description: Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_73
+      choices:
+        - !<!ChoiceValue> 
+          value: Updating
+          language:
+            default:
+              name: Updating
+              description: ''
+        - !<!ChoiceValue> 
+          value: Succeeded
+          language:
+            default:
+              name: Succeeded
+              description: ''
+        - !<!ChoiceValue> 
+          value: Failed
+          language:
+            default:
+              name: Failed
+              description: ''
+        - !<!ChoiceValue> 
+          value: Canceled
+          language:
+            default:
+              name: Canceled
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ProvisioningState
+          description: The provisioning state of the cluster resource
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_137
+      choices:
+        - !<!ChoiceValue> 
+          value: Windows
+          language:
+            default:
+              name: Windows
+              description: ''
+        - !<!ChoiceValue> 
+          value: Linux
+          language:
+            default:
+              name: Linux
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Enum9
+          description: ''
+      protocol: !<!Protocols> {}
+  constants:
+    - !<!ConstantSchema> &ref_115
+      type: constant
+      value: !<!ConstantValue> 
+        value: '2016-09-01'
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApiVersion20160901
+          description: Api Version (2016-09-01)
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_119
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApplicationJson
+          description: Content Type 'application/json'
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_121
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Accept
+          description: 'Accept: application/json'
+      protocol: !<!Protocols> {}
+  dictionaries:
+    - !<!DictionarySchema> &ref_21
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: NodeTypeDescriptionPlacementProperties
+          description: 'The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run'
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_22
+      type: dictionary
+      elementType: *ref_2
+      language: !<!Languages> 
+        default:
+          name: NodeTypeDescriptionCapacities
+          description: 'The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has'
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_4
+      type: dictionary
+      elementType: *ref_3
+      language: !<!Languages> 
+        default:
+          name: ClusterUpdateParametersTags
+          description: Cluster update parameters
+      protocol: !<!Protocols> {}
+    - !<!DictionarySchema> &ref_58
+      type: dictionary
+      elementType: *ref_3
+      language: !<!Languages> 
+        default:
+          name: ResourceTags
+          description: Resource tags.
+      protocol: !<!Protocols> {}
+  objects:
+    - !<!ObjectSchema> &ref_120
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_4
+          serializedName: tags
+          language: !<!Languages> 
+            default:
+              name: tags
+              description: Cluster update parameters
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_5
+          flattenedNames:
+            - properties
+            - reliabilityLevel
+          serializedName: reliabilityLevel
+          language: !<!Languages> 
+            default:
+              name: reliabilityLevel
+              description: This level is used to set the number of replicas of the system services
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_6
+          flattenedNames:
+            - properties
+            - upgradeMode
+          serializedName: upgradeMode
+          language: !<!Languages> 
+            default:
+              name: upgradeMode
+              description: Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_7
+          flattenedNames:
+            - properties
+            - clusterCodeVersion
+          serializedName: clusterCodeVersion
+          language: !<!Languages> 
+            default:
+              name: clusterCodeVersion
+              description: >-
+                The ServiceFabric code version, if set it, please make sure you have set upgradeMode to Manual, otherwise ,it will fail, if you are using PUT new cluster, you can get the version by using ClusterVersions_List, if you are
+                updating existing cluster, you can get the availableClusterVersions from Clusters_Get
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_19
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            properties:
+              - !<!Property> 
+                schema: *ref_8
+                required: true
+                serializedName: thumbprint
+                language: !<!Languages> 
+                  default:
+                    name: thumbprint
+                    description: Thumbprint of the primary certificate
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_9
+                required: false
+                serializedName: thumbprintSecondary
+                language: !<!Languages> 
+                  default:
+                    name: thumbprintSecondary
+                    description: Thumbprint of the secondary certificate
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_10
+                required: false
+                serializedName: x509StoreName
+                language: !<!Languages> 
+                  default:
+                    name: x509StoreName
+                    description: The local certificate store location
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - input
+              - output
+            language: !<!Languages> 
+              default:
+                name: CertificateDescription
+                description: Certificate details
+                namespace: ''
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - certificate
+          serializedName: certificate
+          language: !<!Languages> 
+            default:
+              name: certificate
+              description: >-
+                This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client, the certificate should exist in the virtual machine scale sets or Azure key
+                vault, before you add it. It will override original value
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_102
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: !<!ObjectSchema> &ref_45
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2016-09-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_11
+                  required: true
+                  serializedName: isAdmin
+                  language: !<!Languages> 
+                    default:
+                      name: isAdmin
+                      description: 'Is this certificate used for admin access from the client, if false, it is used or query only access'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_12
+                  required: true
+                  serializedName: certificateThumbprint
+                  language: !<!Languages> 
+                    default:
+                      name: certificateThumbprint
+                      description: Certificate thumbprint
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - input
+                - output
+              language: !<!Languages> 
+                default:
+                  name: ClientCertificateThumbprint
+                  description: Client certificate details using thumbprint
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: ClusterPropertiesUpdateParametersClientCertificateThumbprints
+                description: 'The client thumbprint details, it is used for client access for cluster operation, it will override existing collection'
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - clientCertificateThumbprints
+          serializedName: clientCertificateThumbprints
+          language: !<!Languages> 
+            default:
+              name: clientCertificateThumbprints
+              description: 'The client thumbprint details, it is used for client access for cluster operation, it will override existing collection'
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_103
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: !<!ObjectSchema> &ref_46
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2016-09-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_13
+                  required: true
+                  serializedName: isAdmin
+                  language: !<!Languages> 
+                    default:
+                      name: isAdmin
+                      description: 'Is this certificate used for admin access from the client, if false , it is used or query only access'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_14
+                  required: true
+                  serializedName: certificateCommonName
+                  language: !<!Languages> 
+                    default:
+                      name: certificateCommonName
+                      description: Certificate common name to be granted access; be careful using wild card common names
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_15
+                  required: true
+                  serializedName: certificateIssuerThumbprint
+                  language: !<!Languages> 
+                    default:
+                      name: certificateIssuerThumbprint
+                      description: Certificate issuer thumbprint
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - input
+                - output
+              language: !<!Languages> 
+                default:
+                  name: ClientCertificateCommonName
+                  description: Client certificate details using common name
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: ClusterPropertiesUpdateParametersClientCertificateCommonNames
+                description: List of client certificates to whitelist based on common names.
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - clientCertificateCommonNames
+          serializedName: clientCertificateCommonNames
+          language: !<!Languages> 
+            default:
+              name: clientCertificateCommonNames
+              description: List of client certificates to whitelist based on common names.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_105
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: !<!ObjectSchema> &ref_47
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2016-09-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_16
+                  required: true
+                  serializedName: name
+                  language: !<!Languages> 
+                    default:
+                      name: name
+                      description: The name of settings section
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_104
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2016-09-01'
+                    elementType: !<!ObjectSchema> &ref_48
+                      type: object
+                      apiVersions:
+                        - !<!ApiVersion> 
+                          version: '2016-09-01'
+                      properties:
+                        - !<!Property> 
+                          schema: *ref_17
+                          required: true
+                          serializedName: name
+                          language: !<!Languages> 
+                            default:
+                              name: name
+                              description: The name of settings property
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: *ref_18
+                          required: true
+                          serializedName: value
+                          language: !<!Languages> 
+                            default:
+                              name: value
+                              description: The value of the property
+                          protocol: !<!Protocols> {}
+                      serializationFormats:
+                        - json
+                      usage:
+                        - input
+                        - output
+                      language: !<!Languages> 
+                        default:
+                          name: SettingsParameterDescription
+                          description: ServiceFabric settings under sections
+                          namespace: ''
+                      protocol: !<!Protocols> {}
+                    language: !<!Languages> 
+                      default:
+                        name: SettingsSectionDescriptionParameters
+                        description: 'Collection of settings in the section, each setting is a tuple consisting of setting name and value'
+                    protocol: !<!Protocols> {}
+                  required: true
+                  serializedName: parameters
+                  language: !<!Languages> 
+                    default:
+                      name: parameters
+                      description: 'Collection of settings in the section, each setting is a tuple consisting of setting name and value'
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - input
+                - output
+              language: !<!Languages> 
+                default:
+                  name: SettingsSectionDescription
+                  description: ServiceFabric section settings
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: ClusterPropertiesUpdateParametersFabricSettings
+                description: 'List of custom fabric settings to configure the cluster, Note, it will overwrite existing collection'
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - fabricSettings
+          serializedName: fabricSettings
+          language: !<!Languages> 
+            default:
+              name: fabricSettings
+              description: 'List of custom fabric settings to configure the cluster, Note, it will overwrite existing collection'
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_19
+          flattenedNames:
+            - properties
+            - reverseProxyCertificate
+          serializedName: reverseProxyCertificate
+          language: !<!Languages> 
+            default:
+              name: reverseProxyCertificate
+              description: Certificate for the reverse proxy
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_106
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: !<!ObjectSchema> &ref_49
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2016-09-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_20
+                  required: true
+                  serializedName: name
+                  language: !<!Languages> 
+                    default:
+                      name: name
+                      description: Name of the node type
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_21
+                  required: false
+                  serializedName: placementProperties
+                  language: !<!Languages> 
+                    default:
+                      name: placementProperties
+                      description: 'The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_22
+                  required: false
+                  serializedName: capacities
+                  language: !<!Languages> 
+                    default:
+                      name: capacities
+                      description: 'The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has'
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_23
+                  required: true
+                  serializedName: clientConnectionEndpointPort
+                  language: !<!Languages> 
+                    default:
+                      name: clientConnectionEndpointPort
+                      description: The TCP cluster management endpoint port
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_24
+                  required: true
+                  serializedName: httpGatewayEndpointPort
+                  language: !<!Languages> 
+                    default:
+                      name: httpGatewayEndpointPort
+                      description: The HTTP cluster management endpoint port
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_25
+                  required: false
+                  serializedName: durabilityLevel
+                  language: !<!Languages> 
+                    default:
+                      name: durabilityLevel
+                      description: Node type durability Level
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_28
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2016-09-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_26
+                        required: true
+                        serializedName: startPort
+                        language: !<!Languages> 
+                          default:
+                            name: startPort
+                            description: Starting port of a range of ports
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_27
+                        required: true
+                        serializedName: endPort
+                        language: !<!Languages> 
+                          default:
+                            name: endPort
+                            description: End port of a range of ports
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - input
+                      - output
+                    language: !<!Languages> 
+                      default:
+                        name: EndpointRangeDescription
+                        description: Port range details
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  required: false
+                  serializedName: applicationPorts
+                  language: !<!Languages> 
+                    default:
+                      name: applicationPorts
+                      description: Ports used by applications
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_28
+                  required: false
+                  serializedName: ephemeralPorts
+                  language: !<!Languages> 
+                    default:
+                      name: ephemeralPorts
+                      description: System assigned application ports
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_29
+                  required: true
+                  serializedName: isPrimary
+                  language: !<!Languages> 
+                    default:
+                      name: isPrimary
+                      description: Mark this as the primary node type
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_30
+                  required: true
+                  serializedName: vmInstanceCount
+                  language: !<!Languages> 
+                    default:
+                      name: vmInstanceCount
+                      description: The number of node instances in the node type
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_31
+                  required: false
+                  serializedName: reverseProxyEndpointPort
+                  language: !<!Languages> 
+                    default:
+                      name: reverseProxyEndpointPort
+                      description: Endpoint used by reverse proxy
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - input
+                - output
+              language: !<!Languages> 
+                default:
+                  name: NodeTypeDescription
+                  description: 'Describes a node type in the cluster, each node type represents sub set of nodes in the cluster'
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: ClusterPropertiesUpdateParametersNodeTypes
+                description: 'The list of node types that make up the cluster, it will override'
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - nodeTypes
+          serializedName: nodeTypes
+          language: !<!Languages> 
+            default:
+              name: nodeTypes
+              description: 'The list of node types that make up the cluster, it will override'
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_50
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            properties:
+              - !<!Property> 
+                schema: *ref_32
+                required: false
+                serializedName: overrideUserUpgradePolicy
+                language: !<!Languages> 
+                  default:
+                    name: overrideUserUpgradePolicy
+                    description: Use the user defined upgrade policy or not
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_33
+                required: false
+                serializedName: forceRestart
+                language: !<!Languages> 
+                  default:
+                    name: forceRestart
+                    description: Force node to restart or not
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_34
+                required: true
+                serializedName: upgradeReplicaSetCheckTimeout
+                language: !<!Languages> 
+                  default:
+                    name: upgradeReplicaSetCheckTimeout
+                    description: 'Timeout for replica set upgrade to complete,it represents .Net TimeSpan'
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_35
+                required: true
+                serializedName: healthCheckWaitDuration
+                language: !<!Languages> 
+                  default:
+                    name: healthCheckWaitDuration
+                    description: 'The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan'
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_36
+                required: true
+                serializedName: healthCheckStableDuration
+                language: !<!Languages> 
+                  default:
+                    name: healthCheckStableDuration
+                    description: 'The length of time that health checks must pass continuously,it represents .Net TimeSpan'
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_37
+                required: true
+                serializedName: healthCheckRetryTimeout
+                language: !<!Languages> 
+                  default:
+                    name: healthCheckRetryTimeout
+                    description: 'The length of time that health checks can fail continuously,it represents .Net TimeSpan'
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_38
+                required: true
+                serializedName: upgradeTimeout
+                language: !<!Languages> 
+                  default:
+                    name: upgradeTimeout
+                    description: 'The upgrade timeout,it represents .Net TimeSpan'
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_39
+                required: true
+                serializedName: upgradeDomainTimeout
+                language: !<!Languages> 
+                  default:
+                    name: upgradeDomainTimeout
+                    description: 'The timeout for any upgrade domain,it represents .Net TimeSpan'
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ObjectSchema> &ref_51
+                  type: object
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '2016-09-01'
+                  properties:
+                    - !<!Property> 
+                      schema: *ref_40
+                      serializedName: maxPercentUnhealthyNodes
+                      language: !<!Languages> 
+                        default:
+                          name: maxPercentUnhealthyNodes
+                          description: 'The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. '
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_41
+                      serializedName: maxPercentUnhealthyApplications
+                      language: !<!Languages> 
+                        default:
+                          name: maxPercentUnhealthyApplications
+                          description: 'The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. '
+                      protocol: !<!Protocols> {}
+                  serializationFormats:
+                    - json
+                  usage:
+                    - input
+                    - output
+                  language: !<!Languages> 
+                    default:
+                      name: ClusterHealthPolicy
+                      description: Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+                      namespace: ''
+                  protocol: !<!Protocols> {}
+                required: true
+                serializedName: healthPolicy
+                language: !<!Languages> 
+                  default:
+                    name: healthPolicy
+                    description: Cluster health Policy
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: !<!ObjectSchema> &ref_52
+                  type: object
+                  apiVersions:
+                    - !<!ApiVersion> 
+                      version: '2016-09-01'
+                  properties:
+                    - !<!Property> 
+                      schema: *ref_42
+                      required: true
+                      serializedName: maxPercentDeltaUnhealthyNodes
+                      language: !<!Languages> 
+                        default:
+                          name: maxPercentDeltaUnhealthyNodes
+                          description: Additional unhealthy nodes percentage
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_43
+                      required: true
+                      serializedName: maxPercentUpgradeDomainDeltaUnhealthyNodes
+                      language: !<!Languages> 
+                        default:
+                          name: maxPercentUpgradeDomainDeltaUnhealthyNodes
+                          description: 'Additional unhealthy nodes percentage per upgrade domain '
+                      protocol: !<!Protocols> {}
+                    - !<!Property> 
+                      schema: *ref_44
+                      required: true
+                      serializedName: maxPercentDeltaUnhealthyApplications
+                      language: !<!Languages> 
+                        default:
+                          name: maxPercentDeltaUnhealthyApplications
+                          description: Additional unhealthy applications percentage
+                      protocol: !<!Protocols> {}
+                  serializationFormats:
+                    - json
+                  usage:
+                    - input
+                    - output
+                  language: !<!Languages> 
+                    default:
+                      name: ClusterUpgradeDeltaHealthPolicy
+                      description: Delta health policy for the cluster
+                      namespace: ''
+                  protocol: !<!Protocols> {}
+                required: false
+                serializedName: deltaHealthPolicy
+                language: !<!Languages> 
+                  default:
+                    name: deltaHealthPolicy
+                    description: Delta health policy
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - input
+              - output
+            language: !<!Languages> 
+              default:
+                name: ClusterUpgradePolicy
+                description: Cluster upgrade policy
+                namespace: ''
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - upgradeDescription
+          serializedName: upgradeDescription
+          language: !<!Languages> 
+            default:
+              name: upgradeDescription
+              description: The policy to use when upgrading the cluster.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - input
+      language: !<!Languages> 
+        default:
+          name: ClusterUpdateParameters
+          description: Cluster update request
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_19
+    - *ref_45
+    - *ref_46
+    - *ref_47
+    - *ref_48
+    - *ref_49
+    - *ref_28
+    - *ref_50
+    - *ref_51
+    - *ref_52
+    - !<!ObjectSchema> &ref_53
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      parents: !<!Relations> 
+        all:
+          - !<!ObjectSchema> &ref_59
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            children: !<!Relations> 
+              all:
+                - *ref_53
+              immediate:
+                - *ref_53
+            properties:
+              - !<!Property> 
+                schema: *ref_54
+                readOnly: true
+                required: false
+                serializedName: id
+                language: !<!Languages> 
+                  default:
+                    name: id
+                    description: Resource ID.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_55
+                readOnly: true
+                required: false
+                serializedName: name
+                language: !<!Languages> 
+                  default:
+                    name: name
+                    description: Resource name.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_56
+                readOnly: true
+                required: false
+                serializedName: type
+                language: !<!Languages> 
+                  default:
+                    name: type
+                    description: Resource type.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_57
+                required: true
+                serializedName: location
+                language: !<!Languages> 
+                  default:
+                    name: location
+                    description: Resource location.
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_58
+                required: false
+                serializedName: tags
+                language: !<!Languages> 
+                  default:
+                    name: tags
+                    description: Resource tags.
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - output
+              - input
+            extensions:
+              x-ms-azure-resource: true
+            language: !<!Languages> 
+              default:
+                name: Resource
+                description: The resource model definition.
+                namespace: ''
+            protocol: !<!Protocols> {}
+        immediate:
+          - *ref_59
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_107
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: !<!ObjectSchema> &ref_80
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2016-09-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_60
+                  serializedName: codeVersion
+                  language: !<!Languages> 
+                    default:
+                      name: codeVersion
+                      description: The ServiceFabric runtime version of the cluster
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_61
+                  serializedName: supportExpiryUtc
+                  language: !<!Languages> 
+                    default:
+                      name: supportExpiryUtc
+                      description: The date of expiry of support of the version
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_62
+                  serializedName: environment
+                  language: !<!Languages> 
+                    default:
+                      name: environment
+                      description: Cluster operating system
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+                - input
+              extensions:
+                x-ms-flattened: true
+              language: !<!Languages> 
+                default:
+                  name: ClusterVersionDetails
+                  description: The detail of the ServiceFabric runtime version result
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: ClusterPropertiesAvailableClusterVersions
+                description: 'The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to'
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - availableClusterVersions
+          readOnly: true
+          serializedName: availableClusterVersions
+          language: !<!Languages> 
+            default:
+              name: availableClusterVersions
+              description: 'The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to'
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_63
+          flattenedNames:
+            - properties
+            - clusterId
+          readOnly: true
+          serializedName: clusterId
+          language: !<!Languages> 
+            default:
+              name: clusterId
+              description: The unique identifier for the cluster resource
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_64
+          flattenedNames:
+            - properties
+            - clusterState
+          readOnly: true
+          serializedName: clusterState
+          language: !<!Languages> 
+            default:
+              name: clusterState
+              description: The state for the cluster
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_65
+          flattenedNames:
+            - properties
+            - clusterEndpoint
+          readOnly: true
+          serializedName: clusterEndpoint
+          language: !<!Languages> 
+            default:
+              name: clusterEndpoint
+              description: The endpoint for the cluster connecting to servicefabric resource provider
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_66
+          flattenedNames:
+            - properties
+            - clusterCodeVersion
+          serializedName: clusterCodeVersion
+          language: !<!Languages> 
+            default:
+              name: clusterCodeVersion
+              description: The ServiceFabric code version running in your cluster
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_19
+          flattenedNames:
+            - properties
+            - certificate
+          serializedName: certificate
+          language: !<!Languages> 
+            default:
+              name: certificate
+              description: 'This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client'
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_67
+          flattenedNames:
+            - properties
+            - reliabilityLevel
+          serializedName: reliabilityLevel
+          language: !<!Languages> 
+            default:
+              name: reliabilityLevel
+              description: Cluster reliability level indicates replica set size of system service
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_68
+          flattenedNames:
+            - properties
+            - upgradeMode
+          serializedName: upgradeMode
+          language: !<!Languages> 
+            default:
+              name: upgradeMode
+              description: Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_108
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: *ref_45
+            language: !<!Languages> 
+              default:
+                name: ClusterPropertiesClientCertificateThumbprints
+                description: 'The client thumbprint details ,it is used for client access for cluster operation'
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - clientCertificateThumbprints
+          serializedName: clientCertificateThumbprints
+          language: !<!Languages> 
+            default:
+              name: clientCertificateThumbprints
+              description: 'The client thumbprint details ,it is used for client access for cluster operation'
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_109
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: *ref_46
+            language: !<!Languages> 
+              default:
+                name: ClusterPropertiesClientCertificateCommonNames
+                description: ' List of client certificates to whitelist based on common names'
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - clientCertificateCommonNames
+          serializedName: clientCertificateCommonNames
+          language: !<!Languages> 
+            default:
+              name: clientCertificateCommonNames
+              description: ' List of client certificates to whitelist based on common names'
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_110
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: *ref_47
+            language: !<!Languages> 
+              default:
+                name: ClusterPropertiesFabricSettings
+                description: List of custom fabric settings to configure the cluster.
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - fabricSettings
+          serializedName: fabricSettings
+          language: !<!Languages> 
+            default:
+              name: fabricSettings
+              description: List of custom fabric settings to configure the cluster.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_19
+          flattenedNames:
+            - properties
+            - reverseProxyCertificate
+          serializedName: reverseProxyCertificate
+          language: !<!Languages> 
+            default:
+              name: reverseProxyCertificate
+              description: The server certificate used by reverse proxy
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_69
+          flattenedNames:
+            - properties
+            - managementEndpoint
+          serializedName: managementEndpoint
+          language: !<!Languages> 
+            default:
+              name: managementEndpoint
+              description: The http management endpoint of the cluster
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_111
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: *ref_49
+            language: !<!Languages> 
+              default:
+                name: ClusterPropertiesNodeTypes
+                description: The list of node types that make up the cluster
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - nodeTypes
+          serializedName: nodeTypes
+          language: !<!Languages> 
+            default:
+              name: nodeTypes
+              description: The list of node types that make up the cluster
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_81
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            properties:
+              - !<!Property> 
+                schema: *ref_70
+                serializedName: tenantId
+                language: !<!Languages> 
+                  default:
+                    name: tenantId
+                    description: Azure active directory tenant id
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_71
+                serializedName: clusterApplication
+                language: !<!Languages> 
+                  default:
+                    name: clusterApplication
+                    description: Azure active directory cluster application id
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_72
+                serializedName: clientApplication
+                language: !<!Languages> 
+                  default:
+                    name: clientApplication
+                    description: Azure active directory client application id
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - output
+              - input
+            language: !<!Languages> 
+              default:
+                name: AzureActiveDirectory
+                description: The settings to enable AAD authentication on the cluster
+                namespace: ''
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - azureActiveDirectory
+          serializedName: azureActiveDirectory
+          language: !<!Languages> 
+            default:
+              name: azureActiveDirectory
+              description: The settings to enable AAD authentication on the cluster
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_73
+          flattenedNames:
+            - properties
+            - provisioningState
+          readOnly: true
+          serializedName: provisioningState
+          language: !<!Languages> 
+            default:
+              name: provisioningState
+              description: The provisioning state of the cluster resource
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_74
+          flattenedNames:
+            - properties
+            - vmImage
+          serializedName: vmImage
+          language: !<!Languages> 
+            default:
+              name: vmImage
+              description: The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_82
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            properties:
+              - !<!Property> 
+                schema: *ref_75
+                required: true
+                serializedName: storageAccountName
+                language: !<!Languages> 
+                  default:
+                    name: storageAccountName
+                    description: Diagnostics storage account name
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_76
+                required: true
+                serializedName: protectedAccountKeyName
+                language: !<!Languages> 
+                  default:
+                    name: protectedAccountKeyName
+                    description: Protected Diagnostics storage key name
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_77
+                required: true
+                serializedName: blobEndpoint
+                language: !<!Languages> 
+                  default:
+                    name: blobEndpoint
+                    description: Diagnostics storage account blob endpoint
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_78
+                required: true
+                serializedName: queueEndpoint
+                language: !<!Languages> 
+                  default:
+                    name: queueEndpoint
+                    description: Diagnostics storage account queue endpoint
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_79
+                required: true
+                serializedName: tableEndpoint
+                language: !<!Languages> 
+                  default:
+                    name: tableEndpoint
+                    description: Diagnostics storage account table endpoint
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - output
+              - input
+            language: !<!Languages> 
+              default:
+                name: DiagnosticsStorageAccountConfig
+                description: Diagnostics storage account config
+                namespace: ''
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - properties
+            - diagnosticsStorageAccountConfig
+          serializedName: diagnosticsStorageAccountConfig
+          language: !<!Languages> 
+            default:
+              name: diagnosticsStorageAccountConfig
+              description: The storage diagnostics account configuration details
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_50
+          flattenedNames:
+            - properties
+            - upgradeDescription
+          serializedName: upgradeDescription
+          language: !<!Languages> 
+            default:
+              name: upgradeDescription
+              description: The policy to use when upgrading the cluster.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+        - input
+      language: !<!Languages> 
+        default:
+          name: Cluster
+          description: The cluster resource
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_80
+    - *ref_81
+    - *ref_82
+    - *ref_59
+    - !<!ObjectSchema> &ref_125
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ObjectSchema> &ref_85
+            type: object
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            properties:
+              - !<!Property> 
+                schema: *ref_83
+                serializedName: code
+                language: !<!Languages> 
+                  default:
+                    name: code
+                    description: The error code
+                protocol: !<!Protocols> {}
+              - !<!Property> 
+                schema: *ref_84
+                serializedName: message
+                language: !<!Languages> 
+                  default:
+                    name: message
+                    description: The error message
+                protocol: !<!Protocols> {}
+            serializationFormats:
+              - json
+            usage:
+              - exception
+            extensions:
+              x-internal-autorest-anonymous-schema:
+                anonymous: true
+            language: !<!Languages> 
+              default:
+                name: ErrorModelError
+                description: 'The error detail '
+                namespace: ''
+            protocol: !<!Protocols> {}
+          serializedName: error
+          language: !<!Languages> 
+            default:
+              name: error
+              description: 'The error detail '
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - exception
+      language: !<!Languages> 
+        default:
+          name: ErrorModel
+          description: The structure of the error
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_85
+    - !<!ObjectSchema> &ref_134
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_112
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: *ref_53
+            language: !<!Languages> 
+              default:
+                name: ClusterListResultValue
+                description: Array of Cluster
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: ''
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_86
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The URL to use for getting the next set of results.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: ClusterListResult
+          description: Cluster list results
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> &ref_136
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_113
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: !<!ObjectSchema> &ref_91
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2016-09-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_87
+                  serializedName: id
+                  language: !<!Languages> 
+                    default:
+                      name: id
+                      description: The identification of the result
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_88
+                  serializedName: name
+                  language: !<!Languages> 
+                    default:
+                      name: name
+                      description: The name of the result
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_89
+                  serializedName: type
+                  language: !<!Languages> 
+                    default:
+                      name: type
+                      description: The result resource type
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_60
+                  flattenedNames:
+                    - properties
+                    - codeVersion
+                  serializedName: codeVersion
+                  language: !<!Languages> 
+                    default:
+                      name: codeVersion
+                      description: The ServiceFabric runtime version of the cluster
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_61
+                  flattenedNames:
+                    - properties
+                    - supportExpiryUtc
+                  serializedName: supportExpiryUtc
+                  language: !<!Languages> 
+                    default:
+                      name: supportExpiryUtc
+                      description: The date of expiry of support of the version
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_62
+                  flattenedNames:
+                    - properties
+                    - environment
+                  serializedName: environment
+                  language: !<!Languages> 
+                    default:
+                      name: environment
+                      description: Cluster operating system
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+              language: !<!Languages> 
+                default:
+                  name: ClusterCodeVersionsResult
+                  description: The result of the ServiceFabric runtime versions
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: ClusterCodeVersionsListResultValue
+                description: Array of ClusterCodeVersionsResult
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: ''
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_90
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The URL to use for getting the next set of results.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: ClusterCodeVersionsListResult
+          description: The list results of the ServiceFabric runtime versions
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_91
+    - !<!ObjectSchema> &ref_145
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2016-09-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_114
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2016-09-01'
+            elementType: !<!ObjectSchema> &ref_100
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2016-09-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_92
+                  serializedName: name
+                  language: !<!Languages> 
+                    default:
+                      name: name
+                      description: Result name
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_101
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2016-09-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_93
+                        serializedName: provider
+                        language: !<!Languages> 
+                          default:
+                            name: provider
+                            description: Provider name
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_94
+                        serializedName: resource
+                        language: !<!Languages> 
+                          default:
+                            name: resource
+                            description: Resource name
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_95
+                        serializedName: operation
+                        language: !<!Languages> 
+                          default:
+                            name: operation
+                            description: Operation name
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_96
+                        serializedName: description
+                        language: !<!Languages> 
+                          default:
+                            name: description
+                            description: Operation description
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                    language: !<!Languages> 
+                      default:
+                        name: AvailableOperationDisplay
+                        description: Operation supported by ServiceFabric resource provider
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  serializedName: display
+                  language: !<!Languages> 
+                    default:
+                      name: display
+                      description: Display of the result
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_97
+                  serializedName: origin
+                  language: !<!Languages> 
+                    default:
+                      name: origin
+                      description: Origin result
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_98
+                  serializedName: nextLink
+                  language: !<!Languages> 
+                    default:
+                      name: nextLink
+                      description: The URL to use for getting the next set of results.
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+              language: !<!Languages> 
+                default:
+                  name: OperationResult
+                  description: Available operation list result
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: OperationListResultValue
+                description: List of ServiceFabric operations supported by the Microsoft.ServiceFabric resource provider.
+            protocol: !<!Protocols> {}
+          readOnly: true
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: List of ServiceFabric operations supported by the Microsoft.ServiceFabric resource provider.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_99
+          readOnly: true
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: URL to get the next set of operation list results if there are any.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: OperationListResult
+          description: Result of the request to list ServiceFabric operations. It contains a list of operations and a URL link to get the next set of results.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_100
+    - *ref_101
+  arrays:
+    - *ref_102
+    - *ref_103
+    - *ref_104
+    - *ref_105
+    - *ref_106
+    - *ref_107
+    - *ref_108
+    - *ref_109
+    - *ref_110
+    - *ref_111
+    - *ref_112
+    - *ref_113
+    - *ref_114
+globalParameters:
+  - !<!Parameter> &ref_118
+    schema: *ref_3
+    implementation: Client
+    required: true
+    extensions:
+      x-ms-priority: 0
+    language: !<!Languages> 
+      default:
+        name: SubscriptionId
+        description: The customer subscription identifier
+        serializedName: subscriptionId
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: path
+  - !<!Parameter> &ref_116
+    schema: *ref_0
+    clientDefaultValue: 'https://management.azure.com'
+    implementation: Client
+    origin: 'modelerfour:synthesized/host'
+    required: true
+    extensions:
+      x-ms-skip-url-encoding: true
+    language: !<!Languages> 
+      default:
+        name: $host
+        description: server parameter
+        serializedName: $host
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: uri
+  - !<!Parameter> &ref_117
+    schema: *ref_115
+    implementation: Client
+    origin: 'modelerfour:synthesized/api-version'
+    required: true
+    language: !<!Languages> 
+      default:
+        name: apiVersion
+        description: Api Version
+        serializedName: api-version
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: query
+operationGroups:
+  - !<!OperationGroup> 
+    $key: Clusters
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - !<!Parameter> &ref_123
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group to which the resource belongs or get created
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_124
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: clusterName
+                description: The name of the cluster resource
+                serializedName: clusterName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_117
+          - *ref_118
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_119
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_122
+                schema: *ref_120
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: parameters
+                    description: The parameters which contains the property value and property name which used to update the cluster configuration
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_122
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/clusters/{clusterName}'
+                method: patch
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_123
+          - *ref_124
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_53
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '202'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_125
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-long-running-operation: true
+        language: !<!Languages> 
+          default:
+            name: Update
+            description: Update cluster configuration
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - !<!Parameter> &ref_126
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group to which the resource belongs or get created
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_127
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: clusterName
+                description: The name of the cluster resource
+                serializedName: clusterName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_117
+          - *ref_118
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/clusters/{clusterName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_126
+          - *ref_127
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_53
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_125
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Get cluster resource
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - !<!Parameter> &ref_129
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group to which the resource belongs or get created
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_130
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: clusterName
+                description: The name of the cluster resource
+                serializedName: clusterName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_117
+          - *ref_118
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_119
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_128
+                schema: *ref_53
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: parameters
+                    description: Put Request
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_128
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/clusters/{clusterName}'
+                method: put
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_129
+          - *ref_130
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_53
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '202'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_125
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-long-running-operation: true
+        language: !<!Languages> 
+          default:
+            name: Create
+            description: Create cluster resource
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - !<!Parameter> &ref_131
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group to which the resource belongs or get created
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_132
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: clusterName
+                description: The name of the cluster resource
+                serializedName: clusterName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_117
+          - *ref_118
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/clusters/{clusterName}'
+                method: delete
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_131
+          - *ref_132
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_125
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Delete
+            description: Delete cluster resource
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - !<!Parameter> &ref_133
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group to which the resource belongs or get created
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_117
+          - *ref_118
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/clusters'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_133
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_134
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListByResourceGroup
+            description: List cluster resource by resource group
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - *ref_117
+          - *ref_118
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/clusters'
+                method: get
+                uri: '{$host}'
+        signatureParameters: []
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_134
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: List cluster resource
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Clusters
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: ClusterVersions
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - !<!Parameter> &ref_135
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: location
+                description: 'The location for the cluster code versions, this is different from cluster location'
+                serializedName: location
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_117
+          - *ref_118
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/locations/{location}/clusterVersions'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_135
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_136
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: List cluster code versions by location
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - !<!Parameter> &ref_138
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: location
+                description: 'The location for the cluster code versions, this is different from cluster location'
+                serializedName: location
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_139
+            schema: *ref_137
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: environment
+                description: 'Cluster operating system, the default means all'
+                serializedName: environment
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_117
+          - *ref_118
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/locations/{location}/environments/{environment}/clusterVersions'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_138
+          - *ref_139
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_136
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListByEnvironment
+            description: List cluster code versions by environment
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - !<!Parameter> &ref_140
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: location
+                description: 'The location for the cluster code versions, this is different from cluster location'
+                serializedName: location
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_141
+            schema: *ref_137
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: environment
+                description: 'Cluster operating system, the default means all'
+                serializedName: environment
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_117
+          - *ref_118
+          - !<!Parameter> &ref_142
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: clusterVersion
+                description: The cluster code version
+                serializedName: clusterVersion
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/locations/{location}/environments/{environment}/clusterVersions/{clusterVersion}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_140
+          - *ref_141
+          - *ref_142
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_91
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Get cluster code versions by environment and version
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - !<!Parameter> &ref_143
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: location
+                description: 'The location for the cluster code versions, this is different from cluster location'
+                serializedName: location
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_117
+          - *ref_118
+          - !<!Parameter> &ref_144
+            schema: *ref_3
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: clusterVersion
+                description: The cluster code version
+                serializedName: clusterVersion
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/locations/{location}/clusterVersions/{clusterVersion}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_143
+          - *ref_144
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_136
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListByVersion
+            description: List cluster code versions by version
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: ClusterVersions
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: Operations
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2016-09-01'
+        parameters:
+          - *ref_116
+          - *ref_117
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_121
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: /providers/Microsoft.ServiceFabric/operations
+                method: get
+                uri: '{$host}'
+        signatureParameters: []
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_145
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_125
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: Lists all of the available ServiceFabric REST API operations.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Operations
+        description: ''
+    protocol: !<!Protocols> {}
+security: !<!Security> 
+  authenticationRequired: true
+language: !<!Languages> 
+  default:
+    name: ServiceFabricManagementClient
+    description: ''
+protocol: !<!Protocols> 
+  http: !<!HttpModel> {}

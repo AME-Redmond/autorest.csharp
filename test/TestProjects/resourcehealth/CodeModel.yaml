@@ -1,0 +1,4192 @@
+!<!CodeModel> 
+info: !<!Info> 
+  description: The Resource Health Client.
+  title: Microsoft.ResourceHealth
+schemas: !<!Schemas> 
+  booleans:
+    - !<!BooleanSchema> &ref_61
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: It provides information if the event is High incident rate event or not.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_62
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: Tells if we want to enable or disable Microsoft Support for this event.
+      protocol: !<!Protocols> {}
+    - !<!BooleanSchema> &ref_15
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: The boolean value of this active event if published or not.
+      protocol: !<!Protocols> {}
+  numbers:
+    - !<!NumberSchema> &ref_55
+      type: integer
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: Recommended action group Id for the service health event.
+      protocol: !<!Protocols> {}
+    - !<!NumberSchema> &ref_63
+      type: integer
+      precision: 32
+      language: !<!Languages> 
+        default:
+          name: Integer
+          description: Priority level of the event.
+      protocol: !<!Protocols> {}
+  strings:
+    - !<!StringSchema> &ref_0
+      type: string
+      language: !<!Languages> 
+        default:
+          name: String
+          description: simple string
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_153
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_34
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesTitle
+          description: Title text of event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_35
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesSummary
+          description: Summary text of event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_36
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesHeader
+          description: Header text of event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_39
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesArticleContent
+          description: Article content of event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_41
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: LinkDisplayTextValue
+          description: Display text of link.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_42
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: LinkDisplayTextLocalizedValue
+          description: Localized display text of link.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_43
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: LinkExtensionName
+          description: It provides the name of portal extension to produce link for given service health event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_44
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: LinkBladeName
+          description: It provides the name of portal extension blade to produce link for given service health event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_48
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ImpactImpactedService
+          description: Impacted service name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_49
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ImpactedServiceRegionImpactedRegion
+          description: Impacted region name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_50
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ImpactedServiceRegionImpactedSubscriptionsItem
+          description: Subscription impacted by the service health event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_52
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: UpdateSummary
+          description: Summary text for the given update for the service health event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_54
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesRecommendedActionsMessage
+          description: Recommended action title for the service health event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_56
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventRecommendedActionsItemActionText
+          description: Recommended action text
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_57
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesRecommendedActionsLocaleCode
+          description: Recommended action locale for the service health event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_58
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: FaqQuestion
+          description: FAQ question for the service health event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_59
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: FaqAnswer
+          description: FAQ answer for the service health event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_60
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: FaqLocaleCode
+          description: FAQ locale for the service health event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_65
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesHirStage
+          description: Stage for HIR Document
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_28
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ResourceId
+          description: 'Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_29
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ResourceName
+          description: The name of the resource
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_30
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ResourceType
+          description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_66
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventsNextLink
+          description: The URI to fetch the next page of events. Call ListNext() with this URI to fetch the next page of events.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_76
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorResponseCode
+          description: The error code.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_77
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorResponseMessage
+          description: The error message.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_78
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ErrorResponseDetails
+          description: The error details.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_79
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusId
+          description: Azure Resource Manager Identity for the availabilityStatuses resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_80
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusName
+          description: current.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_81
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusType
+          description: Microsoft.ResourceHealth/AvailabilityStatuses.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_82
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusLocation
+          description: Azure Resource Manager geo location of the resource.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_84
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesSummary
+          description: Summary description of the availability status.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_85
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesDetailedStatus
+          description: Details of the availability status.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_86
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesReasonType
+          description: 'When the resource''s availabilityState is Unavailable, it describes where the health impacting event was originated. Examples are planned, unplanned, user initiated or an outage etc.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_88
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesHealthEventType
+          description: 'In case of an availability impacting event, it describes when the health impacting event was originated. Examples are Lifecycle, Downtime, Fault Analysis etc.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_89
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesHealthEventCause
+          description: 'In case of an availability impacting event, it describes where the health impacting event was originated. Examples are PlatformInitiated, UserInitiated etc.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_90
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesHealthEventCategory
+          description: 'In case of an availability impacting event, it describes the category of a PlatformInitiated health impacting event. Examples are Planned, Unplanned etc.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_91
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesHealthEventId
+          description: It is a unique Id that identifies the event
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_98
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesRecentlyResolvedUnavailabilitySummary
+          description: Brief description of cause of the resource becoming unavailable.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_99
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: RecommendedAction
+          description: Recommended action.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_100
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: RecommendedActionUrl
+          description: Link to the action
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_101
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: RecommendedActionUrlText
+          description: 'Substring of action, it describes which text should host the action url.'
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_104
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ServiceImpactingEventCorrelationId
+          description: Correlation id for the event
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_105
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ServiceImpactingEventStatusValue
+          description: Current status of the event
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_106
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ServiceImpactingEventIncidentPropertiesTitle
+          description: Title of the incident.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_107
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ServiceImpactingEventIncidentPropertiesService
+          description: Service impacted by the event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_108
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ServiceImpactingEventIncidentPropertiesRegion
+          description: Region impacted by the event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_109
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ServiceImpactingEventIncidentPropertiesIncidentType
+          description: Type of Event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_110
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusListResultNextLink
+          description: The URI to fetch the next page of availabilityStatuses. Call ListNext() with this URI to fetch the next page of availabilityStatuses.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_118
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: OperationName
+          description: Name of the operation.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_119
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: OperationDisplayProvider
+          description: Provider name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_120
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: OperationDisplayResource
+          description: Resource name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_121
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: OperationDisplayOperation
+          description: Operation name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_122
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: OperationDisplayDescription
+          description: Description of the operation.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_4
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusBannerTitle
+          description: The banner title.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_5
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusBannerMessage
+          description: The details of banner.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_6
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusBannerCloud
+          description: The cloud type of this banner.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_8
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusActiveEventTitle
+          description: The active event title.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_9
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusActiveEventDescription
+          description: The details of active event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_10
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusActiveEventTrackingId
+          description: The tracking id of this active event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_12
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusActiveEventCloud
+          description: The cloud type of this active event.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_17
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EmergingIssueImpactId
+          description: The impacted service id.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_18
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EmergingIssueImpactName
+          description: The impacted service name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_19
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ImpactedRegionId
+          description: The impacted region id.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_20
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ImpactedRegionName
+          description: The impacted region name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_129
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EmergingIssueListResultNextLink
+          description: The link used to get the next page of emerging issues.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_21
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: MetadataEntityPropertiesDisplayName
+          description: The display name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_22
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: MetadataEntityPropertiesDependsOnItem
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_24
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: MetadataSupportedValueDetailId
+          description: The id.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_25
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: MetadataSupportedValueDetailDisplayName
+          description: The display name.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_130
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: MetadataEntityListResultNextLink
+          description: The link used to get the next page of metadata.
+      protocol: !<!Protocols> {}
+  choices:
+    - !<!ChoiceSchema> &ref_31
+      choices:
+        - !<!ChoiceValue> 
+          value: ServiceIssue
+          language:
+            default:
+              name: ServiceIssue
+              description: ''
+        - !<!ChoiceValue> 
+          value: PlannedMaintenance
+          language:
+            default:
+              name: PlannedMaintenance
+              description: ''
+        - !<!ChoiceValue> 
+          value: HealthAdvisory
+          language:
+            default:
+              name: HealthAdvisory
+              description: ''
+        - !<!ChoiceValue> 
+          value: RCA
+          language:
+            default:
+              name: RCA
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: EventTypeValues
+          description: Type of event.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_32
+      choices:
+        - !<!ChoiceValue> 
+          value: ResourceHealth
+          language:
+            default:
+              name: ResourceHealth
+              description: ''
+        - !<!ChoiceValue> 
+          value: ServiceHealth
+          language:
+            default:
+              name: ServiceHealth
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: EventSourceValues
+          description: Source of event.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_33
+      choices:
+        - !<!ChoiceValue> 
+          value: Active
+          language:
+            default:
+              name: Active
+              description: ''
+        - !<!ChoiceValue> 
+          value: Resolved
+          language:
+            default:
+              name: Resolved
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: EventStatusValues
+          description: Current status of event.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_37
+      choices:
+        - !<!ChoiceValue> 
+          value: Critical
+          language:
+            default:
+              name: Critical
+              description: ''
+        - !<!ChoiceValue> 
+          value: Warning
+          language:
+            default:
+              name: Warning
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: LevelValues
+          description: Level of insight.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_38
+      choices:
+        - !<!ChoiceValue> 
+          value: Critical
+          language:
+            default:
+              name: Critical
+              description: ''
+        - !<!ChoiceValue> 
+          value: Warning
+          language:
+            default:
+              name: Warning
+              description: ''
+        - !<!ChoiceValue> 
+          value: Informational
+          language:
+            default:
+              name: Informational
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: EventLevelValues
+          description: Level of event.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_40
+      choices:
+        - !<!ChoiceValue> 
+          value: Button
+          language:
+            default:
+              name: Button
+              description: ''
+        - !<!ChoiceValue> 
+          value: Hyperlink
+          language:
+            default:
+              name: Hyperlink
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: LinkTypeValues
+          description: Type of link.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_83
+      choices:
+        - !<!ChoiceValue> 
+          value: Available
+          language:
+            default:
+              name: Available
+              description: ''
+        - !<!ChoiceValue> 
+          value: Unavailable
+          language:
+            default:
+              name: Unavailable
+              description: ''
+        - !<!ChoiceValue> 
+          value: Degraded
+          language:
+            default:
+              name: Degraded
+              description: ''
+        - !<!ChoiceValue> 
+          value: Unknown
+          language:
+            default:
+              name: Unknown
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStateValues
+          description: 'Availability status of the resource. When it is null, this availabilityStatus object represents an availability impacting event'
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_94
+      choices:
+        - !<!ChoiceValue> 
+          value: Transient
+          language:
+            default:
+              name: Transient
+              description: ''
+        - !<!ChoiceValue> 
+          value: Persistent
+          language:
+            default:
+              name: Persistent
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ReasonChronicityTypes
+          description: Chronicity of the availability transition.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_13
+      choices:
+        - !<!ChoiceValue> 
+          value: Information
+          language:
+            default:
+              name: Information
+              description: ''
+        - !<!ChoiceValue> 
+          value: Warning
+          language:
+            default:
+              name: Warning
+              description: ''
+        - !<!ChoiceValue> 
+          value: Error
+          language:
+            default:
+              name: Error
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: SeverityValues
+          description: The severity level of this active event.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_14
+      choices:
+        - !<!ChoiceValue> 
+          value: Active
+          language:
+            default:
+              name: Active
+              description: ''
+        - !<!ChoiceValue> 
+          value: Resolve
+          language:
+            default:
+              name: Resolve
+              description: ''
+        - !<!ChoiceValue> 
+          value: Archived
+          language:
+            default:
+              name: Archived
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: StageValues
+          description: The stage of this active event.
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_23
+      choices:
+        - !<!ChoiceValue> 
+          value: Alerts
+          language:
+            default:
+              name: Alerts
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Scenario
+          description: ''
+      protocol: !<!Protocols> {}
+  constants:
+    - !<!ConstantSchema> &ref_154
+      type: constant
+      value: !<!ConstantValue> 
+        value: '2018-07-01'
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApiVersion20180701
+          description: Api Version (2018-07-01)
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_158
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Accept
+          description: 'Accept: application/json'
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_179
+      type: constant
+      value: !<!ConstantValue> 
+        value: default
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Constant13
+          description: ''
+      protocol: !<!Protocols> {}
+  any:
+    - !<!AnySchema> &ref_45
+      type: any
+      language: !<!Languages> 
+        default:
+          name: any
+          description: Any object
+      protocol: !<!Protocols> {}
+  dateTimes:
+    - !<!DateTimeSchema> &ref_46
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesImpactStartTime
+          description: It provides the Timestamp for when the health impacting event started.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_47
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesImpactMitigationTime
+          description: It provides the Timestamp for when the health impacting event resolved.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_51
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ImpactedServiceRegionLastUpdateTime
+          description: It provides the Timestamp for when the last update for the service health event.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_53
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: UpdateDateTime
+          description: It provides the Timestamp for the given update for the service health event.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_64
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EventPropertiesLastUpdateTime
+          description: It provides the Timestamp for when the health impacting event was last updated.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_87
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesRootCauseAttributionTime
+          description: 'When the resource''s availabilityState is Unavailable, it provides the Timestamp for when the health impacting event was received.'
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_92
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesResolutionETA
+          description: 'When the resource''s availabilityState is Unavailable and the reasonType is not User Initiated, it provides the date and time for when the issue is expected to be resolved.'
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_93
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesOccurredTime
+          description: Timestamp for when last change in health status occurred.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_95
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesReportedTime
+          description: 'Timestamp for when the health was last checked. '
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_96
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesRecentlyResolvedUnavailableOccurredTime
+          description: Timestamp for when the availabilityState changed to Unavailable
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_97
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusPropertiesRecentlyResolvedTime
+          description: Timestamp when the availabilityState changes to Available.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_102
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ServiceImpactingEventStartTime
+          description: Timestamp for when the event started.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_103
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: ServiceImpactingEventStatusLastModifiedTime
+          description: Timestamp for when event was submitted/detected.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_3
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: EmergingIssueRefreshTimestamp
+          description: Timestamp for when last time refreshed for ongoing emerging issue.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_7
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusBannerLastModifiedTime
+          description: The last time modified on this banner.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_11
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusActiveEventStartTime
+          description: The impact start time on this active event.
+      protocol: !<!Protocols> {}
+    - !<!DateTimeSchema> &ref_16
+      type: date-time
+      format: date-time
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      language: !<!Languages> 
+        default:
+          name: StatusActiveEventLastModifiedTime
+          description: The last time modified on this banner.
+      protocol: !<!Protocols> {}
+  objects:
+    - !<!ObjectSchema> &ref_161
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_139
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2018-07-01'
+            elementType: !<!ObjectSchema> &ref_1
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2018-07-01'
+              parents: !<!Relations> 
+                all:
+                  - !<!ObjectSchema> &ref_2
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '1.0'
+                    children: !<!Relations> 
+                      all:
+                        - *ref_1
+                        - !<!ObjectSchema> &ref_26
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2018-07-01'
+                          parents: !<!Relations> 
+                            all:
+                              - *ref_2
+                            immediate:
+                              - *ref_2
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_3
+                              flattenedNames:
+                                - properties
+                                - refreshTimestamp
+                              serializedName: refreshTimestamp
+                              language: !<!Languages> 
+                                default:
+                                  name: refreshTimestamp
+                                  description: Timestamp for when last time refreshed for ongoing emerging issue.
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: !<!ArraySchema> &ref_144
+                                type: array
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '2018-07-01'
+                                elementType: !<!ObjectSchema> &ref_125
+                                  type: object
+                                  apiVersions:
+                                    - !<!ApiVersion> 
+                                      version: '2018-07-01'
+                                  properties:
+                                    - !<!Property> 
+                                      schema: *ref_4
+                                      serializedName: title
+                                      language: !<!Languages> 
+                                        default:
+                                          name: title
+                                          description: The banner title.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_5
+                                      serializedName: message
+                                      language: !<!Languages> 
+                                        default:
+                                          name: message
+                                          description: The details of banner.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_6
+                                      serializedName: cloud
+                                      language: !<!Languages> 
+                                        default:
+                                          name: cloud
+                                          description: The cloud type of this banner.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_7
+                                      serializedName: lastModifiedTime
+                                      language: !<!Languages> 
+                                        default:
+                                          name: lastModifiedTime
+                                          description: The last time modified on this banner.
+                                      protocol: !<!Protocols> {}
+                                  serializationFormats:
+                                    - json
+                                  usage:
+                                    - output
+                                  language: !<!Languages> 
+                                    default:
+                                      name: StatusBanner
+                                      description: Banner type of emerging issue.
+                                      namespace: ''
+                                  protocol: !<!Protocols> {}
+                                language: !<!Languages> 
+                                  default:
+                                    name: EmergingIssueStatusBanners
+                                    description: The list of emerging issues of banner type.
+                                protocol: !<!Protocols> {}
+                              flattenedNames:
+                                - properties
+                                - statusBanners
+                              serializedName: statusBanners
+                              language: !<!Languages> 
+                                default:
+                                  name: statusBanners
+                                  description: The list of emerging issues of banner type.
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: !<!ArraySchema> &ref_147
+                                type: array
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '2018-07-01'
+                                elementType: !<!ObjectSchema> &ref_126
+                                  type: object
+                                  apiVersions:
+                                    - !<!ApiVersion> 
+                                      version: '2018-07-01'
+                                  properties:
+                                    - !<!Property> 
+                                      schema: *ref_8
+                                      serializedName: title
+                                      language: !<!Languages> 
+                                        default:
+                                          name: title
+                                          description: The active event title.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_9
+                                      serializedName: description
+                                      language: !<!Languages> 
+                                        default:
+                                          name: description
+                                          description: The details of active event.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_10
+                                      serializedName: trackingId
+                                      language: !<!Languages> 
+                                        default:
+                                          name: trackingId
+                                          description: The tracking id of this active event.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_11
+                                      serializedName: startTime
+                                      language: !<!Languages> 
+                                        default:
+                                          name: startTime
+                                          description: The impact start time on this active event.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_12
+                                      serializedName: cloud
+                                      language: !<!Languages> 
+                                        default:
+                                          name: cloud
+                                          description: The cloud type of this active event.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_13
+                                      serializedName: severity
+                                      language: !<!Languages> 
+                                        default:
+                                          name: severity
+                                          description: The severity level of this active event.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_14
+                                      serializedName: stage
+                                      language: !<!Languages> 
+                                        default:
+                                          name: stage
+                                          description: The stage of this active event.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_15
+                                      serializedName: published
+                                      language: !<!Languages> 
+                                        default:
+                                          name: published
+                                          description: The boolean value of this active event if published or not.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_16
+                                      serializedName: lastModifiedTime
+                                      language: !<!Languages> 
+                                        default:
+                                          name: lastModifiedTime
+                                          description: The last time modified on this banner.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: !<!ArraySchema> &ref_146
+                                        type: array
+                                        apiVersions:
+                                          - !<!ApiVersion> 
+                                            version: '2018-07-01'
+                                        elementType: !<!ObjectSchema> &ref_127
+                                          type: object
+                                          apiVersions:
+                                            - !<!ApiVersion> 
+                                              version: '2018-07-01'
+                                          properties:
+                                            - !<!Property> 
+                                              schema: *ref_17
+                                              serializedName: id
+                                              language: !<!Languages> 
+                                                default:
+                                                  name: id
+                                                  description: The impacted service id.
+                                              protocol: !<!Protocols> {}
+                                            - !<!Property> 
+                                              schema: *ref_18
+                                              serializedName: name
+                                              language: !<!Languages> 
+                                                default:
+                                                  name: name
+                                                  description: The impacted service name.
+                                              protocol: !<!Protocols> {}
+                                            - !<!Property> 
+                                              schema: !<!ArraySchema> &ref_145
+                                                type: array
+                                                apiVersions:
+                                                  - !<!ApiVersion> 
+                                                    version: '2018-07-01'
+                                                elementType: !<!ObjectSchema> &ref_128
+                                                  type: object
+                                                  apiVersions:
+                                                    - !<!ApiVersion> 
+                                                      version: '2018-07-01'
+                                                  properties:
+                                                    - !<!Property> 
+                                                      schema: *ref_19
+                                                      serializedName: id
+                                                      language: !<!Languages> 
+                                                        default:
+                                                          name: id
+                                                          description: The impacted region id.
+                                                      protocol: !<!Protocols> {}
+                                                    - !<!Property> 
+                                                      schema: *ref_20
+                                                      serializedName: name
+                                                      language: !<!Languages> 
+                                                        default:
+                                                          name: name
+                                                          description: The impacted region name.
+                                                      protocol: !<!Protocols> {}
+                                                  serializationFormats:
+                                                    - json
+                                                  usage:
+                                                    - output
+                                                  language: !<!Languages> 
+                                                    default:
+                                                      name: ImpactedRegion
+                                                      description: Object of impacted region.
+                                                      namespace: ''
+                                                  protocol: !<!Protocols> {}
+                                                language: !<!Languages> 
+                                                  default:
+                                                    name: EmergingIssueImpactRegions
+                                                    description: The list of impacted regions for corresponding emerging issues.
+                                                protocol: !<!Protocols> {}
+                                              serializedName: regions
+                                              language: !<!Languages> 
+                                                default:
+                                                  name: regions
+                                                  description: The list of impacted regions for corresponding emerging issues.
+                                              protocol: !<!Protocols> {}
+                                          serializationFormats:
+                                            - json
+                                          usage:
+                                            - output
+                                          language: !<!Languages> 
+                                            default:
+                                              name: EmergingIssueImpact
+                                              description: Object of the emerging issue impact on services and regions.
+                                              namespace: ''
+                                          protocol: !<!Protocols> {}
+                                        language: !<!Languages> 
+                                          default:
+                                            name: StatusActiveEventImpacts
+                                            description: The list of emerging issues impacts.
+                                        protocol: !<!Protocols> {}
+                                      serializedName: impacts
+                                      language: !<!Languages> 
+                                        default:
+                                          name: impacts
+                                          description: The list of emerging issues impacts.
+                                      protocol: !<!Protocols> {}
+                                  serializationFormats:
+                                    - json
+                                  usage:
+                                    - output
+                                  language: !<!Languages> 
+                                    default:
+                                      name: StatusActiveEvent
+                                      description: Active event type of emerging issue.
+                                      namespace: ''
+                                  protocol: !<!Protocols> {}
+                                language: !<!Languages> 
+                                  default:
+                                    name: EmergingIssueStatusActiveEvents
+                                    description: The list of emerging issues of active event type.
+                                protocol: !<!Protocols> {}
+                              flattenedNames:
+                                - properties
+                                - statusActiveEvents
+                              serializedName: statusActiveEvents
+                              language: !<!Languages> 
+                                default:
+                                  name: statusActiveEvents
+                                  description: The list of emerging issues of active event type.
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - output
+                          language: !<!Languages> 
+                            default:
+                              name: EmergingIssuesGetResult
+                              description: The Get EmergingIssues operation response.
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        - !<!ObjectSchema> &ref_27
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2018-07-01'
+                          parents: !<!Relations> 
+                            all:
+                              - *ref_2
+                            immediate:
+                              - *ref_2
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_21
+                              flattenedNames:
+                                - properties
+                                - displayName
+                              serializedName: displayName
+                              language: !<!Languages> 
+                                default:
+                                  name: displayName
+                                  description: The display name.
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: !<!ArraySchema> &ref_149
+                                type: array
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '2018-07-01'
+                                elementType: *ref_22
+                                language: !<!Languages> 
+                                  default:
+                                    name: MetadataEntityPropertiesDependsOn
+                                    description: The list of keys on which this entity depends on.
+                                protocol: !<!Protocols> {}
+                              flattenedNames:
+                                - properties
+                                - dependsOn
+                              serializedName: dependsOn
+                              language: !<!Languages> 
+                                default:
+                                  name: dependsOn
+                                  description: The list of keys on which this entity depends on.
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: !<!ArraySchema> &ref_150
+                                type: array
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '2018-07-01'
+                                elementType: *ref_23
+                                language: !<!Languages> 
+                                  default:
+                                    name: MetadataEntityPropertiesApplicableScenarios
+                                    description: The list of scenarios applicable to this metadata entity.
+                                protocol: !<!Protocols> {}
+                              flattenedNames:
+                                - properties
+                                - applicableScenarios
+                              serializedName: applicableScenarios
+                              language: !<!Languages> 
+                                default:
+                                  name: applicableScenarios
+                                  description: The list of scenarios applicable to this metadata entity.
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: !<!ArraySchema> &ref_151
+                                type: array
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '2018-07-01'
+                                elementType: !<!ObjectSchema> &ref_131
+                                  type: object
+                                  apiVersions:
+                                    - !<!ApiVersion> 
+                                      version: '2018-07-01'
+                                  properties:
+                                    - !<!Property> 
+                                      schema: *ref_24
+                                      serializedName: id
+                                      language: !<!Languages> 
+                                        default:
+                                          name: id
+                                          description: The id.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_25
+                                      serializedName: displayName
+                                      language: !<!Languages> 
+                                        default:
+                                          name: displayName
+                                          description: The display name.
+                                      protocol: !<!Protocols> {}
+                                  serializationFormats:
+                                    - json
+                                  usage:
+                                    - output
+                                  language: !<!Languages> 
+                                    default:
+                                      name: MetadataSupportedValueDetail
+                                      description: The metadata supported value detail.
+                                      namespace: ''
+                                  protocol: !<!Protocols> {}
+                                language: !<!Languages> 
+                                  default:
+                                    name: MetadataEntityPropertiesSupportedValues
+                                    description: The list of supported values.
+                                protocol: !<!Protocols> {}
+                              flattenedNames:
+                                - properties
+                                - supportedValues
+                              serializedName: supportedValues
+                              language: !<!Languages> 
+                                default:
+                                  name: supportedValues
+                                  description: The list of supported values.
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - output
+                          language: !<!Languages> 
+                            default:
+                              name: MetadataEntity
+                              description: The metadata entity contract.
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                      immediate:
+                        - *ref_1
+                        - *ref_26
+                        - *ref_27
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_28
+                        readOnly: true
+                        serializedName: id
+                        language: !<!Languages> 
+                          default:
+                            name: id
+                            description: 'Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_29
+                        readOnly: true
+                        serializedName: name
+                        language: !<!Languages> 
+                          default:
+                            name: name
+                            description: The name of the resource
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_30
+                        readOnly: true
+                        serializedName: type
+                        language: !<!Languages> 
+                          default:
+                            name: type
+                            description: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                    extensions:
+                      x-ms-azure-resource: true
+                    language: !<!Languages> 
+                      default:
+                        name: Resource
+                        description: ''
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                immediate:
+                  - *ref_2
+              properties:
+                - !<!Property> 
+                  schema: *ref_31
+                  flattenedNames:
+                    - properties
+                    - eventType
+                  serializedName: eventType
+                  language: !<!Languages> 
+                    default:
+                      name: eventType
+                      description: Type of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_32
+                  flattenedNames:
+                    - properties
+                    - eventSource
+                  serializedName: eventSource
+                  language: !<!Languages> 
+                    default:
+                      name: eventSource
+                      description: Source of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_33
+                  flattenedNames:
+                    - properties
+                    - status
+                  serializedName: status
+                  language: !<!Languages> 
+                    default:
+                      name: status
+                      description: Current status of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_34
+                  flattenedNames:
+                    - properties
+                    - title
+                  serializedName: title
+                  language: !<!Languages> 
+                    default:
+                      name: title
+                      description: Title text of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_35
+                  flattenedNames:
+                    - properties
+                    - summary
+                  serializedName: summary
+                  language: !<!Languages> 
+                    default:
+                      name: summary
+                      description: Summary text of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_36
+                  flattenedNames:
+                    - properties
+                    - header
+                  serializedName: header
+                  language: !<!Languages> 
+                    default:
+                      name: header
+                      description: Header text of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_37
+                  flattenedNames:
+                    - properties
+                    - level
+                  serializedName: level
+                  language: !<!Languages> 
+                    default:
+                      name: level
+                      description: Level of insight.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_38
+                  flattenedNames:
+                    - properties
+                    - eventLevel
+                  serializedName: eventLevel
+                  language: !<!Languages> 
+                    default:
+                      name: eventLevel
+                      description: Level of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_67
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2018-07-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_39
+                        serializedName: articleContent
+                        language: !<!Languages> 
+                          default:
+                            name: articleContent
+                            description: Article content of event.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                    extensions:
+                      x-internal-autorest-anonymous-schema:
+                        anonymous: true
+                    language: !<!Languages> 
+                      default:
+                        name: EventPropertiesArticle
+                        description: Article of event.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - article
+                  serializedName: article
+                  language: !<!Languages> 
+                    default:
+                      name: article
+                      description: Article of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_132
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2018-07-01'
+                    elementType: !<!ObjectSchema> &ref_68
+                      type: object
+                      apiVersions:
+                        - !<!ApiVersion> 
+                          version: '2018-07-01'
+                      properties:
+                        - !<!Property> 
+                          schema: *ref_40
+                          serializedName: type
+                          language: !<!Languages> 
+                            default:
+                              name: type
+                              description: Type of link.
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: !<!ObjectSchema> &ref_69
+                            type: object
+                            apiVersions:
+                              - !<!ApiVersion> 
+                                version: '2018-07-01'
+                            properties:
+                              - !<!Property> 
+                                schema: *ref_41
+                                serializedName: value
+                                language: !<!Languages> 
+                                  default:
+                                    name: value
+                                    description: Display text of link.
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: *ref_42
+                                serializedName: localizedValue
+                                language: !<!Languages> 
+                                  default:
+                                    name: localizedValue
+                                    description: Localized display text of link.
+                                protocol: !<!Protocols> {}
+                            serializationFormats:
+                              - json
+                            usage:
+                              - output
+                            extensions:
+                              x-internal-autorest-anonymous-schema:
+                                anonymous: true
+                            language: !<!Languages> 
+                              default:
+                                name: LinkDisplayText
+                                description: Display text of link.
+                                namespace: ''
+                            protocol: !<!Protocols> {}
+                          serializedName: displayText
+                          language: !<!Languages> 
+                            default:
+                              name: displayText
+                              description: Display text of link.
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: *ref_43
+                          serializedName: extensionName
+                          language: !<!Languages> 
+                            default:
+                              name: extensionName
+                              description: It provides the name of portal extension to produce link for given service health event.
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: *ref_44
+                          serializedName: bladeName
+                          language: !<!Languages> 
+                            default:
+                              name: bladeName
+                              description: It provides the name of portal extension blade to produce link for given service health event.
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: *ref_45
+                          serializedName: parameters
+                          language: !<!Languages> 
+                            default:
+                              name: parameters
+                              description: It provides a map of parameter name and value for portal extension blade to produce lik for given service health event.
+                          protocol: !<!Protocols> {}
+                      serializationFormats:
+                        - json
+                      usage:
+                        - output
+                      language: !<!Languages> 
+                        default:
+                          name: Link
+                          description: Useful links for service health event.
+                          namespace: ''
+                      protocol: !<!Protocols> {}
+                    language: !<!Languages> 
+                      default:
+                        name: EventPropertiesLinks
+                        description: Useful links of event.
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - links
+                  serializedName: links
+                  language: !<!Languages> 
+                    default:
+                      name: links
+                      description: Useful links of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_46
+                  flattenedNames:
+                    - properties
+                    - impactStartTime
+                  serializedName: impactStartTime
+                  language: !<!Languages> 
+                    default:
+                      name: impactStartTime
+                      description: It provides the Timestamp for when the health impacting event started.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_47
+                  flattenedNames:
+                    - properties
+                    - impactMitigationTime
+                  serializedName: impactMitigationTime
+                  language: !<!Languages> 
+                    default:
+                      name: impactMitigationTime
+                      description: It provides the Timestamp for when the health impacting event resolved.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_136
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2018-07-01'
+                    elementType: !<!ObjectSchema> &ref_70
+                      type: object
+                      apiVersions:
+                        - !<!ApiVersion> 
+                          version: '2018-07-01'
+                      properties:
+                        - !<!Property> 
+                          schema: *ref_48
+                          serializedName: impactedService
+                          language: !<!Languages> 
+                            default:
+                              name: impactedService
+                              description: Impacted service name.
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: !<!ArraySchema> &ref_135
+                            type: array
+                            apiVersions:
+                              - !<!ApiVersion> 
+                                version: '2018-07-01'
+                            elementType: !<!ObjectSchema> &ref_71
+                              type: object
+                              apiVersions:
+                                - !<!ApiVersion> 
+                                  version: '2018-07-01'
+                              properties:
+                                - !<!Property> 
+                                  schema: *ref_49
+                                  serializedName: impactedRegion
+                                  language: !<!Languages> 
+                                    default:
+                                      name: impactedRegion
+                                      description: Impacted region name.
+                                  protocol: !<!Protocols> {}
+                                - !<!Property> 
+                                  schema: *ref_33
+                                  serializedName: status
+                                  language: !<!Languages> 
+                                    default:
+                                      name: status
+                                      description: Current status of event in the region.
+                                  protocol: !<!Protocols> {}
+                                - !<!Property> 
+                                  schema: !<!ArraySchema> &ref_133
+                                    type: array
+                                    apiVersions:
+                                      - !<!ApiVersion> 
+                                        version: '2018-07-01'
+                                    elementType: *ref_50
+                                    language: !<!Languages> 
+                                      default:
+                                        name: ImpactedServiceRegionImpactedSubscriptions
+                                        description: List subscription impacted by the service health event.
+                                    protocol: !<!Protocols> {}
+                                  serializedName: impactedSubscriptions
+                                  language: !<!Languages> 
+                                    default:
+                                      name: impactedSubscriptions
+                                      description: List subscription impacted by the service health event.
+                                  protocol: !<!Protocols> {}
+                                - !<!Property> 
+                                  schema: *ref_51
+                                  serializedName: lastUpdateTime
+                                  language: !<!Languages> 
+                                    default:
+                                      name: lastUpdateTime
+                                      description: It provides the Timestamp for when the last update for the service health event.
+                                  protocol: !<!Protocols> {}
+                                - !<!Property> 
+                                  schema: !<!ArraySchema> &ref_134
+                                    type: array
+                                    apiVersions:
+                                      - !<!ApiVersion> 
+                                        version: '2018-07-01'
+                                    elementType: !<!ObjectSchema> &ref_72
+                                      type: object
+                                      apiVersions:
+                                        - !<!ApiVersion> 
+                                          version: '2018-07-01'
+                                      properties:
+                                        - !<!Property> 
+                                          schema: *ref_52
+                                          serializedName: summary
+                                          language: !<!Languages> 
+                                            default:
+                                              name: summary
+                                              description: Summary text for the given update for the service health event.
+                                          protocol: !<!Protocols> {}
+                                        - !<!Property> 
+                                          schema: *ref_53
+                                          serializedName: updateDateTime
+                                          language: !<!Languages> 
+                                            default:
+                                              name: updateDateTime
+                                              description: It provides the Timestamp for the given update for the service health event.
+                                          protocol: !<!Protocols> {}
+                                      serializationFormats:
+                                        - json
+                                      usage:
+                                        - output
+                                      language: !<!Languages> 
+                                        default:
+                                          name: Update
+                                          description: Update for service health event.
+                                          namespace: ''
+                                      protocol: !<!Protocols> {}
+                                    language: !<!Languages> 
+                                      default:
+                                        name: ImpactedServiceRegionUpdates
+                                        description: List of updates for given service health event.
+                                    protocol: !<!Protocols> {}
+                                  serializedName: updates
+                                  language: !<!Languages> 
+                                    default:
+                                      name: updates
+                                      description: List of updates for given service health event.
+                                  protocol: !<!Protocols> {}
+                              serializationFormats:
+                                - json
+                              usage:
+                                - output
+                              language: !<!Languages> 
+                                default:
+                                  name: ImpactedServiceRegion
+                                  description: Azure region impacted by the service health event.
+                                  namespace: ''
+                              protocol: !<!Protocols> {}
+                            language: !<!Languages> 
+                              default:
+                                name: ImpactImpactedRegions
+                                description: List regions impacted by the service health event.
+                            protocol: !<!Protocols> {}
+                          serializedName: impactedRegions
+                          language: !<!Languages> 
+                            default:
+                              name: impactedRegions
+                              description: List regions impacted by the service health event.
+                          protocol: !<!Protocols> {}
+                      serializationFormats:
+                        - json
+                      usage:
+                        - output
+                      language: !<!Languages> 
+                        default:
+                          name: Impact
+                          description: Azure service impacted by the service health event.
+                          namespace: ''
+                      protocol: !<!Protocols> {}
+                    language: !<!Languages> 
+                      default:
+                        name: EventPropertiesImpact
+                        description: List services impacted by the service health event.
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - impact
+                  serializedName: impact
+                  language: !<!Languages> 
+                    default:
+                      name: impact
+                      description: List services impacted by the service health event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_73
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2018-07-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_54
+                        serializedName: message
+                        language: !<!Languages> 
+                          default:
+                            name: message
+                            description: Recommended action title for the service health event.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ArraySchema> &ref_137
+                          type: array
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2018-07-01'
+                          elementType: !<!ObjectSchema> &ref_74
+                            type: object
+                            apiVersions:
+                              - !<!ApiVersion> 
+                                version: '2018-07-01'
+                            properties:
+                              - !<!Property> 
+                                schema: *ref_55
+                                serializedName: groupId
+                                language: !<!Languages> 
+                                  default:
+                                    name: groupId
+                                    description: Recommended action group Id for the service health event.
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: *ref_56
+                                serializedName: actionText
+                                language: !<!Languages> 
+                                  default:
+                                    name: actionText
+                                    description: Recommended action text
+                                protocol: !<!Protocols> {}
+                            serializationFormats:
+                              - json
+                            usage:
+                              - output
+                            language: !<!Languages> 
+                              default:
+                                name: EventPropertiesRecommendedActionsItem
+                                description: Recommended action for the service health event.
+                                namespace: ''
+                            protocol: !<!Protocols> {}
+                          language: !<!Languages> 
+                            default:
+                              name: EventPropertiesRecommendedActions
+                              description: Recommended actions for the service health event.
+                          protocol: !<!Protocols> {}
+                        serializedName: actions
+                        language: !<!Languages> 
+                          default:
+                            name: actions
+                            description: Recommended actions for the service health event.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_57
+                        serializedName: localeCode
+                        language: !<!Languages> 
+                          default:
+                            name: localeCode
+                            description: Recommended action locale for the service health event.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                    extensions:
+                      x-internal-autorest-anonymous-schema:
+                        anonymous: true
+                    language: !<!Languages> 
+                      default:
+                        name: EventPropertiesRecommendedActions
+                        description: Recommended actions of event.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - recommendedActions
+                  serializedName: recommendedActions
+                  language: !<!Languages> 
+                    default:
+                      name: recommendedActions
+                      description: Recommended actions of event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_138
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2018-07-01'
+                    elementType: !<!ObjectSchema> &ref_75
+                      type: object
+                      apiVersions:
+                        - !<!ApiVersion> 
+                          version: '2018-07-01'
+                      properties:
+                        - !<!Property> 
+                          schema: *ref_58
+                          serializedName: question
+                          language: !<!Languages> 
+                            default:
+                              name: question
+                              description: FAQ question for the service health event.
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: *ref_59
+                          serializedName: answer
+                          language: !<!Languages> 
+                            default:
+                              name: answer
+                              description: FAQ answer for the service health event.
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: *ref_60
+                          serializedName: localeCode
+                          language: !<!Languages> 
+                            default:
+                              name: localeCode
+                              description: FAQ locale for the service health event.
+                          protocol: !<!Protocols> {}
+                      serializationFormats:
+                        - json
+                      usage:
+                        - output
+                      language: !<!Languages> 
+                        default:
+                          name: Faq
+                          description: Frequently asked question for the service health event
+                          namespace: ''
+                      protocol: !<!Protocols> {}
+                    language: !<!Languages> 
+                      default:
+                        name: EventPropertiesFaqs
+                        description: Frequently asked questions for the service health event.
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - faqs
+                  serializedName: faqs
+                  language: !<!Languages> 
+                    default:
+                      name: faqs
+                      description: Frequently asked questions for the service health event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_61
+                  flattenedNames:
+                    - properties
+                    - isHIR
+                  serializedName: isHIR
+                  language: !<!Languages> 
+                    default:
+                      name: isHIR
+                      description: It provides information if the event is High incident rate event or not.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_62
+                  flattenedNames:
+                    - properties
+                    - enableMicrosoftSupport
+                  serializedName: enableMicrosoftSupport
+                  language: !<!Languages> 
+                    default:
+                      name: enableMicrosoftSupport
+                      description: Tells if we want to enable or disable Microsoft Support for this event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_62
+                  flattenedNames:
+                    - properties
+                    - enableChatWithUs
+                  serializedName: enableChatWithUs
+                  language: !<!Languages> 
+                    default:
+                      name: enableChatWithUs
+                      description: Tells if we want to enable or disable Microsoft Support for this event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_63
+                  flattenedNames:
+                    - properties
+                    - priority
+                  serializedName: priority
+                  language: !<!Languages> 
+                    default:
+                      name: priority
+                      description: Priority level of the event.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_64
+                  flattenedNames:
+                    - properties
+                    - lastUpdateTime
+                  serializedName: lastUpdateTime
+                  language: !<!Languages> 
+                    default:
+                      name: lastUpdateTime
+                      description: It provides the Timestamp for when the health impacting event was last updated.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_65
+                  flattenedNames:
+                    - properties
+                    - hirStage
+                  serializedName: hirStage
+                  language: !<!Languages> 
+                    default:
+                      name: hirStage
+                      description: Stage for HIR Document
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+              language: !<!Languages> 
+                default:
+                  name: Event
+                  description: Service health event
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: EventsValue
+                description: The list of event.
+            protocol: !<!Protocols> {}
+          required: true
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: The list of event.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_66
+          required: false
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The URI to fetch the next page of events. Call ListNext() with this URI to fetch the next page of events.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: Events
+          description: The List events operation response.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_1
+    - *ref_67
+    - *ref_68
+    - *ref_69
+    - *ref_70
+    - *ref_71
+    - *ref_72
+    - *ref_73
+    - *ref_74
+    - *ref_75
+    - *ref_2
+    - !<!ObjectSchema> &ref_162
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      properties:
+        - !<!Property> 
+          schema: *ref_76
+          readOnly: true
+          serializedName: code
+          language: !<!Languages> 
+            default:
+              name: code
+              description: The error code.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_77
+          readOnly: true
+          serializedName: message
+          language: !<!Languages> 
+            default:
+              name: message
+              description: The error message.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_78
+          readOnly: true
+          serializedName: details
+          language: !<!Languages> 
+            default:
+              name: details
+              description: The error details.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - exception
+      language: !<!Languages> 
+        default:
+          name: ErrorResponse
+          description: Error details.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> &ref_168
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_142
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2018-07-01'
+            elementType: !<!ObjectSchema> &ref_111
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2018-07-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_79
+                  serializedName: id
+                  language: !<!Languages> 
+                    default:
+                      name: id
+                      description: Azure Resource Manager Identity for the availabilityStatuses resource.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_80
+                  serializedName: name
+                  language: !<!Languages> 
+                    default:
+                      name: name
+                      description: current.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_81
+                  serializedName: type
+                  language: !<!Languages> 
+                    default:
+                      name: type
+                      description: Microsoft.ResourceHealth/AvailabilityStatuses.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_82
+                  serializedName: location
+                  language: !<!Languages> 
+                    default:
+                      name: location
+                      description: Azure Resource Manager geo location of the resource.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_112
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2018-07-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_83
+                        serializedName: availabilityState
+                        language: !<!Languages> 
+                          default:
+                            name: availabilityState
+                            description: 'Availability status of the resource. When it is null, this availabilityStatus object represents an availability impacting event'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_84
+                        serializedName: summary
+                        language: !<!Languages> 
+                          default:
+                            name: summary
+                            description: Summary description of the availability status.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_85
+                        serializedName: detailedStatus
+                        language: !<!Languages> 
+                          default:
+                            name: detailedStatus
+                            description: Details of the availability status.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_86
+                        serializedName: reasonType
+                        language: !<!Languages> 
+                          default:
+                            name: reasonType
+                            description: 'When the resource''s availabilityState is Unavailable, it describes where the health impacting event was originated. Examples are planned, unplanned, user initiated or an outage etc.'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_87
+                        serializedName: rootCauseAttributionTime
+                        language: !<!Languages> 
+                          default:
+                            name: rootCauseAttributionTime
+                            description: 'When the resource''s availabilityState is Unavailable, it provides the Timestamp for when the health impacting event was received.'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_88
+                        serializedName: healthEventType
+                        language: !<!Languages> 
+                          default:
+                            name: healthEventType
+                            description: 'In case of an availability impacting event, it describes when the health impacting event was originated. Examples are Lifecycle, Downtime, Fault Analysis etc.'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_89
+                        serializedName: healthEventCause
+                        language: !<!Languages> 
+                          default:
+                            name: healthEventCause
+                            description: 'In case of an availability impacting event, it describes where the health impacting event was originated. Examples are PlatformInitiated, UserInitiated etc.'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_90
+                        serializedName: healthEventCategory
+                        language: !<!Languages> 
+                          default:
+                            name: healthEventCategory
+                            description: 'In case of an availability impacting event, it describes the category of a PlatformInitiated health impacting event. Examples are Planned, Unplanned etc.'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_91
+                        serializedName: healthEventId
+                        language: !<!Languages> 
+                          default:
+                            name: healthEventId
+                            description: It is a unique Id that identifies the event
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_92
+                        serializedName: resolutionETA
+                        language: !<!Languages> 
+                          default:
+                            name: resolutionETA
+                            description: 'When the resource''s availabilityState is Unavailable and the reasonType is not User Initiated, it provides the date and time for when the issue is expected to be resolved.'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_93
+                        serializedName: occurredTime
+                        language: !<!Languages> 
+                          default:
+                            name: occurredTime
+                            description: Timestamp for when last change in health status occurred.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_94
+                        serializedName: reasonChronicity
+                        language: !<!Languages> 
+                          default:
+                            name: reasonChronicity
+                            description: Chronicity of the availability transition.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_95
+                        serializedName: reportedTime
+                        language: !<!Languages> 
+                          default:
+                            name: reportedTime
+                            description: 'Timestamp for when the health was last checked. '
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ObjectSchema> &ref_113
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2018-07-01'
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_96
+                              serializedName: unavailableOccurredTime
+                              language: !<!Languages> 
+                                default:
+                                  name: unavailableOccurredTime
+                                  description: Timestamp for when the availabilityState changed to Unavailable
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: *ref_97
+                              serializedName: resolvedTime
+                              language: !<!Languages> 
+                                default:
+                                  name: resolvedTime
+                                  description: Timestamp when the availabilityState changes to Available.
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: *ref_98
+                              serializedName: unavailabilitySummary
+                              language: !<!Languages> 
+                                default:
+                                  name: unavailabilitySummary
+                                  description: Brief description of cause of the resource becoming unavailable.
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - output
+                          extensions:
+                            x-internal-autorest-anonymous-schema:
+                              anonymous: true
+                          language: !<!Languages> 
+                            default:
+                              name: AvailabilityStatusPropertiesRecentlyResolved
+                              description: An annotation describing a change in the availabilityState to Available from Unavailable with a reasonType of type Unplanned
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        serializedName: recentlyResolved
+                        language: !<!Languages> 
+                          default:
+                            name: recentlyResolved
+                            description: An annotation describing a change in the availabilityState to Available from Unavailable with a reasonType of type Unplanned
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ArraySchema> &ref_140
+                          type: array
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2018-07-01'
+                          elementType: !<!ObjectSchema> &ref_114
+                            type: object
+                            apiVersions:
+                              - !<!ApiVersion> 
+                                version: '2018-07-01'
+                            properties:
+                              - !<!Property> 
+                                schema: *ref_99
+                                serializedName: action
+                                language: !<!Languages> 
+                                  default:
+                                    name: action
+                                    description: Recommended action.
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: *ref_100
+                                serializedName: actionUrl
+                                language: !<!Languages> 
+                                  default:
+                                    name: actionUrl
+                                    description: Link to the action
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: *ref_101
+                                serializedName: actionUrlText
+                                language: !<!Languages> 
+                                  default:
+                                    name: actionUrlText
+                                    description: 'Substring of action, it describes which text should host the action url.'
+                                protocol: !<!Protocols> {}
+                            serializationFormats:
+                              - json
+                            usage:
+                              - output
+                            language: !<!Languages> 
+                              default:
+                                name: RecommendedAction
+                                description: Lists actions the user can take based on the current availabilityState of the resource.
+                                namespace: ''
+                            protocol: !<!Protocols> {}
+                          language: !<!Languages> 
+                            default:
+                              name: AvailabilityStatusPropertiesRecommendedActions
+                              description: Lists actions the user can take based on the current availabilityState of the resource.
+                          protocol: !<!Protocols> {}
+                        serializedName: recommendedActions
+                        language: !<!Languages> 
+                          default:
+                            name: recommendedActions
+                            description: Lists actions the user can take based on the current availabilityState of the resource.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ArraySchema> &ref_141
+                          type: array
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2018-07-01'
+                          elementType: !<!ObjectSchema> &ref_115
+                            type: object
+                            apiVersions:
+                              - !<!ApiVersion> 
+                                version: '2018-07-01'
+                            properties:
+                              - !<!Property> 
+                                schema: *ref_102
+                                serializedName: eventStartTime
+                                language: !<!Languages> 
+                                  default:
+                                    name: eventStartTime
+                                    description: Timestamp for when the event started.
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: *ref_103
+                                serializedName: eventStatusLastModifiedTime
+                                language: !<!Languages> 
+                                  default:
+                                    name: eventStatusLastModifiedTime
+                                    description: Timestamp for when event was submitted/detected.
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: *ref_104
+                                serializedName: correlationId
+                                language: !<!Languages> 
+                                  default:
+                                    name: correlationId
+                                    description: Correlation id for the event
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: !<!ObjectSchema> &ref_116
+                                  type: object
+                                  apiVersions:
+                                    - !<!ApiVersion> 
+                                      version: '2018-07-01'
+                                  properties:
+                                    - !<!Property> 
+                                      schema: *ref_105
+                                      serializedName: value
+                                      language: !<!Languages> 
+                                        default:
+                                          name: value
+                                          description: Current status of the event
+                                      protocol: !<!Protocols> {}
+                                  serializationFormats:
+                                    - json
+                                  usage:
+                                    - output
+                                  extensions:
+                                    x-internal-autorest-anonymous-schema:
+                                      anonymous: true
+                                  language: !<!Languages> 
+                                    default:
+                                      name: ServiceImpactingEventStatus
+                                      description: Status of the service impacting event.
+                                      namespace: ''
+                                  protocol: !<!Protocols> {}
+                                serializedName: status
+                                language: !<!Languages> 
+                                  default:
+                                    name: status
+                                    description: Status of the service impacting event.
+                                protocol: !<!Protocols> {}
+                              - !<!Property> 
+                                schema: !<!ObjectSchema> &ref_117
+                                  type: object
+                                  apiVersions:
+                                    - !<!ApiVersion> 
+                                      version: '2018-07-01'
+                                  properties:
+                                    - !<!Property> 
+                                      schema: *ref_106
+                                      serializedName: title
+                                      language: !<!Languages> 
+                                        default:
+                                          name: title
+                                          description: Title of the incident.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_107
+                                      serializedName: service
+                                      language: !<!Languages> 
+                                        default:
+                                          name: service
+                                          description: Service impacted by the event.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_108
+                                      serializedName: region
+                                      language: !<!Languages> 
+                                        default:
+                                          name: region
+                                          description: Region impacted by the event.
+                                      protocol: !<!Protocols> {}
+                                    - !<!Property> 
+                                      schema: *ref_109
+                                      serializedName: incidentType
+                                      language: !<!Languages> 
+                                        default:
+                                          name: incidentType
+                                          description: Type of Event.
+                                      protocol: !<!Protocols> {}
+                                  serializationFormats:
+                                    - json
+                                  usage:
+                                    - output
+                                  extensions:
+                                    x-internal-autorest-anonymous-schema:
+                                      anonymous: true
+                                  language: !<!Languages> 
+                                    default:
+                                      name: ServiceImpactingEventIncidentProperties
+                                      description: Properties of the service impacting event.
+                                      namespace: ''
+                                  protocol: !<!Protocols> {}
+                                serializedName: incidentProperties
+                                language: !<!Languages> 
+                                  default:
+                                    name: incidentProperties
+                                    description: Properties of the service impacting event.
+                                protocol: !<!Protocols> {}
+                            serializationFormats:
+                              - json
+                            usage:
+                              - output
+                            language: !<!Languages> 
+                              default:
+                                name: ServiceImpactingEvent
+                                description: Lists the service impacting events that may be affecting the health of the resource.
+                                namespace: ''
+                            protocol: !<!Protocols> {}
+                          language: !<!Languages> 
+                            default:
+                              name: AvailabilityStatusPropertiesServiceImpactingEvents
+                              description: Lists the service impacting events that may be affecting the health of the resource.
+                          protocol: !<!Protocols> {}
+                        serializedName: serviceImpactingEvents
+                        language: !<!Languages> 
+                          default:
+                            name: serviceImpactingEvents
+                            description: Lists the service impacting events that may be affecting the health of the resource.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                    extensions:
+                      x-internal-autorest-anonymous-schema:
+                        anonymous: true
+                    language: !<!Languages> 
+                      default:
+                        name: AvailabilityStatusProperties
+                        description: Properties of availability state.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  serializedName: properties
+                  language: !<!Languages> 
+                    default:
+                      name: properties
+                      description: Properties of availability state.
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+              language: !<!Languages> 
+                default:
+                  name: AvailabilityStatus
+                  description: availabilityStatus of a resource.
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: AvailabilityStatusListResultValue
+                description: The list of availabilityStatuses.
+            protocol: !<!Protocols> {}
+          required: true
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: The list of availabilityStatuses.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_110
+          required: false
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The URI to fetch the next page of availabilityStatuses. Call ListNext() with this URI to fetch the next page of availabilityStatuses.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: AvailabilityStatusListResult
+          description: The List availabilityStatus operation response.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_111
+    - *ref_112
+    - *ref_113
+    - *ref_114
+    - *ref_115
+    - *ref_116
+    - *ref_117
+    - !<!ObjectSchema> &ref_178
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_143
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2018-07-01'
+            elementType: !<!ObjectSchema> &ref_123
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2018-07-01'
+              properties:
+                - !<!Property> 
+                  schema: *ref_118
+                  serializedName: name
+                  language: !<!Languages> 
+                    default:
+                      name: name
+                      description: Name of the operation.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_124
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2018-07-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_119
+                        serializedName: provider
+                        language: !<!Languages> 
+                          default:
+                            name: provider
+                            description: Provider name.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_120
+                        serializedName: resource
+                        language: !<!Languages> 
+                          default:
+                            name: resource
+                            description: Resource name.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_121
+                        serializedName: operation
+                        language: !<!Languages> 
+                          default:
+                            name: operation
+                            description: Operation name.
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_122
+                        serializedName: description
+                        language: !<!Languages> 
+                          default:
+                            name: description
+                            description: Description of the operation.
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                    extensions:
+                      x-internal-autorest-anonymous-schema:
+                        anonymous: true
+                    language: !<!Languages> 
+                      default:
+                        name: OperationDisplay
+                        description: Properties of the operation.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  serializedName: display
+                  language: !<!Languages> 
+                    default:
+                      name: display
+                      description: Properties of the operation.
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+              language: !<!Languages> 
+                default:
+                  name: Operation
+                  description: Operation available in the resourcehealth resource provider.
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: OperationListResultValue
+                description: List of operations available in the resourcehealth resource provider.
+            protocol: !<!Protocols> {}
+          required: true
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: List of operations available in the resourcehealth resource provider.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: OperationListResult
+          description: Lists the operations response.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_123
+    - *ref_124
+    - *ref_26
+    - *ref_125
+    - *ref_126
+    - *ref_127
+    - *ref_128
+    - !<!ObjectSchema> &ref_180
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_148
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2018-07-01'
+            elementType: *ref_26
+            language: !<!Languages> 
+              default:
+                name: EmergingIssueListResultValue
+                description: The list of emerging issues.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: The list of emerging issues.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_129
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The link used to get the next page of emerging issues.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: EmergingIssueListResult
+          description: The list of emerging issues.
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - !<!ObjectSchema> 
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2018-07-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_152
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2018-07-01'
+            elementType: *ref_27
+            language: !<!Languages> 
+              default:
+                name: MetadataEntityListResultValue
+                description: The list of metadata entities.
+            protocol: !<!Protocols> {}
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: The list of metadata entities.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_130
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The link used to get the next page of metadata.
+          protocol: !<!Protocols> {}
+      language: !<!Languages> 
+        default:
+          name: MetadataEntityListResult
+          description: The list of metadata entities
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_27
+    - *ref_131
+  arrays:
+    - *ref_132
+    - *ref_133
+    - *ref_134
+    - *ref_135
+    - *ref_136
+    - *ref_137
+    - *ref_138
+    - *ref_139
+    - *ref_140
+    - *ref_141
+    - *ref_142
+    - *ref_143
+    - *ref_144
+    - *ref_145
+    - *ref_146
+    - *ref_147
+    - *ref_148
+    - *ref_149
+    - *ref_150
+    - *ref_151
+    - *ref_152
+globalParameters:
+  - !<!Parameter> &ref_157
+    schema: *ref_153
+    implementation: Client
+    required: true
+    extensions:
+      x-ms-priority: 0
+    language: !<!Languages> 
+      default:
+        name: SubscriptionId
+        description: Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+        serializedName: subscriptionId
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: path
+  - !<!Parameter> &ref_155
+    schema: *ref_0
+    clientDefaultValue: 'https://management.azure.com'
+    implementation: Client
+    origin: 'modelerfour:synthesized/host'
+    required: true
+    extensions:
+      x-ms-skip-url-encoding: true
+    language: !<!Languages> 
+      default:
+        name: $host
+        description: server parameter
+        serializedName: $host
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: uri
+  - !<!Parameter> &ref_156
+    schema: *ref_154
+    implementation: Client
+    origin: 'modelerfour:synthesized/api-version'
+    required: true
+    language: !<!Languages> 
+      default:
+        name: apiVersion
+        description: Api Version
+        serializedName: api-version
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: query
+operationGroups:
+  - !<!OperationGroup> 
+    $key: Events
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2018-07-01'
+        parameters:
+          - *ref_155
+          - *ref_156
+          - !<!Parameter> &ref_159
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: filter
+                description: 'The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN'
+                serializedName: $filter
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - *ref_157
+          - !<!Parameter> &ref_160
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: view
+                description: setting view=full expands the article parameters
+                serializedName: view
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_158
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.ResourceHealth/events'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_159
+          - *ref_160
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_161
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_162
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListBySubscriptionId
+            description: Lists current service health events in the subscription.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2018-07-01'
+        parameters:
+          - *ref_155
+          - !<!Parameter> &ref_163
+            schema: *ref_153
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceUri
+                description: >-
+                  The fully qualified ID of the resource, including the resource name and resource type. Currently the API support not nested and one nesting level resource types :
+                  /subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/{resource-provider-name}/{resource-type}/{resource-name} and
+                  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resource-provider-name}/{parentResourceType}/{parentResourceName}/{resourceType}/{resourceName}
+                serializedName: resourceUri
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_156
+          - !<!Parameter> &ref_164
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: filter
+                description: 'The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN'
+                serializedName: $filter
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - !<!Parameter> &ref_165
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: view
+                description: setting view=full expands the article parameters
+                serializedName: view
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_158
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceUri}/providers/Microsoft.ResourceHealth/events'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_163
+          - *ref_164
+          - *ref_165
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_161
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_162
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListBySingleResource
+            description: Lists current service health events for given resource.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Events
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: AvailabilityStatuses
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2018-07-01'
+        parameters:
+          - *ref_155
+          - *ref_156
+          - !<!Parameter> &ref_166
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: filter
+                description: 'The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN'
+                serializedName: $filter
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - *ref_157
+          - !<!Parameter> &ref_167
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: expand
+                description: Setting $expand=recommendedactions in url query expands the recommendedactions in the response.
+                serializedName: $expand
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_158
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/providers/Microsoft.ResourceHealth/availabilityStatuses'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_166
+          - *ref_167
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_168
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_162
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListBySubscriptionId
+            description: Lists the current availability status for all the resources in the subscription.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2018-07-01'
+        parameters:
+          - *ref_155
+          - *ref_157
+          - !<!Parameter> &ref_169
+            schema: *ref_153
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: resourceGroupName
+                description: The name of the resource group.
+                serializedName: resourceGroupName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_156
+          - !<!Parameter> &ref_170
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: filter
+                description: 'The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN'
+                serializedName: $filter
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - !<!Parameter> &ref_171
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: expand
+                description: Setting $expand=recommendedactions in url query expands the recommendedactions in the response.
+                serializedName: $expand
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_158
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ResourceHealth/availabilityStatuses'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_169
+          - *ref_170
+          - *ref_171
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_168
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_162
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: ListByResourceGroup
+            description: Lists the current availability status for all the resources in the resource group.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2018-07-01'
+        parameters:
+          - *ref_155
+          - !<!Parameter> &ref_172
+            schema: *ref_153
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceUri
+                description: >-
+                  The fully qualified ID of the resource, including the resource name and resource type. Currently the API support not nested and one nesting level resource types :
+                  /subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/{resource-provider-name}/{resource-type}/{resource-name} and
+                  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resource-provider-name}/{parentResourceType}/{parentResourceName}/{resourceType}/{resourceName}
+                serializedName: resourceUri
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_156
+          - !<!Parameter> &ref_173
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: filter
+                description: 'The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN'
+                serializedName: $filter
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - !<!Parameter> &ref_174
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: expand
+                description: Setting $expand=recommendedactions in url query expands the recommendedactions in the response.
+                serializedName: $expand
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_158
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceUri}/providers/Microsoft.ResourceHealth/availabilityStatuses/current'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_172
+          - *ref_173
+          - *ref_174
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_111
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_162
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: GetByResource
+            description: Gets current availability status for a single resource
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2018-07-01'
+        parameters:
+          - *ref_155
+          - !<!Parameter> &ref_175
+            schema: *ref_153
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceUri
+                description: >-
+                  The fully qualified ID of the resource, including the resource name and resource type. Currently the API support not nested and one nesting level resource types :
+                  /subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/{resource-provider-name}/{resource-type}/{resource-name} and
+                  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resource-provider-name}/{parentResourceType}/{parentResourceName}/{resourceType}/{resourceName}
+                serializedName: resourceUri
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_156
+          - !<!Parameter> &ref_176
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: filter
+                description: 'The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN'
+                serializedName: $filter
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+          - !<!Parameter> &ref_177
+            schema: *ref_153
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: expand
+                description: Setting $expand=recommendedactions in url query expands the recommendedactions in the response.
+                serializedName: $expand
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_158
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceUri}/providers/Microsoft.ResourceHealth/availabilityStatuses'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_175
+          - *ref_176
+          - *ref_177
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_168
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_162
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: Lists all historical availability transitions and impacting events for a single resource.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: AvailabilityStatuses
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: Operations
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2018-07-01'
+        parameters:
+          - *ref_155
+          - *ref_156
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_158
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: /providers/Microsoft.ResourceHealth/operations
+                method: get
+                uri: '{$host}'
+        signatureParameters: []
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_178
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_162
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: List
+            description: Lists available operations for the resourcehealth resource provider
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Operations
+        description: ''
+    protocol: !<!Protocols> {}
+  - !<!OperationGroup> 
+    $key: EmergingIssues
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2018-07-01'
+        parameters:
+          - *ref_155
+          - !<!Parameter> 
+            schema: *ref_179
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: issueName
+                description: The name of the emerging issue.
+                serializedName: issueName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - *ref_156
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_158
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/providers/Microsoft.ResourceHealth/emergingIssues/{issueName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters: []
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_26
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_162
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Gets Azure services' emerging issues.
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2018-07-01'
+        parameters:
+          - *ref_155
+          - *ref_156
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_158
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: /providers/Microsoft.ResourceHealth/emergingIssues
+                method: get
+                uri: '{$host}'
+        signatureParameters: []
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_180
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_162
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: Lists Azure services' emerging issues.
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: EmergingIssues
+        description: ''
+    protocol: !<!Protocols> {}
+security: !<!Security> 
+  authenticationRequired: true
+language: !<!Languages> 
+  default:
+    name: MicrosoftResourceHealth
+    description: ''
+protocol: !<!Protocols> 
+  http: !<!HttpModel> {}

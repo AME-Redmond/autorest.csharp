@@ -1,0 +1,2052 @@
+!<!CodeModel> 
+info: !<!Info> 
+  description: API spec for Microsoft.Security (Azure Security Center) resource provider
+  title: Security Center
+schemas: !<!Schemas> 
+  booleans:
+    - !<!BooleanSchema> &ref_35
+      type: boolean
+      language: !<!Languages> 
+        default:
+          name: Boolean
+          description: True if this assessment is in preview release status
+      protocol: !<!Protocols> {}
+  strings:
+    - !<!StringSchema> &ref_0
+      type: string
+      language: !<!Languages> 
+        default:
+          name: String
+          description: simple string
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_63
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_20
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentPropertiesDisplayName
+          description: User friendly display name of the assessment
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_22
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AssessmentStatusCause
+          description: Programmatic code for the cause of the assessment status
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_23
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AssessmentStatusDescription
+          description: Human readable description of the assessment status
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_1
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: String
+          description: ''
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_25
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: AssessmentLinksAzurePortalUri
+          description: Link to assessment in Azure Portal
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_26
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentMetadataPropertiesDisplayName
+          description: User friendly display name of the assessment
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_27
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentMetadataPropertiesPolicyDefinitionId
+          description: Azure resource ID of the policy definition that turns this assessment calculation on
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_28
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentMetadataPropertiesDescription
+          description: Human readable description of the assessment
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_29
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentMetadataPropertiesRemediationDescription
+          description: Human readable description of what you should do to mitigate this security issue
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_37
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentMetadataPartnerDataPartnerName
+          description: Name of the company of the partner
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_38
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentMetadataPartnerDataProductName
+          description: Name of the product of the partner that created the assessment
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_39
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      extensions:
+        x-ms-secret: true
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentMetadataPartnerDataSecret
+          description: Secret to authenticate the partner and verify it created the assessment - write only
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_40
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentPartnerDataPartnerName
+          description: Name of the company of the partner
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_41
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      extensions:
+        x-ms-secret: true
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentPartnerDataSecret
+          description: secret to authenticate the partner - write only
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_3
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ResourceId
+          description: Resource Id
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_4
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ResourceName
+          description: Resource name
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_5
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ResourceType
+          description: Resource type
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_42
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentListNextLink
+          description: The URI to fetch the next page.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_48
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyCode
+          description: The error code.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_49
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyMessage
+          description: The error message.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_50
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: CloudErrorBodyTarget
+          description: The error target.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_52
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: ErrorAdditionalInfoType
+          description: The additional info type.
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_8
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: AzureResourceDetailsId
+          description: Azure resource Id of the assessed resource
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_14
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: OnPremiseResourceDetailsWorkspaceId
+          description: Azure resource Id of the workspace the machine is attached to
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_15
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: OnPremiseResourceDetailsVmuuid
+          description: The unique Id of the machine
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_16
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: OnPremiseResourceDetailsSourceComputerId
+          description: The oms agent Id installed on the machine
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_17
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: OnPremiseResourceDetailsMachineName
+          description: The name of the machine
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_10
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: OnPremiseSqlResourceDetailsServerName
+          description: The Sql server name installed on the machine
+      protocol: !<!Protocols> {}
+    - !<!StringSchema> &ref_11
+      type: string
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      language: !<!Languages> 
+        default:
+          name: OnPremiseSqlResourceDetailsDatabaseName
+          description: The Sql database name installed on the machine
+      protocol: !<!Protocols> {}
+  choices:
+    - !<!ChoiceSchema> &ref_13
+      choices:
+        - !<!ChoiceValue> 
+          value: Azure
+          language:
+            default:
+              name: Azure
+              description: Resource is in Azure
+        - !<!ChoiceValue> 
+          value: OnPremise
+          language:
+            default:
+              name: OnPremise
+              description: Resource in an on premise machine connected to Azure cloud
+        - !<!ChoiceValue> 
+          value: OnPremiseSql
+          language:
+            default:
+              name: OnPremiseSql
+              description: SQL Resource in an on premise machine connected to Azure cloud
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Source
+          description: The platform where the assessed resource resides
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_21
+      choices:
+        - !<!ChoiceValue> 
+          value: Healthy
+          language:
+            default:
+              name: Healthy
+              description: The resource is healthy
+        - !<!ChoiceValue> 
+          value: Unhealthy
+          language:
+            default:
+              name: Unhealthy
+              description: The resource has a security issue that needs to be addressed
+        - !<!ChoiceValue> 
+          value: NotApplicable
+          language:
+            default:
+              name: NotApplicable
+              description: Assessment for this resource did not happen
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: AssessmentStatusCode
+          description: Programmatic code for the status of the assessment
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_30
+      choices:
+        - !<!ChoiceValue> 
+          value: Compute
+          language:
+            default:
+              name: Compute
+              description: ''
+        - !<!ChoiceValue> 
+          value: Networking
+          language:
+            default:
+              name: Networking
+              description: ''
+        - !<!ChoiceValue> 
+          value: Data
+          language:
+            default:
+              name: Data
+              description: ''
+        - !<!ChoiceValue> 
+          value: IdentityAndAccess
+          language:
+            default:
+              name: IdentityAndAccess
+              description: ''
+        - !<!ChoiceValue> 
+          value: IoT
+          language:
+            default:
+              name: IoT
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Category
+          description: The category of resource that is at risk when the assessment is unhealthy
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_31
+      choices:
+        - !<!ChoiceValue> 
+          value: Low
+          language:
+            default:
+              name: Low
+              description: ''
+        - !<!ChoiceValue> 
+          value: Medium
+          language:
+            default:
+              name: Medium
+              description: ''
+        - !<!ChoiceValue> 
+          value: High
+          language:
+            default:
+              name: High
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Severity
+          description: The severity level of the assessment
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_32
+      choices:
+        - !<!ChoiceValue> 
+          value: Low
+          language:
+            default:
+              name: Low
+              description: ''
+        - !<!ChoiceValue> 
+          value: Moderate
+          language:
+            default:
+              name: Moderate
+              description: ''
+        - !<!ChoiceValue> 
+          value: High
+          language:
+            default:
+              name: High
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: UserImpact
+          description: The user impact of the assessment
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_33
+      choices:
+        - !<!ChoiceValue> 
+          value: Low
+          language:
+            default:
+              name: Low
+              description: ''
+        - !<!ChoiceValue> 
+          value: Moderate
+          language:
+            default:
+              name: Moderate
+              description: ''
+        - !<!ChoiceValue> 
+          value: High
+          language:
+            default:
+              name: High
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ImplementationEffort
+          description: The implementation effort required to remediate this assessment
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_34
+      choices:
+        - !<!ChoiceValue> 
+          value: accountBreach
+          language:
+            default:
+              name: AccountBreach
+              description: ''
+        - !<!ChoiceValue> 
+          value: dataExfiltration
+          language:
+            default:
+              name: DataExfiltration
+              description: ''
+        - !<!ChoiceValue> 
+          value: dataSpillage
+          language:
+            default:
+              name: DataSpillage
+              description: ''
+        - !<!ChoiceValue> 
+          value: maliciousInsider
+          language:
+            default:
+              name: MaliciousInsider
+              description: ''
+        - !<!ChoiceValue> 
+          value: elevationOfPrivilege
+          language:
+            default:
+              name: ElevationOfPrivilege
+              description: ''
+        - !<!ChoiceValue> 
+          value: threatResistance
+          language:
+            default:
+              name: ThreatResistance
+              description: ''
+        - !<!ChoiceValue> 
+          value: missingCoverage
+          language:
+            default:
+              name: MissingCoverage
+              description: ''
+        - !<!ChoiceValue> 
+          value: denialOfService
+          language:
+            default:
+              name: DenialOfService
+              description: ''
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Threats
+          description: Threats impact of the assessment
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_36
+      choices:
+        - !<!ChoiceValue> 
+          value: BuiltIn
+          language:
+            default:
+              name: BuiltIn
+              description: Azure Security Center managed assessments
+        - !<!ChoiceValue> 
+          value: CustomPolicy
+          language:
+            default:
+              name: CustomPolicy
+              description: User defined policies that are automatically ingested from Azure Policy to Azure Security Center
+        - !<!ChoiceValue> 
+          value: CustomerManaged
+          language:
+            default:
+              name: CustomerManaged
+              description: User assessments pushed directly by the user or other third party to Azure Security Center
+        - !<!ChoiceValue> 
+          value: VerifiedPartner
+          language:
+            default:
+              name: VerifiedPartner
+              description: An assessment that was created by a verified 3rd party if the user connected it to ASC
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: AssessmentType
+          description: 'BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition'
+      protocol: !<!Protocols> {}
+    - !<!ChoiceSchema> &ref_68
+      choices:
+        - !<!ChoiceValue> 
+          value: links
+          language:
+            default:
+              name: Links
+              description: All links associated with an assessment
+        - !<!ChoiceValue> 
+          value: metadata
+          language:
+            default:
+              name: Metadata
+              description: Assessment metadata
+      type: choice
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      choiceType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ExpandEnum
+          description: ''
+      protocol: !<!Protocols> {}
+  constants:
+    - !<!ConstantSchema> &ref_60
+      type: constant
+      value: !<!ConstantValue> 
+        value: '2020-01-01'
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApiVersion202001
+          description: Api Version (2020-01-01)
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_64
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: Accept
+          description: 'Accept: application/json'
+      protocol: !<!Protocols> {}
+    - !<!ConstantSchema> &ref_72
+      type: constant
+      value: !<!ConstantValue> 
+        value: application/json
+      valueType: *ref_0
+      language: !<!Languages> 
+        default:
+          name: ApplicationJson
+          description: Content Type 'application/json'
+      protocol: !<!Protocols> {}
+  dictionaries:
+    - !<!DictionarySchema> &ref_24
+      type: dictionary
+      elementType: *ref_1
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentPropertiesAdditionalData
+          description: Additional data regarding the assessment
+      protocol: !<!Protocols> {}
+  any:
+    - !<!AnySchema> &ref_53
+      type: any
+      language: !<!Languages> 
+        default:
+          name: any
+          description: Any object
+      protocol: !<!Protocols> {}
+  objects:
+    - !<!ObjectSchema> &ref_66
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '2020-01-01'
+      properties:
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_59
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '2020-01-01'
+            elementType: !<!ObjectSchema> &ref_2
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '2020-01-01'
+              parents: !<!Relations> 
+                all:
+                  - !<!ObjectSchema> &ref_6
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '1.0'
+                    children: !<!Relations> 
+                      all:
+                        - *ref_2
+                      immediate:
+                        - *ref_2
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_3
+                        readOnly: true
+                        serializedName: id
+                        language: !<!Languages> 
+                          default:
+                            name: id
+                            description: Resource Id
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_4
+                        readOnly: true
+                        serializedName: name
+                        language: !<!Languages> 
+                          default:
+                            name: name
+                            description: Resource name
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_5
+                        readOnly: true
+                        serializedName: type
+                        language: !<!Languages> 
+                          default:
+                            name: type
+                            description: Resource type
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                      - input
+                    extensions:
+                      x-ms-azure-resource: true
+                    language: !<!Languages> 
+                      default:
+                        name: Resource
+                        description: Describes an Azure resource.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                immediate:
+                  - *ref_6
+              properties:
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_7
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '1.0'
+                    children: !<!Relations> 
+                      all:
+                        - !<!ObjectSchema> &ref_18
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '1.0'
+                          discriminatorValue: Azure
+                          parents: !<!Relations> 
+                            all:
+                              - *ref_7
+                            immediate:
+                              - *ref_7
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_8
+                              readOnly: true
+                              serializedName: id
+                              language: !<!Languages> 
+                                default:
+                                  name: id
+                                  description: Azure resource Id of the assessed resource
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - output
+                            - input
+                          extensions:
+                            x-ms-discriminator-value: Azure
+                          language: !<!Languages> 
+                            default:
+                              name: AzureResourceDetails
+                              description: Details of the Azure resource that was assessed
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        - !<!ObjectSchema> &ref_9
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '1.0'
+                          children: !<!Relations> 
+                            all:
+                              - !<!ObjectSchema> &ref_12
+                                type: object
+                                apiVersions:
+                                  - !<!ApiVersion> 
+                                    version: '1.0'
+                                discriminatorValue: OnPremiseSql
+                                parents: !<!Relations> 
+                                  all:
+                                    - *ref_9
+                                    - *ref_7
+                                  immediate:
+                                    - *ref_9
+                                properties:
+                                  - !<!Property> 
+                                    schema: *ref_10
+                                    required: true
+                                    serializedName: serverName
+                                    language: !<!Languages> 
+                                      default:
+                                        name: serverName
+                                        description: The Sql server name installed on the machine
+                                    protocol: !<!Protocols> {}
+                                  - !<!Property> 
+                                    schema: *ref_11
+                                    required: true
+                                    serializedName: databaseName
+                                    language: !<!Languages> 
+                                      default:
+                                        name: databaseName
+                                        description: The Sql database name installed on the machine
+                                    protocol: !<!Protocols> {}
+                                serializationFormats:
+                                  - json
+                                usage:
+                                  - output
+                                  - input
+                                extensions:
+                                  x-ms-discriminator-value: OnPremiseSql
+                                language: !<!Languages> 
+                                  default:
+                                    name: OnPremiseSqlResourceDetails
+                                    description: Details of the On Premise Sql resource that was assessed
+                                    namespace: ''
+                                protocol: !<!Protocols> {}
+                            immediate:
+                              - *ref_12
+                          discriminator: !<!Discriminator> 
+                            all:
+                              OnPremiseSql: *ref_12
+                            immediate:
+                              OnPremiseSql: *ref_12
+                            property: !<!Property> &ref_19
+                              schema: *ref_13
+                              isDiscriminator: true
+                              required: true
+                              serializedName: source
+                              language: !<!Languages> 
+                                default:
+                                  name: source
+                                  description: The platform where the assessed resource resides
+                              protocol: !<!Protocols> {}
+                          discriminatorValue: OnPremise
+                          parents: !<!Relations> 
+                            all:
+                              - *ref_7
+                            immediate:
+                              - *ref_7
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_14
+                              required: true
+                              serializedName: workspaceId
+                              language: !<!Languages> 
+                                default:
+                                  name: workspaceId
+                                  description: Azure resource Id of the workspace the machine is attached to
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: *ref_15
+                              required: true
+                              serializedName: vmuuid
+                              language: !<!Languages> 
+                                default:
+                                  name: vmuuid
+                                  description: The unique Id of the machine
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: *ref_16
+                              required: true
+                              serializedName: sourceComputerId
+                              language: !<!Languages> 
+                                default:
+                                  name: sourceComputerId
+                                  description: The oms agent Id installed on the machine
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: *ref_17
+                              required: true
+                              serializedName: machineName
+                              language: !<!Languages> 
+                                default:
+                                  name: machineName
+                                  description: The name of the machine
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - output
+                            - input
+                          extensions:
+                            x-ms-discriminator-value: OnPremise
+                          language: !<!Languages> 
+                            default:
+                              name: OnPremiseResourceDetails
+                              description: Details of the On Premise resource that was assessed
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        - *ref_12
+                      immediate:
+                        - *ref_18
+                        - *ref_9
+                    discriminator: !<!Discriminator> 
+                      all:
+                        Azure: *ref_18
+                        OnPremise: *ref_9
+                        OnPremiseSql: *ref_12
+                      immediate:
+                        Azure: *ref_18
+                        OnPremise: *ref_9
+                      property: *ref_19
+                    properties:
+                      - *ref_19
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                      - input
+                    language: !<!Languages> 
+                      default:
+                        name: ResourceDetails
+                        description: Details of the resource that was assessed
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - resourceDetails
+                  serializedName: resourceDetails
+                  language: !<!Languages> 
+                    default:
+                      name: resourceDetails
+                      description: Details of the resource that was assessed
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_20
+                  flattenedNames:
+                    - properties
+                    - displayName
+                  readOnly: true
+                  serializedName: displayName
+                  language: !<!Languages> 
+                    default:
+                      name: displayName
+                      description: User friendly display name of the assessment
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_43
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2020-01-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_21
+                        required: true
+                        serializedName: code
+                        language: !<!Languages> 
+                          default:
+                            name: code
+                            description: Programmatic code for the status of the assessment
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_22
+                        required: false
+                        serializedName: cause
+                        language: !<!Languages> 
+                          default:
+                            name: cause
+                            description: Programmatic code for the cause of the assessment status
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_23
+                        required: false
+                        serializedName: description
+                        language: !<!Languages> 
+                          default:
+                            name: description
+                            description: Human readable description of the assessment status
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                      - input
+                    language: !<!Languages> 
+                      default:
+                        name: AssessmentStatus
+                        description: The result of the assessment
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - status
+                  serializedName: status
+                  language: !<!Languages> 
+                    default:
+                      name: status
+                      description: The result of the assessment
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_24
+                  flattenedNames:
+                    - properties
+                    - additionalData
+                  serializedName: additionalData
+                  language: !<!Languages> 
+                    default:
+                      name: additionalData
+                      description: Additional data regarding the assessment
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_44
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2020-01-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_25
+                        readOnly: true
+                        serializedName: azurePortalUri
+                        language: !<!Languages> 
+                          default:
+                            name: azurePortalUri
+                            description: Link to assessment in Azure Portal
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                      - input
+                    language: !<!Languages> 
+                      default:
+                        name: AssessmentLinks
+                        description: Links relevant to the assessment
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - links
+                  readOnly: true
+                  serializedName: links
+                  language: !<!Languages> 
+                    default:
+                      name: links
+                      description: Links relevant to the assessment
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_45
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2020-01-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_26
+                        required: true
+                        serializedName: displayName
+                        language: !<!Languages> 
+                          default:
+                            name: displayName
+                            description: User friendly display name of the assessment
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_27
+                        readOnly: true
+                        required: false
+                        serializedName: policyDefinitionId
+                        language: !<!Languages> 
+                          default:
+                            name: policyDefinitionId
+                            description: Azure resource ID of the policy definition that turns this assessment calculation on
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_28
+                        required: false
+                        serializedName: description
+                        language: !<!Languages> 
+                          default:
+                            name: description
+                            description: Human readable description of the assessment
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_29
+                        required: false
+                        serializedName: remediationDescription
+                        language: !<!Languages> 
+                          default:
+                            name: remediationDescription
+                            description: Human readable description of what you should do to mitigate this security issue
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ArraySchema> &ref_57
+                          type: array
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2020-01-01'
+                          elementType: *ref_30
+                          language: !<!Languages> 
+                            default:
+                              name: SecurityAssessmentMetadataPropertiesCategory
+                              description: Array of Category
+                          protocol: !<!Protocols> {}
+                        required: false
+                        serializedName: category
+                        language: !<!Languages> 
+                          default:
+                            name: category
+                            description: ''
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_31
+                        required: true
+                        serializedName: severity
+                        language: !<!Languages> 
+                          default:
+                            name: severity
+                            description: The severity level of the assessment
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_32
+                        required: false
+                        serializedName: userImpact
+                        language: !<!Languages> 
+                          default:
+                            name: userImpact
+                            description: The user impact of the assessment
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_33
+                        required: false
+                        serializedName: implementationEffort
+                        language: !<!Languages> 
+                          default:
+                            name: implementationEffort
+                            description: The implementation effort required to remediate this assessment
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ArraySchema> &ref_58
+                          type: array
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2020-01-01'
+                          elementType: *ref_34
+                          language: !<!Languages> 
+                            default:
+                              name: SecurityAssessmentMetadataPropertiesThreats
+                              description: Array of Threats
+                          protocol: !<!Protocols> {}
+                        required: false
+                        serializedName: threats
+                        language: !<!Languages> 
+                          default:
+                            name: threats
+                            description: ''
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_35
+                        required: false
+                        serializedName: preview
+                        language: !<!Languages> 
+                          default:
+                            name: preview
+                            description: True if this assessment is in preview release status
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_36
+                        required: true
+                        serializedName: assessmentType
+                        language: !<!Languages> 
+                          default:
+                            name: assessmentType
+                            description: 'BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition'
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: !<!ObjectSchema> &ref_46
+                          type: object
+                          apiVersions:
+                            - !<!ApiVersion> 
+                              version: '2020-01-01'
+                          properties:
+                            - !<!Property> 
+                              schema: *ref_37
+                              required: true
+                              serializedName: partnerName
+                              language: !<!Languages> 
+                                default:
+                                  name: partnerName
+                                  description: Name of the company of the partner
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: *ref_38
+                              required: false
+                              serializedName: productName
+                              language: !<!Languages> 
+                                default:
+                                  name: productName
+                                  description: Name of the product of the partner that created the assessment
+                              protocol: !<!Protocols> {}
+                            - !<!Property> 
+                              schema: *ref_39
+                              required: true
+                              serializedName: secret
+                              language: !<!Languages> 
+                                default:
+                                  name: secret
+                                  description: Secret to authenticate the partner and verify it created the assessment - write only
+                              protocol: !<!Protocols> {}
+                          serializationFormats:
+                            - json
+                          usage:
+                            - output
+                            - input
+                          language: !<!Languages> 
+                            default:
+                              name: SecurityAssessmentMetadataPartnerData
+                              description: Describes the partner that created the assessment
+                              namespace: ''
+                          protocol: !<!Protocols> {}
+                        required: false
+                        serializedName: partnerData
+                        language: !<!Languages> 
+                          default:
+                            name: partnerData
+                            description: Describes the partner that created the assessment
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                      - input
+                    language: !<!Languages> 
+                      default:
+                        name: SecurityAssessmentMetadataProperties
+                        description: Describes properties of an assessment metadata.
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - metadata
+                  serializedName: metadata
+                  language: !<!Languages> 
+                    default:
+                      name: metadata
+                      description: Describes properties of an assessment metadata.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ObjectSchema> &ref_47
+                    type: object
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '2020-01-01'
+                    properties:
+                      - !<!Property> 
+                        schema: *ref_40
+                        required: true
+                        serializedName: partnerName
+                        language: !<!Languages> 
+                          default:
+                            name: partnerName
+                            description: Name of the company of the partner
+                        protocol: !<!Protocols> {}
+                      - !<!Property> 
+                        schema: *ref_41
+                        required: true
+                        serializedName: secret
+                        language: !<!Languages> 
+                          default:
+                            name: secret
+                            description: secret to authenticate the partner - write only
+                        protocol: !<!Protocols> {}
+                    serializationFormats:
+                      - json
+                    usage:
+                      - output
+                      - input
+                    language: !<!Languages> 
+                      default:
+                        name: SecurityAssessmentPartnerData
+                        description: Data regarding 3rd party partner integration
+                        namespace: ''
+                    protocol: !<!Protocols> {}
+                  flattenedNames:
+                    - properties
+                    - partnersData
+                  serializedName: partnersData
+                  language: !<!Languages> 
+                    default:
+                      name: partnersData
+                      description: Data regarding 3rd party partner integration
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - output
+                - input
+              language: !<!Languages> 
+                default:
+                  name: SecurityAssessment
+                  description: Security assessment on a resource
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: SecurityAssessmentListValue
+                description: Collection of security assessments in this page
+            protocol: !<!Protocols> {}
+          readOnly: true
+          serializedName: value
+          language: !<!Languages> 
+            default:
+              name: value
+              description: Collection of security assessments in this page
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_42
+          readOnly: true
+          serializedName: nextLink
+          language: !<!Languages> 
+            default:
+              name: nextLink
+              description: The URI to fetch the next page.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - output
+      language: !<!Languages> 
+        default:
+          name: SecurityAssessmentList
+          description: Page of a security assessments list
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_2
+    - *ref_7
+    - *ref_43
+    - *ref_44
+    - *ref_45
+    - *ref_46
+    - *ref_47
+    - *ref_6
+    - !<!ObjectSchema> &ref_67
+      type: object
+      apiVersions:
+        - !<!ApiVersion> 
+          version: '1.0'
+      properties:
+        - !<!Property> 
+          schema: *ref_48
+          flattenedNames:
+            - error
+            - code
+          readOnly: true
+          serializedName: code
+          language: !<!Languages> 
+            default:
+              name: code
+              description: The error code.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_49
+          flattenedNames:
+            - error
+            - message
+          readOnly: true
+          serializedName: message
+          language: !<!Languages> 
+            default:
+              name: message
+              description: The error message.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_50
+          flattenedNames:
+            - error
+            - target
+          readOnly: true
+          serializedName: target
+          language: !<!Languages> 
+            default:
+              name: target
+              description: The error target.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: !<!ArraySchema> &ref_51
+            type: array
+            apiVersions:
+              - !<!ApiVersion> 
+                version: '1.0'
+            elementType: !<!ObjectSchema> &ref_55
+              type: object
+              apiVersions:
+                - !<!ApiVersion> 
+                  version: '1.0'
+              properties:
+                - !<!Property> 
+                  schema: *ref_48
+                  readOnly: true
+                  serializedName: code
+                  language: !<!Languages> 
+                    default:
+                      name: code
+                      description: The error code.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_49
+                  readOnly: true
+                  serializedName: message
+                  language: !<!Languages> 
+                    default:
+                      name: message
+                      description: The error message.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_50
+                  readOnly: true
+                  serializedName: target
+                  language: !<!Languages> 
+                    default:
+                      name: target
+                      description: The error target.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: *ref_51
+                  readOnly: true
+                  serializedName: details
+                  language: !<!Languages> 
+                    default:
+                      name: details
+                      description: The error details.
+                  protocol: !<!Protocols> {}
+                - !<!Property> 
+                  schema: !<!ArraySchema> &ref_54
+                    type: array
+                    apiVersions:
+                      - !<!ApiVersion> 
+                        version: '1.0'
+                    elementType: !<!ObjectSchema> &ref_56
+                      type: object
+                      apiVersions:
+                        - !<!ApiVersion> 
+                          version: '1.0'
+                      properties:
+                        - !<!Property> 
+                          schema: *ref_52
+                          readOnly: true
+                          serializedName: type
+                          language: !<!Languages> 
+                            default:
+                              name: type
+                              description: The additional info type.
+                          protocol: !<!Protocols> {}
+                        - !<!Property> 
+                          schema: *ref_53
+                          readOnly: true
+                          serializedName: info
+                          language: !<!Languages> 
+                            default:
+                              name: info
+                              description: The additional info.
+                          protocol: !<!Protocols> {}
+                      serializationFormats:
+                        - json
+                      usage:
+                        - exception
+                      language: !<!Languages> 
+                        default:
+                          name: ErrorAdditionalInfo
+                          description: The resource management error additional info.
+                          namespace: ''
+                      protocol: !<!Protocols> {}
+                    language: !<!Languages> 
+                      default:
+                        name: CloudErrorBodyAdditionalInfo
+                        description: The error additional info.
+                    protocol: !<!Protocols> {}
+                  readOnly: true
+                  serializedName: additionalInfo
+                  language: !<!Languages> 
+                    default:
+                      name: additionalInfo
+                      description: The error additional info.
+                  protocol: !<!Protocols> {}
+              serializationFormats:
+                - json
+              usage:
+                - exception
+              extensions:
+                x-ms-external: true
+                x-ms-flattened: true
+              language: !<!Languages> 
+                default:
+                  name: CloudErrorBody
+                  description: The error detail.
+                  namespace: ''
+              protocol: !<!Protocols> {}
+            language: !<!Languages> 
+              default:
+                name: CloudErrorBodyDetails
+                description: The error details.
+            protocol: !<!Protocols> {}
+          flattenedNames:
+            - error
+            - details
+          readOnly: true
+          serializedName: details
+          language: !<!Languages> 
+            default:
+              name: details
+              description: The error details.
+          protocol: !<!Protocols> {}
+        - !<!Property> 
+          schema: *ref_54
+          flattenedNames:
+            - error
+            - additionalInfo
+          readOnly: true
+          serializedName: additionalInfo
+          language: !<!Languages> 
+            default:
+              name: additionalInfo
+              description: The error additional info.
+          protocol: !<!Protocols> {}
+      serializationFormats:
+        - json
+      usage:
+        - exception
+      extensions:
+        x-ms-external: true
+      language: !<!Languages> 
+        default:
+          name: CloudError
+          description: Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+          namespace: ''
+      protocol: !<!Protocols> {}
+    - *ref_55
+    - *ref_56
+    - *ref_18
+    - *ref_9
+    - *ref_12
+  arrays:
+    - *ref_57
+    - *ref_58
+    - *ref_59
+    - *ref_51
+    - *ref_54
+globalParameters:
+  - !<!Parameter> &ref_61
+    schema: *ref_0
+    clientDefaultValue: 'https://management.azure.com'
+    implementation: Client
+    origin: 'modelerfour:synthesized/host'
+    required: true
+    extensions:
+      x-ms-skip-url-encoding: true
+    language: !<!Languages> 
+      default:
+        name: $host
+        description: server parameter
+        serializedName: $host
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: uri
+  - !<!Parameter> &ref_62
+    schema: *ref_60
+    implementation: Client
+    origin: 'modelerfour:synthesized/api-version'
+    required: true
+    language: !<!Languages> 
+      default:
+        name: apiVersion
+        description: Api Version
+        serializedName: api-version
+    protocol: !<!Protocols> 
+      http: !<!HttpParameter> 
+        in: query
+operationGroups:
+  - !<!OperationGroup> 
+    $key: Assessments
+    operations:
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_61
+          - *ref_62
+          - !<!Parameter> &ref_65
+            schema: *ref_63
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: scope
+                description: 'Scope of the query, can be subscription (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group (/providers/Microsoft.Management/managementGroups/mgName).'
+                serializedName: scope
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_64
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{scope}/providers/Microsoft.Security/assessments'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_65
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_66
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_67
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        extensions:
+          x-ms-pageable:
+            nextLinkName: nextLink
+        language: !<!Languages> 
+          default:
+            name: List
+            description: Get security assessments on all your scanned resources inside a scope
+            paging:
+              nextLinkName: nextLink
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_61
+          - *ref_62
+          - !<!Parameter> &ref_69
+            schema: *ref_63
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceId
+                description: The identifier of the resource.
+                serializedName: resourceId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_70
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: assessmentName
+                description: The Assessment Key - Unique key for the assessment type
+                serializedName: assessmentName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_71
+            schema: *ref_68
+            implementation: Method
+            language: !<!Languages> 
+              default:
+                name: expand
+                description: OData expand. Optional.
+                serializedName: $expand
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: query
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_64
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceId}/providers/Microsoft.Security/assessments/{assessmentName}'
+                method: get
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_69
+          - *ref_70
+          - *ref_71
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_2
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_67
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Get
+            description: Get a security assessment on your scanned resource
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_61
+          - *ref_62
+          - !<!Parameter> &ref_74
+            schema: *ref_63
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceId
+                description: The identifier of the resource.
+                serializedName: resourceId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_75
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: assessmentName
+                description: The Assessment Key - Unique key for the assessment type
+                serializedName: assessmentName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_72
+                implementation: Method
+                origin: 'modelerfour:synthesized/content-type'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: contentType
+                    description: Body Parameter content-type
+                    serializedName: Content-Type
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+              - !<!Parameter> &ref_73
+                schema: *ref_2
+                implementation: Method
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: assessment
+                    description: Calculated assessment on a pre-defined assessment metadata
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: body
+                    style: json
+              - !<!Parameter> 
+                schema: *ref_64
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters:
+              - *ref_73
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpWithBodyRequest> 
+                path: '/{resourceId}/providers/Microsoft.Security/assessments/{assessmentName}'
+                method: put
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_74
+          - *ref_75
+        responses:
+          - !<!SchemaResponse> 
+            schema: *ref_2
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '200'
+          - !<!SchemaResponse> 
+            schema: *ref_2
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - '201'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_67
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: CreateOrUpdate
+            description: Create a security assessment on your resource. An assessment metadata that describes this assessment must be predefined with the same name before inserting the assessment result
+        protocol: !<!Protocols> {}
+      - !<!Operation> 
+        apiVersions:
+          - !<!ApiVersion> 
+            version: '2020-01-01'
+        parameters:
+          - *ref_61
+          - *ref_62
+          - !<!Parameter> &ref_76
+            schema: *ref_63
+            implementation: Method
+            required: true
+            extensions:
+              x-ms-skip-url-encoding: true
+            language: !<!Languages> 
+              default:
+                name: resourceId
+                description: The identifier of the resource.
+                serializedName: resourceId
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+          - !<!Parameter> &ref_77
+            schema: *ref_1
+            implementation: Method
+            required: true
+            language: !<!Languages> 
+              default:
+                name: assessmentName
+                description: The Assessment Key - Unique key for the assessment type
+                serializedName: assessmentName
+            protocol: !<!Protocols> 
+              http: !<!HttpParameter> 
+                in: path
+        requests:
+          - !<!Request> 
+            parameters:
+              - !<!Parameter> 
+                schema: *ref_64
+                implementation: Method
+                origin: 'modelerfour:synthesized/accept'
+                required: true
+                language: !<!Languages> 
+                  default:
+                    name: accept
+                    description: Accept header
+                    serializedName: Accept
+                protocol: !<!Protocols> 
+                  http: !<!HttpParameter> 
+                    in: header
+            signatureParameters: []
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpRequest> 
+                path: '/{resourceId}/providers/Microsoft.Security/assessments/{assessmentName}'
+                method: delete
+                uri: '{$host}'
+        signatureParameters:
+          - *ref_76
+          - *ref_77
+        responses:
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '200'
+          - !<!Response> 
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                statusCodes:
+                  - '204'
+        exceptions:
+          - !<!SchemaResponse> 
+            schema: *ref_67
+            language: !<!Languages> 
+              default:
+                name: ''
+                description: ''
+            protocol: !<!Protocols> 
+              http: !<!HttpResponse> 
+                knownMediaType: json
+                mediaTypes:
+                  - application/json
+                statusCodes:
+                  - default
+        language: !<!Languages> 
+          default:
+            name: Delete
+            description: Delete a security assessment on your resource. An assessment metadata that describes this assessment must be predefined with the same name before inserting the assessment result
+        protocol: !<!Protocols> {}
+    language: !<!Languages> 
+      default:
+        name: Assessments
+        description: ''
+    protocol: !<!Protocols> {}
+security: !<!Security> 
+  authenticationRequired: true
+language: !<!Languages> 
+  default:
+    name: SecurityCenter
+    description: ''
+protocol: !<!Protocols> 
+  http: !<!HttpModel> {}

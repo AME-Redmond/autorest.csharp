@@ -927,9 +927,9 @@
           }
         }
       },
-      "/{resourceId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}": {
+      "/{resourceId}/providers/Microsoft.PolicyInsights/VMimage/{remediationName}": {
         "put": {
-          "operationId": "Remediations_CreateOrUpdateAtResource",
+          "operationId": "VirtualImage_CreateOrUpdateAtResource",
           "description": "Creates or updates a remediation at resource scope.",
           "parameters": [
             {

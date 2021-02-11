@@ -36,6 +36,7 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
             _context = context;
         }
 
+        private static HashSet<string> OpKeys = new HashSet<string>() { "resourcegroups", "subscriptions" };
         public IEnumerable<TypeProvider> Models => SchemaMap.Values;
 
         public IEnumerable<RestClient> RestClients => EnsureRestClients().Values;
@@ -126,95 +127,109 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
             foreach (var operationGroup in _codeModel.OperationGroups)
             {
                 _restClients.Add(operationGroup, new RestClient(operationGroup, _context));
+                OpKeys.Add(operationGroup.Key);
             }
-
+            uint suc = 0;
+            List<(string child, string parent)> parentChildCanidates = new List<(string child, string parent)>();
             foreach (var operationGroup in _codeModel.OperationGroups)
             {
                 var xyz = new RestClient(operationGroup, _context);
                 List<List<ProviderToken>> tokens = new List<List<ProviderToken>>();
                 var segments = new List<PathSegment[]>();
+                string fortest = "List<string> tests" + operationGroup.Key + " = \n{\n";
                 foreach (var method in xyz.Methods)
                 {
+                    fortest += "\"" + method.Request.plainTextSegment + "\",\n";
                     tokens.Add(tokenize(method.Request.plainTextSegment));
                     segments.Add(method.Request.segments);
                 }
-                var isExtension = IsExtension(tokens, segments);
-                if (isExtension)
+                fortest += "};\n";
+
+                var isExtension = IsExtension(tokens, operationGroup.Key);
+                var isTenantOnly = IsTenantOnly(tokens, operationGroup.Key);
+                // if (isExtension)
+                //{
+                //System.IO.File.WriteAllText(@"C:\Users\stevens\Documents\TestStrings\" + operationGroup.Key + "_isExtensions.txt", fortest + "bool expected = true;\n");
+                // Console.WriteLine("resource extension found: " + operationGroup.Key);
+                //}
+                if (!isExtension && !isTenantOnly)
+                {
+                    var tuple = GetBestMethod(xyz.Methods);
+                    if (tuple.method == null)
+                    {
+                        Console.WriteLine("could not parse, no get put post or list " + "\noperations " + operationGroup.Key + "\nuri: " + xyz.Methods[0].Request.ToString() + "\n-------------------------\n");
+                        continue;
+                    }
+                    Dictionary<string, string>? dic = null;
+                    var method = tuple.method;
+                    var req = method.Request;
+                    if (tuple.httpType == methodType.put || tuple.httpType == methodType.get_get)
+                    {
+                        try
+                        {
+                            dic = parseMethod(req.segments);
+                        }
+                        catch (ArgumentException e)
+                        {
+                            Console.WriteLine("\ncould not parse : " + e.ToString() + " uri is : " + req.ToString());
+                        }
+                    }
+                    else if (tuple.httpType == methodType.get_list || tuple.httpType == methodType.post)
+                    {
+                        try
+                        {
+                            dic = parseMethod(req.segments);
+                        }
+                        catch (ArgumentException e)
+                        {
+                            Console.WriteLine("\ncould not parse list or post: " + e.ToString() + " uri is : " + req.ToString());
+                        }
+
+                    }
+
+                    var childParentTuple = Validate(dic, operationGroup.Key);
+                    if (childParentTuple.parent == null)
+                    {
+                        Console.WriteLine("could not parse" + " operations " + operationGroup.Key + "\nuri: " + method.Request.ToString());
+                    }
+                    else
+                    {
+                        //Console.WriteLine(childParentTuple.child + "'s parent is " + childParentTuple.parent);
+                        parentChildCanidates.Add(childParentTuple);
+                    }
+                    //System.IO.File.WriteAllText(@"C:\Users\stevens\Documents\TestStrings\" + operationGroup.Key + "_isNotExtensions.txt", fortest + "bool expected = false;\n");
+                    //Console.WriteLine("not a resource extensions: " + operationGroup.Key);
+                }
+                else if (isExtension)
                 {
                     Console.WriteLine("resource extension found: " + operationGroup.Key);
+                    suc++;
                 }
-                if (!isExtension)
+                else if (isTenantOnly)
                 {
-                    Console.WriteLine("not a resource extensions: " + operationGroup.Key);
+                    Console.WriteLine("tenant only found: " + operationGroup.Key);
+                    suc++;
                 }
-                Console.WriteLine("\n------------------------------------\n");
+                Console.WriteLine("\n-----------------------------------------\n");
             }
 
-            /*uint suc = 0;
-            foreach (var operationGroup in _codeModel.OperationGroups)
+            foreach (var tuple in parentChildCanidates)
             {
-                var xyz = new RestClient(operationGroup, _context);
-                var tuple = GetBestMethod(xyz.Methods);
-                if (tuple.method == null)
+                if (OpKeys.Contains(tuple.parent.ToLower()))
                 {
-                    Console.WriteLine("could not parse, no get put post or list " + "\noperations " + operationGroup.Key + "\nuri: " + xyz.Methods[0].Request.ToString() + "\n-------------------------\n");
-                    continue;
-                }
-                Dictionary<string, string>? dic = null;
-                var method = tuple.method;
-                var req = method.Request;
-                if (tuple.httpType == methodType.put || tuple.httpType == methodType.get_get)
-                {
-                    try
-                    {
-                        dic = ParsePutOrGet(req.segments);
-                    }
-                    catch (ArgumentException e)
-                    {
-                        Console.WriteLine("\ncould not parse : " + e.ToString() + " uri is : " + req.ToString() + "\n-------------------------\n");
-                    }
-                }
-                else if (tuple.httpType == methodType.get_list)
-                {
-                    try
-                    {
-                        dic = ParseList(req.segments);
-                    }
-                    catch (ArgumentException e)
-                    {
-                        Console.WriteLine("\ncould not parse list : " + e.ToString() + " uri is : " + req.ToString() + "\n-------------------------\n");
-                    }
-
-                }
-                else if (tuple.httpType == methodType.post)
-                {
-                    try
-                    {
-                        dic = ParsePost(req.segments);
-                    }
-                    catch (ArgumentException e)
-                    {
-                        Console.WriteLine("\ncould not parse list : " + e.ToString() + " uri is : " + req.ToString() + "\n-------------------------\n");
-                    }
-                }
-
-                var printString = PrintParent(dic, operationGroup.Key);
-                if (printString == null)
-                {
-                    Console.WriteLine("could not parse" + " operations " + operationGroup.Key + "\nuri: " + method.Request.ToString() + "\n-------------------------\n");
+                    Console.WriteLine("PASS: " + tuple.child + "'s parent is " + tuple.parent);
+                    suc++;
                 }
                 else
                 {
-                    suc++;
-                    Console.WriteLine(printString + "\n-------------------------\n");
+                    Console.WriteLine("FAIL: could not validate parent as an operation " + tuple.parent + " for child " + tuple.child);
                 }
+            }
+            Console.WriteLine("\n--------------------------------------------\n");
+            Console.WriteLine("total resources " + _codeModel.OperationGroups.Count);
+            Console.WriteLine("Succesfully parsed resources " + suc);
+            Console.WriteLine("Resources failed to parse " + (_codeModel.OperationGroups.Count - suc));
 
-            }*/
-
-            //Console.WriteLine("\n--------------------------------------------\n");
-            //Console.WriteLine("total resources " + _codeModel.OperationGroups.Count);
-            //Console.WriteLine("Succesfully parsed resources " + suc);
-            //Console.WriteLine("Resources failed to parse " + (_codeModel.OperationGroups.Count - suc));
 
             return _restClients;
         }
@@ -228,6 +243,8 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
             internal bool hasReferenceSuccessor;
             internal bool isFullProvider;
             internal string tokenValue;
+            internal bool hadSpecialReference;
+            internal bool isLastProvider;
             internal ProviderToken()
             {
                 location = -1;
@@ -237,6 +254,8 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                 hasReferenceSuccessor = false;
                 tokenValue = "";
                 isFullProvider = false;
+                isLastProvider = false;
+                hadSpecialReference = false;
             }
         }
 
@@ -281,6 +300,10 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                         tokens.Add(currentToken);
                         currentToken = new ProviderToken();
                     }
+                    else if (currentToken.tokenValue == "" && currentConstant == "") // asuming never /{}/{}
+                    {
+                        currentToken.hadSpecialReference = true;
+                    }
                     canidate = "";
                 }
                 else
@@ -300,164 +323,157 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                     currentToken.noPred = currentConstant == "";
                     currentToken.isFullProvider = true;
                     currentToken.location = idx - canidate.Length;
+                    currentToken.tokenValue = canidate;
                     tokens.Add(currentToken);
                 }
             }
             return tokens;
         }
 
-        private static bool IsExtension(List<List<ProviderToken>> tokens, List<PathSegment[]> segments)
+        private static bool IsExtension(List<List<ProviderToken>> tokens, string operationKey)
         {
-
-            //pseudo code based on comment from mark:
-            //      I had asked the RM folks if Extensions could be limited by target resource type, and the answer was unequivocally no.  
+            //pseudo code 
             // check if find the following:
-            //      has : {scope}/ (although blueprint may be a counter example? Although pretty sure it is one)
+            //      start with reference 
+            //            {any string}/provider/Microsoft.<curent resource namespace>/<current resource type>/
+            //            <curent resource namespace>= last name space in the path. /
+            //             <current resource typy>= comes from operationGroup.key 
             //      or
-            //      or has a provider/miscrosoft.{rp}/{resourceName} with the following parents in the URI of some operation
-            //      a resource group
-            //      a subscription
-            //      no parent
+            //          based on this doc: https://armwiki.azurewebsites.net/rp_onboarding/ResourceProviderRegistrationRoutingTypes.html?q=routing
+            //          we will look for any */provider/*/{}/* before : provider/Microsoft.<curent resource namespace>/<current resource type>/
+            //      and 
+            //      match operationKey with <current resource type> 
+            //      due to poorname, match begins or ends with. 
             //
-            //
-            //      example: ManagementLocks resource in resources.json has the following URIs in operations 
-            //       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/locks": {: // resourceGroup
-            //        ""/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/locks/{lockName}": ": // subscription
-            //      /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/locks" :// providers
             // 
-            //  question, do need a parentless provider as well??
-            bool fullProviderAfterAbProvider = false;
-            bool attachedToRg = false;
-            bool attachedToSubscription = false;
-            bool hasSpecialScope = false;
-            bool tenant = false;
-            for (int j = 0; j < tokens.Count; j++)
+            //  
+            bool foundExtension = false;
+            for (int j = 0; j < tokens.Count && !foundExtension; j++)
             {
                 var tokenList = tokens[j];
-                bool providerWithReference = false;
-                for (int i = 0; i < tokenList.Count; i++)
+                bool providerBefore = false;
+                for (int i = 0; i < tokenList.Count && !foundExtension; i++)
                 {
                     var token = tokenList[i];
-                    if (token.hasReferenceSuccessor && !token.isFullProvider && !providerWithReference && !token.noPred)
+                    if (token.isFullProvider && (token.hadSpecialReference || providerBefore))
                     {
-                        providerWithReference = true;
+                        foundExtension = VerifyOperation(operationKey, token.tokenValue);
                     }
-                    if (token.isFullProvider && providerWithReference)
-                    {
-                        fullProviderAfterAbProvider = true;
-                    }
-                    if (token.isFullProvider && token.isSubSuc)
-                    {
-                        attachedToSubscription = true;
-                    }
-                    if (token.isFullProvider && token.isRgSuc)
-                    {
-                        attachedToRg = true;
-                    }
-                    if (!token.isFullProvider && token.noPred)
-                    {
-                        tenant = true;
-                    }
+                    providerBefore = !providerBefore ? token.hasReferenceSuccessor : providerBefore; // once true don't unset
                 }
-                hasSpecialScope = !hasSpecialScope ? (segments[j].Length > 0 ? (segments[j].First().Value.IsConstant ? false : true) : false) : true;
             }
-            Console.WriteLine("had tenant " + tenant);
-            return (fullProviderAfterAbProvider && attachedToRg && attachedToSubscription) || hasSpecialScope;
+            return foundExtension;
         }
 
-        private string PrintParent(Dictionary<string, string> hier, string key)
+        private static bool IsTenantOnly(List<List<ProviderToken>> tokens, string operationKey)
         {
-            string? returnString = null;
-            if (hier == null)
+            bool foundTenant = false;
+            bool foundNonTenant = false;
+            for (int j = 0; j < tokens.Count && (!foundTenant || !foundNonTenant); j++)
             {
-                return null;
+                var tokenList = tokens[j];
+                for (int i = 0; i < tokenList.Count && (!foundTenant || !foundNonTenant); i++)
+                {
+                    var token = tokenList[i];
+                    foundNonTenant = !foundNonTenant ? token.isFullProvider && !token.noPred && VerifyOperation(operationKey, token.tokenValue) : true;
+                    foundTenant = !foundTenant ? token.isFullProvider && token.noPred && VerifyOperation(operationKey, token.tokenValue) : true;
+                }
             }
+            return foundTenant && !foundNonTenant;
+        }
+
+        private static bool VerifyOperation(string operationKey, string tokenValue)
+        {
+            var asSplit = tokenValue.Split('/', StringSplitOptions.RemoveEmptyEntries);
+            if (asSplit.Length < 3)
+            {
+                throw new ArgumentException("full provider name is not formatted as expected " + tokenValue);
+            }
+            return ProcessOpKey(operationKey, tokenValue);
+        }
+
+        private (string child, string parent) Validate(Dictionary<string, string> hier, string key)
+        {
             foreach (var parentChild in hier)
             {
-                returnString = ProcessOpKey(key, parentChild.Key, parentChild.Value);
-                if (returnString != null)
+                if (ProcessOpKey(key, parentChild.Key))
                 {
-                    return returnString;
+                    return (key, parentChild.Value.Split('/', StringSplitOptions.RemoveEmptyEntries).Last());
                 }
             }
-            return returnString;
+            return (null, null);
         }
 
-        private string ProcessOpKey(string opKey, string canidateOpKey, string key2Value)
+        private static bool ProcessOpKey(string opKey, string canidateOpKey)
         {
-            if (compareKeys(opKey, canidateOpKey))
+            Dictionary<string, string> ComputeKnownAliases = new Dictionary<string, string>()
             {
-                return (opKey + "'s parent is " + key2Value);
-            }
+                {"VirtualMachineImages", "vmimage"},
+                {"VirtualMachineExtensionImages", "vmextension"},
+                {"VirtualMachineExtensions", "extensions"},
+                {"VirtualMachineSizes", "vmSizes"}
+            };
+            var keys = canidateOpKey.Split('/', StringSplitOptions.RemoveEmptyEntries);
+            foreach (var key in keys)
+            {
+                if (compareKeys(key, opKey))
+                {
+                    OpKeys.Add(key.ToLower());
+                    return true;
+                }
+                if (ComputeKnownAliases.ContainsKey(opKey) && ComputeKnownAliases[opKey].Equals(key, StringComparison.OrdinalIgnoreCase))
+                {
+                    OpKeys.Add(ComputeKnownAliases[opKey].ToLower());
+                    return true;
+                }
+                var types = "type";
+                var typeMathc = key.EndsWith(types, StringComparison.OrdinalIgnoreCase) ? compareKeys(key.Substring(0, key.Length - types.Length), opKey) : false;
+                if (typeMathc)
+                {
+                    OpKeys.Add(key.ToLower());
+                    return true;
+                }
 
-            var removePlural = opKey.Substring(0, opKey.Length - 1);
-            if (compareKeys(removePlural, canidateOpKey))
-            {
-                return (opKey + "'s parent is " + key2Value);
-            }
-            var types = "type";
-            var match = canidateOpKey.EndsWith(types, StringComparison.OrdinalIgnoreCase) ? compareKeys(canidateOpKey.Substring(0, canidateOpKey.Length - types.Length), opKey) : false;
-            if (match)
-            {
-                return (opKey + "'s parent is " + key2Value);
-            }
+                var removePlural = opKey.Substring(0, opKey.Length - 1);
+                if (compareKeys(key, removePlural))
+                {
+                    OpKeys.Add(key.ToLower());
+                    return true;
+                }
+                removePlural = key.Substring(0, key.Length - 1);
+                if (compareKeys(removePlural, opKey))
+                {
+                    OpKeys.Add(key.ToLower());
+                    return true;
+                }
+                removePlural = opKey.Substring(0, opKey.Length - 2); // es
+                if (compareKeys(key, removePlural))
+                {
+                    OpKeys.Add(key.ToLower());
+                    return true;
+                }
+                removePlural = key.Substring(0, key.Length - 2);
+                if (compareKeys(removePlural, opKey))
+                {
+                    OpKeys.Add(key.ToLower());
+                    return true;
+                }
 
-            return null;
+            }
+            return false;
 
         }
 
-        private bool compareKeys(string key1, string key2)
+        private static bool compareKeys(string key1, string key2)
         {
             return key2.Contains(key1, StringComparison.OrdinalIgnoreCase) || key1.Contains(key2, StringComparison.OrdinalIgnoreCase);
         }
-        private static Dictionary<string, string> ParsePost(PathSegment[] segments)
-        {
-            if (!segments.Last().Value.IsConstant)
-            {
-                throw new ArgumentException("could not parse post ending in a reference ");
-            }
-            var dic = new Dictionary<string, string>();
-            string? child = null;
-            bool skip = false;
 
-            for (int i = segments.Length - 1; i > -1; i--)
-            {
-                var segement = segments[i];
-                if (!skip)
-                {
-                    var val = segement.Value.IsConstant ? segement.Value.Constant.Value : segement.Value.Reference.Name;
-                    string[] parsed = val.ToString().Split('/', StringSplitOptions.RemoveEmptyEntries);
-                    bool isProvider = parsed.First() == "providers";
-                    string parent = isProvider ? parsed.Last().Trim('{').Trim('}') : parsed.First().Trim('{').Trim('}');
-                    if (child != null)
-                    {
-                        //Console.WriteLine(child + "'s parent is : " + parent);
-                        dic.Add(child, parent);
-                    }
-                    skip = true;
-                    child = parent;
-                }
-                else
-                {
-                    skip = false;
-                    // Assert not skipping constants, only references;
-                    if (segement.Value.IsConstant)
-                    {
-                        throw new ArgumentException("could not parse unexpected reference when expecting a constant in post. ");
-                    }
-                }
-            }
-            return dic;
-        }
-        private static Dictionary<string, string> ParseList(PathSegment[] segments)
+        private static Dictionary<string, string> parseMethod(PathSegment[] segments)
         {
-            if (!segments.Last().Value.IsConstant)
-            {
-                throw new ArgumentException("could not parse list ending in a reference ");
-            }
+            var skip = !segments.Last().Value.IsConstant;
             var dic = new Dictionary<string, string>();
             string? child = null;
-            bool skip = false;
 
             for (int i = segments.Length - 1; i > -1; i--)
             {
@@ -470,21 +486,24 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                     string parent = parsed.Last().Trim('{').Trim('}');
                     if (child != null)
                     {
-                        //Console.WriteLine(child + "'s parent is : " + parent);
-                        dic.Add(child, parent);
+                        dic.Add(child, val.ToString());
                     }
                     skip = true;
-                    child = parent;
+                    child = val.ToString();
                 }
                 else
                 {
                     skip = false;
-                    // Assert not skipping constants, only references;
-                    Debug.Assert(!segement.Value.IsConstant);
+                    if (segement.Value.IsConstant)
+                    {
+                        throw new ArgumentException("could not parse unexpected reference when expecting a constant in post. ");
+                    }
                 }
             }
             return dic;
         }
+
+
         private static Dictionary<string, string> ParsePutOrGet(PathSegment[] segments)
         {
             var dic = new Dictionary<string, string>();
@@ -515,10 +534,10 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                     if (child != null)
                     {
                         //Console.WriteLine(child + "'s parent is : " + parent);
-                        dic.Add(child, parent);
+                        dic.Add(child, val.ToString());
                     }
                     skip = true;
-                    child = parent;
+                    child = val.ToString();
                 }
                 else
                 {
@@ -546,12 +565,12 @@ namespace AutoRest.CSharp.V3.Output.Models.Types
                 }
                 else if (string.Equals(method.Request.HttpMethod.Method, "GET", StringComparison.OrdinalIgnoreCase))
                 {
-                    if (string.Equals(method.Name.Split('_').Last(), "get", StringComparison.OrdinalIgnoreCase))
+                    if (method.Name.Split('_').Last().StartsWith("get", StringComparison.OrdinalIgnoreCase))
                     {
                         canidate = method;
                         httptype = methodType.get_get;
                     }
-                    else if (method.Name.Split('_').Last().Contains("list", StringComparison.OrdinalIgnoreCase))
+                    else if (method.Name.Split('_').Last().StartsWith("list", StringComparison.OrdinalIgnoreCase))
                     {
                         canidate ??= method;
                         if (httptype == methodType.none)
