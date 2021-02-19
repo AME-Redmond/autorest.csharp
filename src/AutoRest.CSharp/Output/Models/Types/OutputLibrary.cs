@@ -222,7 +222,9 @@ namespace AutoRest.CSharp.Output.Models.Types
                 MapHttpMethodToOperation(operationsGroup);
                 string? resourceType;
                 operationsGroup.ResourceType = _context.Configuration.OperationGroupToResourceType.TryGetValue(operationsGroup.Key, out resourceType) ? resourceType : ConstructOperationResourseType(operationsGroup);
-                operationsGroup.IsTenantResource = IsTenantOnly(MakeTokens(operationsGroup), operationsGroup.ResourceType);
+                var providerTokens = MakeTokens(operationsGroup);
+                operationsGroup.IsTenantResource = IsTenantOnly(providerTokens, operationsGroup.ResourceType);
+                operationsGroup.IsExtensionsReoursce = IsExtension(providerTokens, operationsGroup.ResourceType)
             }
         }
 
@@ -316,8 +318,9 @@ namespace AutoRest.CSharp.Output.Models.Types
                 for (int i = 0; i < tokenList.Count && (!foundTenant || !foundNonTenant); i++)
                 {
                     var token = tokenList[i];
-                    foundNonTenant = !foundNonTenant ? token.isFullProvider && !token.noPredecessor && VerifyOperation(token.tokenValue, providerName) : true;
-                    foundTenant = !foundTenant ? token.isFullProvider && token.noPredecessor && VerifyOperation(token.tokenValue, providerName) : true;
+                    var operationMatch = VerifyOperation(token.tokenValue, providerName);
+                    foundNonTenant = !foundNonTenant ? token.isFullProvider && !token.noPredecessor && operationMatch : true;
+                    foundTenant = !foundTenant ? token.isFullProvider && token.noPredecessor && operationMatch : true;
                 }
             }
             return foundTenant && !foundNonTenant;
@@ -400,6 +403,41 @@ namespace AutoRest.CSharp.Output.Models.Types
         public bool VerifyOperation(string tokenValue, string providerName)
         {
             return tokenValue.Substring(Providers.Length).Equals(providerName);
+        }
+
+        public bool IsExtension(List<List<ProviderToken>> tokens, string resourceType)
+        {
+            //pseudo code 
+            // check if find the following:
+            //      start with reference 
+            //            {any string}/provider/Microsoft.<curent resource namespace>/<current resource type>/
+            //            <curent resource namespace>= last name space in the path. /
+            //             <current resource typy>= comes from operationGroup.key 
+            //      or
+            //          based on this doc: https://armwiki.azurewebsites.net/rp_onboarding/ResourceProviderRegistrationRoutingTypes.html?q=routing
+            //          we will look for any */provider/*/{}/* before : provider/Microsoft.<curent resource namespace>/<current resource type>/
+            //      and 
+            //      match operationKey with <current resource type> 
+            //      due to poorname, match begins or ends with. 
+            //
+            // 
+            //  
+            bool foundExtension = false;
+            for (int j = 0; j < tokens.Count && !foundExtension; j++)
+            {
+                var tokenList = tokens[j];
+                bool providerBefore = false;
+                for (int i = 0; i < tokenList.Count && !foundExtension; i++)
+                {
+                    var token = tokenList[i];
+                    if (token.isFullProvider && (token.hadSpecialReference || providerBefore))
+                    {
+                        foundExtension = VerifyOperation(resourceType, token.tokenValue);
+                    }
+                    providerBefore = !providerBefore ? token.hasReferenceSuccessor : providerBefore; // once true don't unset
+                }
+            }
+            return foundExtension;
         }
     }
 }
